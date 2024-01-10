@@ -1,0 +1,36 @@
+{
+  "name": "tastingnote-application",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth/core": "^0.18.6",
+    "@auth/mongodb-adapter": "^2.0.9",
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/edge-config": "^0.4.1",
+    "@vercel/speed-insights": "^1.0.2",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "next": "^14.0.4",
+    "next-auth": "^4.24.5",
+    "nodemailer": "^6.9.7",
+    "path": "^0.12.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6.21.1",
+    "sharp": "^0.33.1",
+    "swr": "^2.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4"
+  }
+}

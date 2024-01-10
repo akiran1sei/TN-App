@@ -1,0 +1,335 @@
+/* color */
+:root {
+  --color-black: #333;
+  --color-white: #fffffe;
+  --color-yellow: #dba52c;
+  --color-yellow-light: #dba52ccc;
+  --color-box-shadow: #333333b3;
+  --color-linear-gradient-radial: radial-gradient(
+    54% 54% at 50% 50%,
+    #734e30 0%,
+    #725136 85.41%,
+    rgba(219, 165, 44, 0) 85.42%
+  );
+  --color-linear-gradient-linear: linear-gradient(
+    270deg,
+    #734e30 0%,
+    #d9d9d9 100%
+  );
+
+  /* font-family */
+
+  --font-family-base: "Noto Sans JP", sans-serif;
+  --font-family-title: "Grape Nuts", cursive;
+  /* font-size */
+
+  --font-size-X-large: 32px;
+  --font-size-large: 24px;
+  --font-size-base: 18px;
+  --font-size-small: 14px;
+
+  /* width-contents */
+
+  --width-content-s: 920px;
+  --width-content: 1080px;
+
+  /* z-index */
+
+  --z-index-modal: 100;
+  --z-index-header: 30;
+  --z-index-menu: 10;
+  --z-index-default: 1;
+}
+/* base */
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  background: #fffffe;
+  font-size: 62.5%;
+  font-family: var(--font-family-base);
+}
+body {
+  font-size: var(--font-size-base);
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+h1 {
+  font-family: var(--font-family-title);
+  font-size: 48px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+ol,
+ul {
+  list-style: none;
+}
+input {
+  font-size: inherit;
+  display: inline-block;
+  margin-top: 1rem;
+  border: 1px solid#333;
+  border-radius: 2px;
+}
+input[type="checkbox"] {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  font-family: "Material Icons";
+  content: url("../../../public/images/calendar_month_img.svg");
+  z-index: 1;
+}
+input[type="checkbox"]:checked {
+  content: url("../../../public/images/check_img.svg");
+}
+input[type="number"] {
+  width: 50px;
+  text-align: center;
+}
+output {
+  font-size: inherit;
+  display: inline-block;
+  vertical-align: middle;
+}
+select {
+  font-size: inherit;
+  min-width: 50px;
+  border: 1px solid var(--color-black);
+  text-align: center;
+}
+label {
+  font-size: inherit;
+  display: inline-block;
+  vertical-align: middle;
+}
+textarea {
+  font-size: inherit;
+  border: 1px solid var(--color-black);
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+button {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+span {
+  display: inline-block;
+  margin-top: 1rem;
+}
+optgroup {
+  font-size: inherit;
+}
+optgroup[label="High"] {
+  background: #ff000033;
+}
+optgroup[label="Middle"] {
+  background: #0000ff33;
+}
+optgroup[label="Low"] {
+  background: #fff00033;
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 
+----------SignIn/Sign Up----------
+ */
+
+.cl-signIn-root,
+.cl-signUp-root {
+  margin: 0px auto;
+}
+.cl-signIn-password,
+.cl-signIn-start,
+.cl-signUp-start {
+  width: 100%;
+}
+/* password */
+.cl-identityPreviewText {
+  font-size: var(--font-size-base);
+}
+.cl-avatarBox {
+  width: 5rem;
+  height: 5rem;
+}
+.cl-identityPreviewEditButton {
+  font-size: 2rem;
+}
+.cl-identityPreviewEditButtonIcon {
+  width: 2rem;
+  height: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .cl-signIn-root,
+  .cl-signUp-root {
+    margin: 50px auto;
+    min-width: 500px;
+  }
+}
+.cl-headerTitle {
+  font-size: var(--font-size-X-large);
+}
+.cl-socialButtons {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.cl-socialButtonsIconButton {
+  width: 50px;
+  height: 50px;
+}
+
+.cl-providerIcon {
+  width: 2rem;
+}
+.cl-formField {
+  margin-bottom: 2rem;
+}
+.cl-formFieldLabel {
+  font-size: var(--font-size-base);
+}
+.cl-formFieldInput {
+  font-size: var(--font-size-base);
+}
+.cl-formButtonPrimary {
+  padding: 1rem 1.25rem;
+  background: var(--color-yellow);
+}
+.cl-formButtonPrimary,
+.cl-dividerText,
+.cl-footerActionText,
+.cl-footerActionLink {
+  font-size: var(--font-size-small);
+}
+.cl-internal-b3fm6y {
+  background-color: var(--color-yellow);
+}
+/* 
+----------User Button----------
+ */
+.cl-userButton-root {
+  width: 100%;
+  margin: 1rem 0;
+}
+.cl-userButtonBox {
+  justify-content: center;
+}
+.cl-userButtonAvatarBox {
+  width: 100%;
+  height: 100%;
+}
+/* 
+----------PopoverCard----------
+ */
+.cl-userButtonPopoverCard {
+  width: 300px;
+  left: unset;
+  right: 1rem;
+}
+.cl-userPreviewAvatarBox {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+.cl-userPreviewMainIdentifier {
+  font-size: var(--font-size-base);
+}
+.cl-userPreviewSecondaryIdentifier,
+.cl-userButtonPopoverActionButtonText,
+.cl-userButtonPopoverActionButtonText {
+  font-size: var(--font-size-small);
+}
+/* 
+----------Manage account----------
+ */
+.cl-navbarMobileMenuButton,
+.cl-profileSectionTitleText,
+.cl-navbarButton {
+  font-size: var(--font-size-base);
+}
+/* Menu bar/Cancel bar  */
+.cl-navbarMobileMenuButtonIcon,
+.cl-internal-4muonf {
+  width: 2rem;
+  height: 2rem;
+}
+/* Connect account / Change password 画像 */
+.cl-internal-enrgi0 {
+  width: 1rem;
+  height: 1rem;
+}
+/* Connect account / Change password テキスト/UserName テキスト */
+.cl-internal-rscu79,
+.cl-internal-l1ab9q {
+  font-size: var(--font-size-small);
+  margin-top: 1rem;
+}
+
+.cl-userProfile-root,
+.cl-userProfile-root > div {
+  width: 100%;
+}
