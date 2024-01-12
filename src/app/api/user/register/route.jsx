@@ -2,9 +2,10 @@ const { NextResponse } = require("next/server");
 import connectDB from "@/utils/database";
 import { UserModel } from "@/utils/schemaModels";
 export async function POST(request) {
+  const body = await request.json();
   try {
     await connectDB();
-    const body = await request.json();
+    console.log(body);
     UserModel.create(body);
     return NextResponse.json({ message: "ユーザー登録成功", status: 200 });
   } catch (error) {
