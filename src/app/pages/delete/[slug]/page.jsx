@@ -1,7 +1,7 @@
 //  app/[slug].jsx
 import Head from "next/head";
 import React from "react";
-import { Form } from "@/components/molecules/Delete/Form";
+import { DeleteForm } from "@/components/molecules/Delete/DeleteForm";
 import dotenv from "dotenv";
 const DeletePage = async (context) => {
   dotenv.config();
@@ -20,7 +20,7 @@ const DeletePage = async (context) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Form data={singleItem} />
+      <DeleteForm data={singleItem} />
     </>
   );
 };

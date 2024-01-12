@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export function Form(data) {
+export function RegisterForm(data) {
   //   const UserData = data.data.singleItem;
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");

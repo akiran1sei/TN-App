@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Form } from "@/components/molecules/Selection/Form";
+import { SelectionForm } from "@/components/molecules/Selection/SelectionForm";
 import dotenv from "dotenv";
 const SelectionPage = async () => {
   dotenv.config();
@@ -28,7 +28,7 @@ const SelectionPage = async () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Form data={allItems} />
+      <SelectionForm data={allItems} />
     </>
   );
 };

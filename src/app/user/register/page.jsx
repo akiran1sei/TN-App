@@ -1,6 +1,6 @@
-import { Form } from "@/components/molecules/Register/Form";
+import { RegisterForm } from "@/components/molecules/Register/RegisterForm";
 
 const RegisterPage = () => {
-  return <Form />;
+  return <RegisterForm />;
 };
 export default RegisterPage;

@@ -3,7 +3,7 @@ import styles from "../../../app/styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-export function Form(context) {
+export function SelectionForm(context) {
   return (
     <>
       <h1 className={styles.contents_title}>SELECT</h1>

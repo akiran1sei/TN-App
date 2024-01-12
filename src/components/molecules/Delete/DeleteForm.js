@@ -4,7 +4,7 @@ import styles from "../../../app/styles/Home.module.css";
 import { DeleteBtn } from "@/components/atoms/DeleteBtn";
 import Link from "next/link";
 
-export function Form(data) {
+export function DeleteForm(data) {
   const ItemData = data.data.singleItem;
 
   return (
