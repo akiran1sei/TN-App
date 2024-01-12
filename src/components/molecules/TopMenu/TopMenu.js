@@ -29,6 +29,21 @@ export function TopMenu() {
           <li className={styles.top_nav_item}>
             <StartBtn />
           </li>
+          <li className={styles.top_nav_item}>
+            <button className={styles.top_btn}>
+              <Link href={"/user/login"} passHref>
+                Login
+              </Link>
+            </button>
+          </li>
+
+          <li className={styles.top_nav_item}>
+            <button className={styles.top_btn}>
+              <Link href={"/user/register"} passHref>
+                SignUp
+              </Link>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
