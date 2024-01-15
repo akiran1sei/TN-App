@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,8 +22,8 @@ export function LoginForm() {
         }),
       });
       const jsonData = await response.json();
-      return alert(jsonData.message);
-      // return router.replace("/");
+      alert(jsonData.message);
+      return router.replace("/");
     } catch (err) {
       return alert("ログイン失敗");
     }

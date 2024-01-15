@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
-
+import { useRouter } from "next/navigation";
 export function RegisterForm(data) {
+  const router = useRouter();
   //   const UserData = data.data.singleItem;
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,8 +26,8 @@ export function RegisterForm(data) {
         }),
       });
       const jsonData = await response.json();
-      return alert(jsonData.message);
-      // return router.replace("/");
+      alert(jsonData.message);
+      return router.replace("/");
     } catch (err) {
       return alert("登録失敗");
     }
