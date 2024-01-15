@@ -1,14 +1,14 @@
 const { NextResponse } = require("next/server");
 import connectDB from "@/utils/database";
 import { UserModel } from "@/utils/schemaModels";
-// import { SignJWT } from "jose";
+import { SignJWT } from "jose";
 export async function POST(request) {
+  await connectDB();
   const body = await request.json();
+  console.log(body);
   try {
-    await connectDB();
-
     const UserData = await UserModel.findOne({ email: body.email });
-
+    console.log(UserData);
     if (UserData) {
       //ユーザーデータが存在する場合
       if (body.password === UserData.password) {
@@ -18,34 +18,34 @@ export async function POST(request) {
           email: body.email,
         };
 
-        const token = await new SignJWT(payload.email)
-          .setProtectedHeader({ alg: "HS 256" })
+        const token = await new SignJWT(payload)
+          .setProtectedHeader({ alg: "HS256" })
           .setExpirationTime(" 1 d")
           .sign(secretKey);
 
         return NextResponse.json({
           message: "ログイン成功",
           token: token,
-          status: 200,
+          // status: 200,
         });
       } else {
         //パスワードが正しくない場合
         return NextResponse.json({
           message: "ログイン失敗：パスワードが間違っています",
-          status: 200,
+          // status: 200,
         });
       }
     } else {
       //ユーザーデータが存在しない場合
       return NextResponse.json({
         message: "ログイン失敗：ユーザー登録してください",
-        status: 200,
+        // status: 200,
       });
     }
   } catch (error) {
     return NextResponse.json({
       message: "ログイン失敗/route.jsx",
-      status: 500,
+      // status: 500,
     });
   }
 }
