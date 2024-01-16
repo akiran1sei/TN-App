@@ -183,7 +183,7 @@ export function UpdateForm(data) {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            // authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         });
         const jsonData = await res.json();
