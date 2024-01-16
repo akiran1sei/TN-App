@@ -5,10 +5,10 @@ import { SignJWT } from "jose";
 export async function POST(request) {
   await connectDB();
   const body = await request.json();
-  console.log(body);
+  // console.log(body);
   try {
     const UserData = await UserModel.findOne({ email: body.email });
-    console.log(UserData);
+    // console.log(UserData);
     if (UserData) {
       //ユーザーデータが存在する場合
       if (body.password === UserData.password) {

@@ -5,7 +5,7 @@ export async function POST(request) {
   const body = await request.json();
   try {
     await connectDB();
-    console.log(body);
+    // console.log(body);
     UserModel.create(body);
     return NextResponse.json({ message: "ユーザー登録成功", status: 200 });
   } catch (error) {

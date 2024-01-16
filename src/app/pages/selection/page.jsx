@@ -6,17 +6,11 @@ const SelectionPage = async () => {
   const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
 
   const URL = `${NEXTAUTH_URL}` + `/api/readall`;
-  console.log(URL);
+  // console.log(URL);
   const response = await fetch(URL, {
     cache: "no-store",
   });
   const allItems = await response.json();
-  //ClerkのバックエンドSDｋを使用しログイン中のEmailを取得する↓
-  // const ResponseEmail = await fetch("http://localhost:3000/api/clerk", {
-  //   cache: "no-cache",
-  // });
-  // const loginUser = await ResponseEmail.json();
-  // console.log(loginUser.email);
   return (
     <>
       <Head>
