@@ -1,6 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import signs from "@/app/styles/Sign.module.css";
+import Link from "next/link";
+import Image from "next/image";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,27 +32,84 @@ export function LoginForm() {
     }
   };
   return (
-    <div>
-      <h1>ログインページ</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="メールアドレス"
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="パスワード"
-          required
-        />
-        <button>ログイン</button>
-      </form>
+    <div className={signs.sign_page}>
+      <h1 className={signs.sign_titleText}>Login</h1>
+      <div className={signs.sign_card}>
+        <form onSubmit={handleSubmit} className={signs.sign_form}>
+          <div className={signs.sign_inputBox}>
+            <label htmlFor="email" className={signs.sign_label}>
+              メールアドレス
+            </label>
+            <input
+              type="email"
+              name="email"
+              className={signs.sign_input}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="メールアドレス"
+              required
+            />
+          </div>
+          <div className={signs.sign_inputBox}>
+            <label htmlFor="password" className={signs.sign_label}>
+              パスワード
+            </label>
+            <input
+              type="password"
+              name="password"
+              className={signs.sign_input}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="パスワード"
+              required
+            />
+          </div>
+          <div className={signs.sign_dividerRow}>
+            <span className={signs.sign_dividerLine}></span>
+            <span className={signs.sign_dividerText}>or</span>
+            <span className={signs.sign_dividerLine}></span>
+          </div>
+          <div className={signs.sign_socialButtons}>
+            <button className={signs.sign_socialBtn}>
+              <Image
+                src="/images/google.svg"
+                alt="googleボタン"
+                width={24}
+                height={24}
+                priority
+              />
+            </button>
+            <button className={signs.sign_socialBtn}>
+              <Image
+                src="/images/facebook.svg"
+                alt="facebookボタン"
+                width={24}
+                height={24}
+                priority
+              />
+            </button>
+            <button className={signs.sign_socialBtn}>
+              <Image
+                src="/images/github.svg"
+                alt="githubボタン"
+                width={24}
+                height={24}
+                priority
+              />
+            </button>
+          </div>
+          <button className={signs.sign_submitBtn}>ログイン</button>
+        </form>
+        <div className={signs.sign_TextRow}>
+          未登録のかたは、
+          <span className={signs.sign_LinkText}>
+            <Link href={"/user/register"} passHref>
+              SignUpページ
+            </Link>
+          </span>
+          へどうぞ！
+        </div>
+      </div>
     </div>
   );
 }
