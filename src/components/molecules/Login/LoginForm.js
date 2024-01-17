@@ -17,7 +17,6 @@ export function LoginForm() {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           email: email,
@@ -25,6 +24,7 @@ export function LoginForm() {
         }),
       });
       const jsonData = await response.json();
+      localStorage.setItem("token", jsonData.token);
       alert(jsonData.message);
       return router.replace("/");
     } catch (err) {
