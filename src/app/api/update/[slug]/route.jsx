@@ -1,26 +1,17 @@
 import connectDB from "../../../../utils/database";
 import { BeansModel } from "../../../../utils/schemaModels";
-import { UserModel } from "../../../../utils/schemaModels";
+
 import { NextResponse } from "next/server";
 export async function PUT(request, response) {
   const body = await request.json();
   try {
     await connectDB();
-    // console.log(response.params.slug);
-    // const singleUser = await UserModel.findById(response.params.slug);
-    // console.log(singleUser);
-    if (singleUser) {
-      await BeansModel.updateOne({ _id: response.params.slug }, body);
-      return NextResponse.json({
-        message: "アイテム編集成功",
-        status: 200,
-      });
-    } else {
-      return NextResponse.json({
-        message: "できません。",
-        status: 200,
-      });
-    }
+
+    await BeansModel.updateOne({ _id: response.params.slug }, body);
+    return NextResponse.json({
+      message: "アイテム編集成功",
+      status: 200,
+    });
   } catch (error) {
     return NextResponse.json({
       message: "アイテム編集失敗",
