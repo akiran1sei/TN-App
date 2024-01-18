@@ -150,7 +150,7 @@ export function CreateForm() {
               total: Number(sum) + Number(36),
               result: sum,
               impression: impression,
-              username: null,
+              username: "",
               email: loginUserEmail,
               date: date,
             }),
@@ -193,7 +193,6 @@ export function CreateForm() {
             </button>
           </div>
           <ul className={styles.edit_number_list}>
-            <li className={styles.edit_number_item}>作成者名</li>
             <li className={styles.edit_number_item}>
               1:コーヒー豆の名前 or 番号
               <br />
@@ -311,23 +310,7 @@ export function CreateForm() {
             />
             <div className={styles.edit_list}>
               {/* 選択式 */}
-              {/* <div className={`${styles.edit_item} ${styles.edit_username}`}>
-                <label htmlFor="username" className={styles.edit_item_title}>
-                  作成者
-                </label>
-            
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  className={styles.edit_input_name}
-                  placeholder="ユーザーネーム"
-                  width={300}
-                  height={50}
-                  value={username}
-                  onChange={(e) => setUserName(e.target.value)}
-                />
-              </div> */}
+
               <div className={`${styles.edit_item} ${styles.edit_coffee}`}>
                 <label htmlFor="coffee" className={styles.edit_item_title}>
                   1：珈琲豆 or 番号
