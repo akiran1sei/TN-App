@@ -26,7 +26,7 @@ export function LoginForm() {
       const jsonData = await response.json();
       localStorage.setItem("token", jsonData.token);
       alert(jsonData.message);
-      return router.replace("/");
+      return router.replace("/pages/selection");
     } catch (err) {
       return alert("ログイン失敗");
     }
