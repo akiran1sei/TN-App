@@ -3,7 +3,7 @@ import connectDB from "../../../../utils/database";
 import { BeansModel } from "../../../../utils/schemaModels";
 import { NextResponse } from "next/server";
 // import { NextRequest } from "next/server";
-export async function POST(req, res) {
+export async function DELETE(req, res) {
   try {
     await connectDB();
     const singleItem = await BeansModel.findById(res.params.slug);

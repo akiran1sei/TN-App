@@ -6,7 +6,7 @@ import styles from "@/app/styles/Home.module.css";
 import { HomeBtn } from "@/components/atoms/HomeBtn";
 
 export function BrowsePage(data) {
-  console.log(data);
+  // console.log(data);
   const ItemData = data.data;
 
   return (

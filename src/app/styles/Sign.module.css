@@ -1,92 +1,53 @@
-/* .signUp_page */
-.signUp_page {
+/* .sign_page */
+.sign_page {
   box-sizing: border-box;
 }
-.signUp_card {
+.sign_card {
   box-sizing: inherit;
   display: flex;
   flex-flow: column;
   -webkit-box-align: stretch;
   align-items: stretch;
-  -webkit-box-pack: star;
   justify-content: flex-start;
   gap: 2rem;
-  will-change: transform, opacity, height;
   border-radius: 1rem;
   background-color: white;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
   transition-duration: 200ms;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 24px 48px;
   border: 1px solid transparent;
   width: 100%;
-  max-width: calc(100vw - 5rem);
-  margin: 0px 1.75rem;
-  padding: 2.375rem 2rem 3rem;
+  margin: 0px auto;
+  padding: 2rem 2rem 3rem;
 }
-.signUp_titleText {
+.sign_titleText {
+  font-family: var(--font-family-title);
+  margin-bottom: 2rem;
   text-align: center;
 }
-.signUp_socialButtons {
-  width: 100%;
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-.signUp_socialButton {
-  width: 50px;
-  height: 50px;
-  padding: 1rem;
-  border: 1px solid #00000029;
-  border-radius: 0.5rem;
-}
-.signUp_form {
+
+.sign_form {
   box-sizing: inherit;
   display: flex;
   flex-flow: column;
-  -webkit-box-align: stretch;
   align-items: stretch;
-  -webkit-box-pack: start;
   justify-content: flex-start;
   gap: 1rem;
 }
-.signUp_input_box {
+.sign_inputBox {
   margin-bottom: 2rem;
 }
-.signUp_username {
-  flex-flow: row;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  gap: 1rem;
+.sign_username {
 }
-.signUp_email {
-  flex-flow: column;
-  -webkit-box-pack: start;
-  justify-content: flex-start;
-  position: relative;
-  flex: 1 1 auto;
+.sign_email {
 }
-.signUp_password {
-  flex-flow: row;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  gap: 1rem;
+.sign_password {
 }
-.signUp_label {
+.sign_label {
   box-sizing: inherit;
-  display: flex;
-  flex-flow: row;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
   margin-bottom: 0.25rem;
   margin-left: 0px;
 }
-.signUp_input {
+.sign_input {
   box-sizing: inherit;
   margin: 0px;
   padding: 0.625rem 1rem;
@@ -95,19 +56,17 @@
   outline: transparent solid 2px;
   outline-offset: 2px;
   width: 100%;
-  aspect-ratio: unset;
-  accent-color: rgb(16, 63, 239);
+
   font-family: inherit;
   font-weight: 400;
   font-size: var(--font-size-base);
   line-height: 1.25;
   border-radius: 0.375rem;
   border: 1px solid rgba(0, 0, 0, 0.16);
-  -webkit-font-smoothing: auto !important;
 }
-.signUp_submitBtnRow {
+.sign_submitBtnRow {
 }
-.signUp_submitBtn {
+.sign_submitBtn {
   margin: 0px;
   padding: 1rem 1.25rem;
   border: 0px;
@@ -117,29 +76,22 @@
   color: white;
   border-radius: 0.375rem;
   display: inline-flex;
-  -webkit-box-pack: center;
+
   justify-content: center;
-  -webkit-box-align: center;
+
   align-items: center;
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
-  transition-duration: 100ms;
+
   font-family: inherit;
   font-weight: 600;
   font-size: var(--font-size-small);
   letter-spacing: 0.5px;
   line-height: 1;
-  text-transform: uppercase;
+
   min-height: 2.25rem;
   width: 100%;
-  --accentLightest: hsla(227, 87%, 59%, 0.3);
-  --accentLighter: hsla(227, 87%, 50%, 0.3);
-  --accent: #103fef;
-  --accentDark: #0d33bf;
-  --accentDarker: #0a268f;
-  -webkit-font-smoothing: auto !important;
 }
-.signUp_Link {
+
+.sign_Link {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -147,20 +99,20 @@
   align-items: center;
   text-align: center;
 }
-.signUp_TextRow {
+.sign_TextRow {
   font-size: var(--font-size-small);
 }
-.signUp_Btn {
+.sign_Btn {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 }
-.signUp_LinkText {
+.sign_LinkText {
   color: rgb(16, 63, 239);
 }
-.signUp_dividerRow {
+.sign_dividerRow {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -168,19 +120,35 @@
   justify-content: center;
   align-items: center;
 }
-.signUp_dividerLine {
+.sign_dividerLine {
   display: inline-block;
   width: 100%;
   border-bottom: 1px solid #00000029;
   margin: 1rem 1rem 0;
 }
-.signUp_dividerText {
+.sign_dividerText {
   display: inline-block;
   width: auto;
   color: #000000a6;
 }
+.sign_socialButtons {
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.sign_socialBtn {
+  width: 50px;
+  height: 50px;
+  padding: 1rem;
+  border: 1px solid #00000029;
+  border-radius: 0.5rem;
+}
 @media screen and (min-width: 768px) {
-  .signUp_page {
+  .sign_page {
     margin: 50px auto;
     min-width: 500px;
   }

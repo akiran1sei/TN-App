@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const BeansSchema = new Schema(
   {
     username: String,
+    email: String,
     coffee: String,
     roast: String,
     roastMessage: String,
@@ -40,7 +41,6 @@ const BeansSchema = new Schema(
     result: String,
     total: String,
     date: String,
-    email: String,
   },
   { timestamps: true }
 );
@@ -54,6 +54,10 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
   },
 });
 

@@ -1,9 +1,7 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import dotenv from "dotenv";
-import { Form } from "@/components/molecules/Update/Form";
 
-const inter = Inter({ subsets: ["latin"] });
+import dotenv from "dotenv";
+import { UpdateForm } from "@/components/molecules/Update/UpdateForm";
 
 const UpdatePage = async (context) => {
   "use server";
@@ -25,7 +23,7 @@ const UpdatePage = async (context) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <Form data={singleData} />
+      <UpdateForm data={singleData} />
     </>
   );
 };

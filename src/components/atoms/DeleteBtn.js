@@ -11,11 +11,11 @@ export function DeleteBtn(context) {
 
       const response = await fetch(URL, {
         cache: "no-store",
-        method: "POST",
+        method: "DELETE",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
-          // authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
       const jsonData = await response.json();
