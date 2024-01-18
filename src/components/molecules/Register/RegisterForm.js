@@ -30,7 +30,7 @@ export function RegisterForm(data) {
       });
       const jsonData = await response.json();
       alert(jsonData.message);
-      return router.replace("/");
+      return router.replace("/user/login");
     } catch (err) {
       return alert("登録失敗");
     }
