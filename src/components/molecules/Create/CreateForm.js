@@ -47,7 +47,6 @@ export function CreateForm() {
 
   const URL = `/api/create`;
   const loginUserEmail = useAuth();
-  console.log(loginUserEmail);
   const handleEditListButton = () => {
     setIsEditContents(!isEditContents);
   };

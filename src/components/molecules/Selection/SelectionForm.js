@@ -5,7 +5,7 @@ import Image from "next/image";
 import useAuth from "@/utils/useAuth";
 export function SelectionForm(context) {
   const loginUserEmail = useAuth();
-  console.log(loginUserEmail);
+
   if (loginUserEmail) {
     return (
       <>

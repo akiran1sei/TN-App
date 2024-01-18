@@ -71,7 +71,6 @@ export function UpdateForm(data) {
   const [impression, setImpression] = useState(singleData.impression);
   const [date, setDate] = useState(singleData.date);
   const loginUserEmail = useAuth();
-  console.log(loginUserEmail);
 
   const URL = `/api/update/${singleData._id}`;
   const sum =

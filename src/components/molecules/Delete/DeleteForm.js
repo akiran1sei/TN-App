@@ -7,7 +7,7 @@ import Link from "next/link";
 export function DeleteForm(data) {
   const ItemData = data.data.singleItem;
   const loginUserEmail = useAuth();
-  console.log(loginUserEmail);
+
   if (loginUserEmail) {
     return (
       <>
