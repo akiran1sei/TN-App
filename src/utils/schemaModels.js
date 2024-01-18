@@ -40,6 +40,7 @@ const BeansSchema = new Schema(
     result: String,
     total: String,
     date: String,
+    email: String,
   },
   { timestamps: true }
 );
