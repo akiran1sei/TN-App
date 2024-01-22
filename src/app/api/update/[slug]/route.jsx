@@ -15,7 +15,7 @@ export async function PUT(request, response) {
   } catch (error) {
     return NextResponse.json({
       message: "アイテム編集失敗",
-      status: 200,
+      status: 500,
     });
   }
   // try {
