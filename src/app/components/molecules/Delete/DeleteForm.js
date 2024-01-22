@@ -1,7 +1,7 @@
 "use client";
-import styles from "../../../app/styles/Home.module.css";
-import useAuth from "@/utils/useAuth";
-import { DeleteBtn } from "@/components/atoms/DeleteBtn";
+import styles from "../../../styles/Home.module.css";
+import useAuth from "../../../utils/useAuth";
+import { DeleteBtn } from "../../../components/atoms/DeleteBtn";
 import Link from "next/link";
 
 export function DeleteForm(data) {

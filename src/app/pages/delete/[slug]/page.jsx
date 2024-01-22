@@ -1,7 +1,7 @@
 //  app/[slug].jsx
 import Head from "next/head";
 import React from "react";
-import { DeleteForm } from "@/components/molecules/Delete/DeleteForm";
+import { DeleteForm } from "../../../components/molecules/Delete/DeleteForm";
 import dotenv from "dotenv";
 const DeletePage = async (context) => {
   dotenv.config();

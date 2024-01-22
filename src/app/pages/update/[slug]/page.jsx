@@ -1,7 +1,6 @@
 import Head from "next/head";
-
 import dotenv from "dotenv";
-import { UpdateForm } from "@/components/molecules/Update/UpdateForm";
+import { UpdateForm } from "../../../components/molecules/Update/UpdateForm";
 
 const UpdatePage = async (context) => {
   "use server";

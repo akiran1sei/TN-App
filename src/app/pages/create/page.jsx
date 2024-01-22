@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { CreateForm } from "@/components/molecules/Create/CreateForm";
+import { CreateForm } from "../../components/molecules/Create/CreateForm";
 
 const CreatePage = () => {
   return (

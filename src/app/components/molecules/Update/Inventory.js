@@ -1,7 +1,7 @@
 "use client";
 
 import { React, useState } from "react";
-import styles from "../../../app/styles/Home.module.css";
+import styles from "../../../styles/Home.module.css";
 
 export function Inventory() {
   const [isEditContents, setIsEditContents] = useState(false);

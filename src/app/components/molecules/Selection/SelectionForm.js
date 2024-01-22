@@ -2,7 +2,7 @@
 import styles from "@/app/styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import useAuth from "@/utils/useAuth";
+import useAuth from "../../../utils/useAuth";
 export function SelectionForm(context) {
   const loginUserEmail = useAuth();
 
@@ -36,7 +36,8 @@ export function SelectionForm(context) {
                 </Link>
               </button>
               <button className={styles.icon_btn}>
-                <Link href={`/pages/${beans._id}`} passHref>
+                <Link href={`/pages/browse/${beans._id}`} passHref>
+                  {/* <Link href={`/pages/${beans._id}`} passHref> */}
                   <Image
                     src="../images/visibility_img.svg"
                     alt="閲覧ボタン"

@@ -1,7 +1,7 @@
 //  app/[slug].jsx
 import Head from "next/head";
 import dotenv from "dotenv";
-import { BrowsePage } from "@/components/pages/BrowsePage";
+import BrowsePage from "../browse/[slug]/page";
 
 const CoffeeSingleItem = async (context) => {
   dotenv.config();
@@ -9,7 +9,6 @@ const CoffeeSingleItem = async (context) => {
   const URL = `${NEXTAUTH_URL}` + `/api/singleItem/` + `${context.params.slug}`;
   const response = await fetch(URL, { cache: "no-store" });
   const singleItem = await response.json();
-  // console.log(singleItem.singleItem._id);
 
   return (
     <>
