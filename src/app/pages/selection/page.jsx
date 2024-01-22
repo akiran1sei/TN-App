@@ -9,6 +9,9 @@ const SelectionPage = async () => {
   // console.log(URL);
   const response = await fetch(URL, {
     cache: "no-cache",
+    next: {
+      revalidate: 30,
+    },
   });
   const allItems = await response.json();
   return (

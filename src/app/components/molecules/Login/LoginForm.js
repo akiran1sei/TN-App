@@ -13,6 +13,9 @@ export function LoginForm() {
     try {
       const response = await fetch(`/api/user/login`, {
         cache: "no-cache",
+        next: {
+          revalidate: 30,
+        },
         method: "POST",
         headers: {
           Accept: "application/json",

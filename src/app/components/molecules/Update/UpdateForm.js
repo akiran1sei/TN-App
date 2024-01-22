@@ -178,8 +178,9 @@ export function UpdateForm(data) {
           method: "PUT",
           cache: "no-cache",
           next: {
-            revalidate: 60,
+            revalidate: 30,
           },
+
           body: JsonBody,
 
           headers: {
