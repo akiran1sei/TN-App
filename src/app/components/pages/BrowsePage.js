@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styles from "@/app/styles/Home.module.css";
-import { HomeBtn } from "@/components/atoms/HomeBtn";
+import { HomeBtn } from "../../components/atoms/HomeBtn";
 
 export function BrowsePage(data) {
   // console.log(data);

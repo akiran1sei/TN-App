@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { SelectionForm } from "@/components/molecules/Selection/SelectionForm";
+import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
 import dotenv from "dotenv";
 const SelectionPage = async () => {
   dotenv.config();

@@ -1,316 +1,237 @@
 "use client";
 
-import styles from "@/app/styles/Home.module.css";
-import { useState, useEffect } from "react";
-import useAuth from "@/utils/useAuth";
+import styles from "../../../styles/Home.module.css";
+import { React, useState } from "react";
 import { useRouter } from "next/navigation";
-import { HomeBtn } from "@/components/atoms/HomeBtn";
-import { CreateBtn } from "@/components/atoms/CreateBtn";
-export function CreateForm() {
-  // const [username, setUserName] = useState("");
-  const [coffee, setCoffee] = useState("");
-  const [roast, setRoast] = useState("50");
-  const [roastMessage, setRoastMessage] = useState("");
-  const [aromaDryStrength, setAromaDryStrength] = useState("");
-  const [aromaCrustStrength, setAromaCrustStrength] = useState("");
-  const [aromaBreakStrength, setAromaBreakStrength] = useState("");
-  const [aromaDryQuality, setAromaDryQuality] = useState("");
-  const [aromaCrustQuality, setAromaCrustQuality] = useState("");
-  const [aromaBreakQuality, setAromaBreakQuality] = useState("");
-  const [aromaMessage, setAromaMessage] = useState("");
-  const [defects, setDefects] = useState("0");
-  const [point, setPoint] = useState("0");
-  const [score, setScore] = useState("0");
-  const [defectsMessage, setDefectsMessage] = useState("");
-  const [cleancap, setCleancap] = useState("");
-  const [cleancapMessage, setCleancapMessage] = useState("");
-  const [sweet, setSweet] = useState("");
-  const [sweetMessage, setSweetMessage] = useState("");
-  const [acidity, setAcidity] = useState("");
-  const [acidityMessage, setAcidityMessage] = useState("");
-  const [acidityStrength, setAcidityStrength] = useState("");
-  const [mouthfeel, setMouthfeel] = useState("");
-  const [mouthfeelMessage, setMouthfeelMessage] = useState("");
-  const [bodyStrength, setBodyStrength] = useState("");
-  const [flavor, setFlavor] = useState("");
-  const [flavorMessage, setFlavorMessage] = useState("");
-  const [after, setAfter] = useState("");
-  const [afterMessage, setAfterMessage] = useState("");
-  const [balance, setBalance] = useState("");
-  const [balanceMessage, setBalanceMessage] = useState("");
-  const [overall, setOverall] = useState("");
-  const [error, setError] = useState("");
-  const [impression, setImpression] = useState("");
-  const [date, setDate] = useState("");
-  const [isEditContents, setIsEditContents] = useState(false);
+import { Inventory } from "./Inventory";
+import { HomeBtn } from "../../../components/atoms/HomeBtn";
+import useAuth from "../../../utils/useAuth";
+import { CreateBtn } from "../../../components/atoms/CreateBtn";
+
+export function UpdateForm(data) {
+  const singleData = data.data;
+  // console.log(singleData);
   const router = useRouter();
 
-  const URL = `/api/create`;
+  const [coffee, setCoffee] = useState(singleData.coffee);
+  const [roast, setRoast] = useState(singleData.roast);
+  const [roastMessage, setRoastMessage] = useState(singleData.roastMessage);
+  const [aromaDryStrength, setAromaDryStrength] = useState(
+    singleData.aromaDryStrength
+  );
+  const [aromaCrustStrength, setAromaCrustStrength] = useState(
+    singleData.aromaCrustStrength
+  );
+  const [aromaBreakStrength, setAromaBreakStrength] = useState(
+    singleData.aromaBreakStrength
+  );
+  const [aromaDryQuality, setAromaDryQuality] = useState(
+    singleData.aromaDryQuality
+  );
+  const [aromaCrustQuality, setAromaCrustQuality] = useState(
+    singleData.aromaCrustQuality
+  );
+  const [aromaBreakQuality, setAromaBreakQuality] = useState(
+    singleData.aromaBreakQuality
+  );
+  const [aromaMessage, setAromaMessage] = useState(singleData.aromaMessage);
+  const [defects, setDefects] = useState(singleData.defects);
+  const [point, setPoint] = useState("0");
+  const [score, setScore] = useState("0");
+  const [defectsMessage, setDefectsMessage] = useState(
+    singleData.defectsMessage
+  );
+  const [cleancap, setCleancap] = useState(singleData.cleancap);
+  const [cleancapMessage, setCleancapMessage] = useState(
+    singleData.cleancapMessage
+  );
+  const [sweet, setSweet] = useState(singleData.sweet);
+  const [sweetMessage, setSweetMessage] = useState(singleData.sweetMessage);
+  const [acidity, setAcidity] = useState(singleData.acidity);
+  const [acidityMessage, setAcidityMessage] = useState(
+    singleData.acidityMessage
+  );
+  const [acidityStrength, setAcidityStrength] = useState(
+    singleData.acidityStrength
+  );
+  const [mouthfeel, setMouthfeel] = useState(singleData.mouthfeel);
+  const [mouthfeelMessage, setMouthfeelMessage] = useState(
+    singleData.mouthfeelMessage
+  );
+  const [bodyStrength, setBodyStrength] = useState(singleData.bodyStrength);
+  const [flavor, setFlavor] = useState(singleData.flavor);
+  const [flavorMessage, setFlavorMessage] = useState(singleData.flavorMessage);
+  const [after, setAfter] = useState(singleData.after);
+  const [afterMessage, setAfterMessage] = useState(singleData.afterMessage);
+  const [balance, setBalance] = useState(singleData.balance);
+  const [balanceMessage, setBalanceMessage] = useState(
+    singleData.balanceMessage
+  );
+  const [overall, setOverall] = useState(singleData.overall);
+  const [impression, setImpression] = useState(singleData.impression);
+  const [date, setDate] = useState(singleData.date);
   const loginUserEmail = useAuth();
-  const handleEditListButton = () => {
-    setIsEditContents(!isEditContents);
-  };
 
-  const handleSubmit = async (e) => {
+  const URL = `/api/update/${singleData._id}`;
+  const sum =
+    Number(cleancap) +
+    Number(sweet) +
+    Number(acidity) +
+    Number(mouthfeel) +
+    Number(flavor) +
+    Number(after) +
+    Number(balance) +
+    Number(overall) -
+    Number(defects);
+
+  const JsonBody = JSON.stringify({
+    _id: singleData._id,
+    coffee: coffee,
+    roast: roast,
+    roastMessage: roastMessage,
+    aromaDryStrength: aromaDryStrength,
+    aromaCrustStrength: aromaCrustStrength,
+    aromaBreakStrength: aromaBreakStrength,
+    aromaDryQuality: aromaDryQuality,
+    aromaCrustQuality: aromaCrustQuality,
+    aromaBreakQuality: aromaBreakQuality,
+    aromaMessage: aromaMessage,
+    defects: point * score * 4,
+    defectsMessage: defectsMessage,
+    cleancap: cleancap,
+    cleancapMessage: cleancapMessage,
+    sweet: sweet,
+    sweetMessage: sweetMessage,
+    acidity: acidity,
+    acidityMessage: acidityMessage,
+    acidityStrength: acidityStrength,
+    mouthfeel: mouthfeel,
+    mouthfeelMessage: mouthfeelMessage,
+    bodyStrength: bodyStrength,
+    flavor: flavor,
+    flavorMessage: flavorMessage,
+    after: after,
+    afterMessage: afterMessage,
+    balance: balance,
+    balanceMessage: balanceMessage,
+    overall: overall,
+    total: Number(sum) + Number(36),
+    result: sum,
+    impression: impression,
+    username: singleData.username,
+    email: loginUserEmail,
+    date: date,
+  });
+  // });
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const sum =
-      Number(cleancap) +
-      Number(sweet) +
-      Number(acidity) +
-      Number(mouthfeel) +
-      Number(flavor) +
-      Number(after) +
-      Number(balance) +
-      Number(overall) -
-      Number(defects);
+    // フォームの入力値をサーバーに送信する
 
     try {
+      // バリデーション
       if (!coffee || null) {
-        return setError("未記入:名前または、番号を入力してください");
+        return alert("未記入:名前または、番号を入力してください");
       } else if (!roast || null) {
-        return setError("未記入:roastを入力してください");
+        return alert("未記入:roastを入力してください");
       } else if (!aromaDryStrength || null) {
-        return setError("未記入:アロマのドライ（強さ）を入力してください");
+        return alert("未記入:アロマのドライ（強さ）を入力してください");
       } else if (!aromaCrustStrength || null) {
-        return setError("未記入:アロマのクラスト（強さ）を入力してください");
+        return alert("未記入:アロマのクラスト（強さ）を入力してください");
       } else if (!aromaBreakStrength || null) {
-        return setError("未記入:アロマのブレイク（強さ）を入力してください");
+        return alert("未記入:アロマのブレイク（強さ）を入力してください");
       } else if (!aromaDryQuality || null) {
-        return setError(
-          "未記入:アロマのドライ（強さ）（質）を入力してください"
-        );
+        return alert("未記入:アロマのドライ（質）を入力してください");
       } else if (!aromaCrustQuality || null) {
-        return setError("未記入:アロマのクラスト（質）を入力してください");
+        return alert("未記入:アロマのクラスト（質）を入力してください");
       } else if (!aromaBreakQuality || null) {
-        return setError("未記入:アロマのブレイク（質）を入力してください");
+        return alert("未記入:アロマのブレイク（質）を入力してください");
       } else if (!defects || null) {
-        return setError("未記入:欠点などがなければ0と記入してください。");
+        return alert("未記入:欠点などがなければ0と記入してください。");
       } else if (defects < 0) {
-        return setError("マイナス数字になっています。正しく入力してください。");
+        return alert("マイナス数字になっています。正しく入力してください。");
       } else if (!cleancap || null) {
-        return setError("未記入:クリーンカップを入力してください");
+        return alert("未記入:クリーンカップを入力してください");
       } else if (!sweet || null) {
-        return setError("未記入:甘さを入力してください");
+        return alert("未記入:甘さを入力してください");
       } else if (!acidity || null) {
-        return setError("未記入:酸の質を入力してください");
+        return alert("未記入:酸の質を入力してください");
       } else if (!acidityStrength || null) {
-        return setError("未記入:酸の強さを入力してください");
+        return alert("未記入:酸の強さを入力してください");
       } else if (!mouthfeel || null) {
-        return setError("未記入:口に含んだ質感を入力してください");
+        return alert("未記入:口に含んだ質感を入力してください");
       } else if (!bodyStrength || null) {
-        return setError("未記入:ボディの強さを入力してください");
+        return alert("未記入:ボディの強さを入力してください");
       } else if (!flavor || null) {
-        return setError("未記入:フレーバーを入力してください");
+        return alert("未記入:フレーバーを入力してください");
       } else if (!after || null) {
-        return setError("未記入:後味の印象度を入力してください");
+        return alert("未記入:後味の印象度を入力してください");
       } else if (!balance || null) {
-        return setError("未記入:バランスを入力してください");
+        return alert("未記入:バランスを入力してください");
       } else if (!overall || null) {
-        return setError("未記入:総合評価を入力してください");
+        return alert("未記入:総合評価を入力してください");
       } else if (!date || null) {
-        return setError("未記入:日付を入力してください");
+        return alert("未記入:日付を入力してください");
       } else {
-        // return
-        setError(null);
+        const res = await fetch(URL, {
+          // method: "POST",
+          method: "PUT",
+          cache: "no-store",
+          next: {
+            revalidate: 60,
+          },
+          body: JsonBody,
 
-        const response = // フォームの入力値をサーバーに送信する
-          await fetch(URL, {
-            cache: "no-store",
-            method: "POST",
-            body: JSON.stringify({
-              coffee: coffee,
-              roast: roast,
-              roastMessage: roastMessage,
-              aromaDryStrength: aromaDryStrength,
-              aromaCrustStrength: aromaCrustStrength,
-              aromaBreakStrength: aromaBreakStrength,
-              aromaDryQuality: aromaDryQuality,
-              aromaCrustQuality: aromaCrustQuality,
-              aromaBreakQuality: aromaBreakQuality,
-              aromaMessage: aromaMessage,
-              defects: point * score * 4,
-              defectsMessage: defectsMessage,
-              cleancap: cleancap,
-              cleancapMessage: cleancapMessage,
-              sweet: sweet,
-              sweetMessage: sweetMessage,
-              acidity: acidity,
-              acidityMessage: acidityMessage,
-              acidityStrength: acidityStrength,
-              mouthfeel: mouthfeel,
-              mouthfeelMessage: mouthfeelMessage,
-              bodyStrength: bodyStrength,
-              flavor: flavor,
-              flavorMessage: flavorMessage,
-              after: after,
-              afterMessage: afterMessage,
-              balance: balance,
-              balanceMessage: balanceMessage,
-              overall: overall,
-              total: Number(sum) + Number(36),
-              result: sum,
-              impression: impression,
-              username: "",
-              email: loginUserEmail,
-              date: date,
-            }),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          });
-        const jsonData = await response.json();
-
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const jsonData = await res.json();
         alert(jsonData.message);
-
         return router.replace("/pages/selection");
       }
     } catch (error) {
-      return alert("アイテム作成失敗");
+      return alert("アイテム編集失敗/Form");
     }
-  };
-  function defectsAnswer() {
-    const answer = Number(point * score * 4);
-    setDefects(answer);
   }
 
+  function defectsAnswer() {
+    const answer = Number(point * score * 4);
+    return setDefects(answer);
+  }
   if (loginUserEmail) {
     return (
       <>
-        <h1 className={styles.contents_title}>CREATE</h1>
-        <div
-          className={
-            isEditContents
-              ? `${styles["edit_number"]} ${styles["active"]}`
-              : styles["edit_number"]
-          }
-        >
-          <div className={styles.edit_toc}>
-            <button className={styles.button} onClick={handleEditListButton}>
-              編集目次<span className={styles.edit_toc_open}>▼</span>
-              <span className={styles.edit_toc_close}>△</span>
-            </button>
-          </div>
-          <ul className={styles.edit_number_list}>
-            <li className={styles.edit_number_item}>
-              1:コーヒー豆の名前 or 番号
-              <br />
-              <span className={styles.edit_number_sup}>
-                豆の名前、又は、番号
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              2:ロースト <br />
-              <span className={styles.edit_number_sup}>焙煎具合</span>
-            </li>
-            <li className={styles.edit_number_item}>
-              3:アロマ
-              <br />
-              <span className={styles.edit_number_sup}>
-                粉の状態の『ドライ』
-                <br />
-                湯を注いだ直後の『クラスト』
-                <br />
-                混ぜた後の『ブレーク』
-                <br />
-                の３つで香りの強さ（左）と質（右）を評価
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              4:欠点・瑕疵
-              <br />
-              <span className={styles.edit_number_sup}>
-                スペシャルティコーヒーなどは、欠点・瑕疵がないことが多く『０』で進めることが多い
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              5:カップの綺麗さ
-              <br />
-              <span className={styles.edit_number_sup}>味わいの透明度</span>
-            </li>
-            <li className={styles.edit_number_item}>
-              6:甘さ
-              <br />
-              <span className={styles.edit_number_sup}>
-                味わいに甘味の印象が強ければ強い程よいとされる
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              7:酸の質
-              <br />
-              <span className={styles.edit_number_sup}>
-                H（high）M（middle）L（low）で酸の強さを計り、得点部分には質を評価。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              8:口に含んだ質感
-              <br />
-              <span className={styles.edit_number_sup}>
-                舌触りの滑らかさ。
-                H（high）M（middle）L（low）でボディの強さを表わす。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              9:フレーバー
-              <br />
-              <span className={styles.edit_number_sup}>風味の質を評価する</span>
-            </li>
-            <li className={styles.edit_number_item}>
-              10:後味の印象度
-              <br />
-              <span className={styles.edit_number_sup}>
-                後味は心地よいか、そうでないか評価。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              11:バランス
-              <br />
-              <span className={styles.edit_number_sup}>
-                「５～１０」の要素に悪目立ちしているものがなく、全体のバランスが良い程加点。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              12:総合評価
-              <br />
-              <span className={styles.edit_number_sup}>
-                味わいの奥行など項目にない点にも着目し、ここまでの評価に囚われず、主観で付ける。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              13:TOTAL
-              <br />
-              （+36）
-              <br />
-              <span className={styles.edit_number_sup}>
-                「４～１２」の得点に、定数３６点を足した１００点満点で評価。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              14:味の印象
-              <br />
-              <span className={styles.edit_number_sup}>
-                具体的な味の印象を記入。フレーバーの表現もカッピングの重要な目的。
-                <br />
-                冷めていく過程で、味わいがどのように変化したかも都度メモしておくとよい。
-              </span>
-            </li>
-          </ul>
-        </div>
+        <h1 className={styles.contents_title}>UP DATE</h1>
 
+        <Inventory />
         <div className={styles.edit_data}>
-          <form onSubmit={handleSubmit} className={styles.edit_main}>
+          <form className={styles.edit_main} onSubmit={handleSubmit}>
             <input
               type="date"
               name="date"
-              id="date"
               className={styles.edit_date}
+              placeholder="年／月／日"
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
             <div className={styles.edit_list}>
-              {/* 選択式 */}
-
+              <div className={`${styles.edit_item} ${styles.edit_username}`}>
+                <label htmlFor="username" className={styles.edit_item_title}>
+                  作成者
+                </label>
+                <output
+                  name="username"
+                  id="username"
+                  className={styles.edit_input_name}
+                  width={300}
+                  height={50}
+                >
+                  {singleData.username}
+                </output>
+              </div>
               <div className={`${styles.edit_item} ${styles.edit_coffee}`}>
                 <label htmlFor="coffee" className={styles.edit_item_title}>
                   1：珈琲豆 or 番号
@@ -351,7 +272,6 @@ export function CreateForm() {
                     <option value="90">フレンチ</option>
                     <option value="100">イタリアン</option>
                   </datalist>
-
                   <p className={styles.edit_roast_value}>{roast}%</p>
                 </div>
                 <div className={styles.edit_item_message_box}>
@@ -595,7 +515,6 @@ export function CreateForm() {
                       {point * score * 4}
                     </output>
                   </div>
-
                   <input
                     type="number"
                     name="defects"
@@ -625,7 +544,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       type="number"
                       name="cleancap"
@@ -634,7 +552,7 @@ export function CreateForm() {
                       value={cleancap}
                       onChange={(e) => setCleancap(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -648,7 +566,6 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
-
                   <div className={styles.edit_item_message_box}>
                     <label htmlFor="cleancap-message">memo</label>
                     <br />
@@ -670,7 +587,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       type="number"
                       name="sweet"
@@ -679,7 +595,7 @@ export function CreateForm() {
                       value={sweet}
                       onChange={(e) => setSweet(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -714,7 +630,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       type="number"
                       name="acidity"
@@ -723,7 +638,7 @@ export function CreateForm() {
                       value={acidity}
                       onChange={(e) => setAcidity(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -745,7 +660,7 @@ export function CreateForm() {
                       value={acidityStrength}
                       onChange={(e) => setAcidityStrength(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <optgroup label="High">
                         <option>{"High2"}</option>
                         <option>{"High1"}</option>
@@ -781,7 +696,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       type="number"
                       name="mouthfeel"
@@ -790,7 +704,7 @@ export function CreateForm() {
                       value={mouthfeel}
                       onChange={(e) => setMouthfeel(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -812,7 +726,7 @@ export function CreateForm() {
                       value={bodyStrength}
                       onChange={(e) => setBodyStrength(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <optgroup label="High">
                         <option>{"High2"}</option>
                         <option>{"High1"}</option>
@@ -848,7 +762,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       name="flavor"
                       type="number"
@@ -857,7 +770,7 @@ export function CreateForm() {
                       value={flavor}
                       onChange={(e) => setFlavor(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -885,7 +798,6 @@ export function CreateForm() {
                   </div>
                 </div>
               </div>
-
               <div className={`${styles.edit_item} ${styles.edit_after}`}>
                 <label htmlFor="after" className={styles.edit_item_title}>
                   10：後味の印象度
@@ -893,7 +805,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       name="after"
                       type="number"
@@ -902,7 +813,7 @@ export function CreateForm() {
                       value={after}
                       onChange={(e) => setAfter(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -916,7 +827,6 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
-
                   <div className={styles.edit_item_message_box}>
                     <label htmlFor="after-message">memo</label>
                     <br />
@@ -938,7 +848,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       name="balance"
                       type="number"
@@ -947,7 +856,7 @@ export function CreateForm() {
                       value={balance}
                       onChange={(e) => setBalance(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -982,7 +891,6 @@ export function CreateForm() {
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
                     ０～８
-                    <br />
                     <select
                       name="overall"
                       type="number"
@@ -991,7 +899,7 @@ export function CreateForm() {
                       value={overall}
                       onChange={(e) => setOverall(e.target.value)}
                     >
-                      <option defaultValue={null}>{null}</option>
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -1009,7 +917,10 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_total}`}>
                 <div className=""></div>
-                <label className={styles.edit_item_title}>
+                <label
+                  // htmlFor="total"
+                  className={styles.edit_item_title}
+                >
                   13：TOTAL（+36）
                 </label>
                 <div className={styles.edit_result}>
@@ -1063,20 +974,12 @@ export function CreateForm() {
               </div>
             </div>
             <div className={styles.btn_box}>
-              {error && (
-                <span
-                  onChange={(e) => setError(e.target.value)}
-                  className="edit-error"
-                >
-                  {error}
-                </span>
-              )}
-              {/* ErrorMessage */}
               <CreateBtn />
-
-              <HomeBtn />
             </div>
           </form>
+          <div className={styles.btn_box}>
+            <HomeBtn />
+          </div>
         </div>
       </>
     );

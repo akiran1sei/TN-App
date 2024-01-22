@@ -1,7 +1,7 @@
 //  app/[slug].jsx
 import Head from "next/head";
 import dotenv from "dotenv";
-import { BrowsePage } from "@/components/pages/BrowsePage";
+import { BrowsePage } from "@/app/components/pages/BrowsePage";
 
 const CoffeeSingleItem = async (context) => {
   dotenv.config();

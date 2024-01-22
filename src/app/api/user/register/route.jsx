@@ -1,6 +1,6 @@
 const { NextResponse } = require("next/server");
-import connectDB from "@/utils/database";
-import { UserModel } from "@/utils/schemaModels";
+import connectDB from "@/app/utils/database";
+import { UserModel } from "@/app/utils/schemaModels";
 export async function POST(request) {
   const body = await request.json();
   try {

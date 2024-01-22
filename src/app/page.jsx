@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Menu } from "@/components/molecules/TopMenu/Menu";
+import { Menu } from "./components/molecules/TopMenu/Menu";
 
 const Home = () => {
   return (

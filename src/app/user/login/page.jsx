@@ -1,4 +1,4 @@
-import { LoginForm } from "@/components/molecules/Login/LoginForm";
+import { LoginForm } from "../../components/molecules/Login/LoginForm";
 
 const LoginPage = () => {
   return (
