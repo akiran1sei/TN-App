@@ -36,7 +36,8 @@ export function SelectionForm(context) {
                 </Link>
               </button>
               <button className={styles.icon_btn}>
-                <Link href={`/pages/${beans._id}`} passHref>
+                <Link href={`/pages/browse/${beans._id}`} passHref>
+                  {/* <Link href={`/pages/${beans._id}`} passHref> */}
                   <Image
                     src="../images/visibility_img.svg"
                     alt="閲覧ボタン"
