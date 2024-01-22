@@ -7,7 +7,7 @@ const UpdatePage = async (context) => {
   dotenv.config();
   const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
   const URL = `${NEXTAUTH_URL}` + `/api/singleItem/` + `${context.params.slug}`;
-  const response = await fetch(URL, { cache: "reload" });
+  const response = await fetch(URL, { cache: "no-cache" });
   const singleItem = await response.json();
   const singleData = singleItem.singleItem;
 
