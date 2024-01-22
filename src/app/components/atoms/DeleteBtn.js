@@ -10,7 +10,7 @@ export function DeleteBtn(context) {
       const URL = `/api/delete/` + `${context.data}`;
 
       const response = await fetch(URL, {
-        cache: "no-cache",
+        cache: "default",
         method: "DELETE",
         headers: {
           Accept: "application/json",

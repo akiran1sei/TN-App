@@ -15,7 +15,7 @@ export function RegisterForm(data) {
     e.preventDefault();
     try {
       const response = await fetch(`/api/user/register`, {
-        cache: "no-cache",
+        cache: "default",
         method: "POST",
         headers: {
           Accept: "application/json",
