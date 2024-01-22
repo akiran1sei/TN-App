@@ -11,6 +11,9 @@ export function DeleteBtn(context) {
 
       const response = await fetch(URL, {
         cache: "no-cache",
+        next: {
+          revalidate: 30,
+        },
         method: "DELETE",
         headers: {
           Accept: "application/json",

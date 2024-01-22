@@ -16,6 +16,9 @@ export function RegisterForm(data) {
     try {
       const response = await fetch(`/api/user/register`, {
         cache: "no-cache",
+        next: {
+          revalidate: 30,
+        },
         method: "POST",
         headers: {
           Accept: "application/json",
