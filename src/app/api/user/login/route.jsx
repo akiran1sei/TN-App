@@ -26,26 +26,26 @@ export async function POST(request) {
         return NextResponse.json({
           message: "ログイン成功",
           token: token,
-          // status: 200,
+          status: 200,
         });
       } else {
         //パスワードが正しくない場合
         return NextResponse.json({
           message: "ログイン失敗：パスワードが間違っています",
-          // status: 200,
+          status: 500,
         });
       }
     } else {
       //ユーザーデータが存在しない場合
       return NextResponse.json({
         message: "ログイン失敗：ユーザー登録してください",
-        // status: 200,
+        status: 200,
       });
     }
   } catch (error) {
     return NextResponse.json({
       message: "ログイン失敗/route.jsx",
-      // status: 500,
+      status: 500,
     });
   }
 }
