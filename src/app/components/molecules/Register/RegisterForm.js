@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import signs from "../../../styles/Sign.module.css../";
+import signs from "../../../styles/Sign.module.css";
 import Link from "next/link";
 import Image from "next/image";
 export function RegisterForm(data) {
