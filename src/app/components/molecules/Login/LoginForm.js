@@ -12,7 +12,7 @@ export function LoginForm() {
     e.preventDefault();
     try {
       const response = await fetch(`/api/user/login`, {
-        cache: "default",
+        cache: "reload",
         method: "POST",
         headers: {
           Accept: "application/json",

@@ -8,7 +8,7 @@ const BrowsePage = async (context) => {
 
   const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
   const URL = `${NEXTAUTH_URL}` + `/api/singleItem/` + `${ItemData}`;
-  const response = await fetch(URL, { cache: "default" });
+  const response = await fetch(URL, { cache: "reload" });
   const singleItem = await response.json();
   return <BrowseForm data={singleItem} />;
 };

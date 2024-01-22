@@ -8,7 +8,7 @@ const SelectionPage = async () => {
   const URL = `${NEXTAUTH_URL}` + `/api/readall`;
   // console.log(URL);
   const response = await fetch(URL, {
-    cache: "default",
+    cache: "reload",
   });
   const allItems = await response.json();
   return (

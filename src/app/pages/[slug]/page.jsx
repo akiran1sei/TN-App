@@ -7,7 +7,7 @@ const CoffeeSingleItem = async (context) => {
   dotenv.config();
   const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
   const URL = `${NEXTAUTH_URL}` + `/api/singleItem/` + `${context.params.slug}`;
-  const response = await fetch(URL, { cache: "default" });
+  const response = await fetch(URL, { cache: "reload" });
   const singleItem = await response.json();
 
   return (
