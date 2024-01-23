@@ -115,10 +115,10 @@ export function CreateForm() {
 
         const response = // フォームの入力値をサーバーに送信する
           await fetch(URL, {
-            cache: "no-cache",
-            next: {
-              revalidate: 30,
-            },
+            // cache: "no-store",
+            // next: {
+            //   revalidate: 30,
+            // },
             method: "POST",
             body: JSON.stringify({
               coffee: coffee,

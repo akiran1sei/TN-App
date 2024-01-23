@@ -15,10 +15,10 @@ export function RegisterForm(data) {
     e.preventDefault();
     try {
       const response = await fetch(`/api/user/register`, {
-        cache: "no-cache",
-        next: {
-          revalidate: 30,
-        },
+        // cache: "no-store",
+        // next: {
+        //   revalidate: 30,
+        // },
         method: "POST",
         headers: {
           Accept: "application/json",
