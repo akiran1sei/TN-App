@@ -12,10 +12,10 @@ export function LoginForm() {
     e.preventDefault();
     try {
       const response = await fetch(`/api/user/login`, {
-        cache: "no-cache",
-        next: {
-          revalidate: 30,
-        },
+        // cache: "no-store",
+        // next: {
+        //   revalidate: 30,
+        // },
         method: "POST",
         headers: {
           Accept: "application/json",
