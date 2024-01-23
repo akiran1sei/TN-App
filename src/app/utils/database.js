@@ -4,7 +4,8 @@ import mongoose from "mongoose";
 // const USER_PASSWD = `akiran1sei`;
 // const HOST_NAME = `cluster0.dnleokd.mongodb.net`;
 // const uri = `mongodb+srv://${USER_NAME}:${USER_PASSWD}@${HOST_NAME}/${DB_NAME}?retryWrites=true&w=majority`;
-const uri = `mongodb+srv://akiran1sei:akiran1sei@cluster0.dnleokd.mongodb.net/tasting_note?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://akiran1sei:akiran1sei@cluster0.8ylbdmx.mongodb.net/?retryWrites=true&w=majority`;
+// const uri = `mongodb+srv://akiran1sei:akiran1sei@cluster0.dnleokd.mongodb.net/tasting_note?retryWrites=true&w=majority`;
 const connectDB = async () => {
   try {
     // Connect the client to the server	(optional starting in v4.7)
