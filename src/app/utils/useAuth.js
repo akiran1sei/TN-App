@@ -17,7 +17,7 @@ const useAuth = () => {
         const decodedJwt = await jwtVerify(token, secretKey);
         setLoginUserEmail(decodedJwt.payload.email);
       } catch (error) {
-        router.push("/user/login");
+        router.push("/");
       }
     };
     checkToken();
