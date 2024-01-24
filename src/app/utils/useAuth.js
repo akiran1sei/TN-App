@@ -10,7 +10,7 @@ const useAuth = () => {
     const checkToken = async () => {
       const token = localStorage.getItem("token");
       if (!token) {
-        router.push("/user/login");
+        router.push("/");
       }
       try {
         const secretKey = new TextEncoder().encode("TastingNote");
