@@ -16,7 +16,7 @@ export function SelectionForm(context) {
               <button className={styles.icon_btn}>
                 <Link href={`/pages/delete/${beans._id}`} passHref>
                   <Image
-                    src="../images/delete_img.svg"
+                    src="/images/delete_img.svg"
                     alt="削除ボタン"
                     width={48}
                     height={48}
@@ -27,7 +27,7 @@ export function SelectionForm(context) {
               <button className={styles.icon_btn}>
                 <Link href={`/pages/update/${beans._id}`} passHref>
                   <Image
-                    src="../images/edit_img.svg"
+                    src="/images/edit_img.svg"
                     alt="編集ボタン"
                     width={48}
                     height={48}
@@ -39,7 +39,7 @@ export function SelectionForm(context) {
                 <Link href={`/pages/browse/${beans._id}`} passHref>
                   {/* <Link href={`/pages/${beans._id}`} passHref> */}
                   <Image
-                    src="../images/visibility_img.svg"
+                    src="/images/visibility_img.svg"
                     alt="閲覧ボタン"
                     width={48}
                     height={48}
