@@ -9,9 +9,9 @@ const SelectionPage = async () => {
   // console.log(URL);
   const response = await fetch(URL, {
     cache: "no-store",
-    // next: {
-    //   revalidate: 30,
-    // },
+    next: {
+      tags: ["readall"],
+    },
   });
   const allItems = await response.json();
   return (

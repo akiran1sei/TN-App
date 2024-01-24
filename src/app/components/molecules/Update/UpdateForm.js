@@ -176,10 +176,7 @@ export function UpdateForm(data) {
         const res = await fetch(URL, {
           // method: "POST",
           method: "PUT",
-          // cache: "no-store",
-          // next: {
-          //   revalidate: 30,
-          // },
+          cache: "no-store",
 
           body: JsonBody,
 
