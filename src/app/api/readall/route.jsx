@@ -5,7 +5,7 @@ export async function GET(req) {
   try {
     await connectDB();
     const allItems = await BeansModel.find({});
-
+    console.log("allItems:", allItems);
     return NextResponse.json({
       message: "読み取り成功（オール）",
       allItems: allItems,
