@@ -8,6 +8,7 @@ const SelectionPage = async () => {
   const URL = `${NEXTAUTH_URL}` + `/api/readall`;
   // console.log(URL);
   const response = await fetch(URL, {
+    method: "GET",
     cache: "no-store",
     next: {
       tags: ["readall"],
