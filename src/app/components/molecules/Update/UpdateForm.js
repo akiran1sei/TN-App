@@ -174,7 +174,6 @@ export function UpdateForm(data) {
         return alert("未記入:日付を入力してください");
       } else {
         const res = await fetch(URL, {
-          // method: "POST",
           method: "PUT",
           cache: "no-store",
 
