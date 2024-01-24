@@ -126,11 +126,11 @@ input[type="checkbox"] {
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
   font-family: "Material Icons";
-  content: url("../../../public/images/calendar_month_img.svg");
+  content: url("/images/calendar_month_img.svg");
   z-index: 1;
 }
 input[type="checkbox"]:checked {
-  content: url("../../../public/images/check_img.svg");
+  content: url("/images/check_img.svg");
 }
 input[type="number"] {
   width: 50px;
