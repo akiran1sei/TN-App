@@ -25,7 +25,8 @@
     "react-dom": "^18",
     "react-router-dom": "^6.21.1",
     "sharp": "^0.33.1",
-    "swr": "^2.2.4"
+    "swr": "^2.2.4",
+    "vercel": "^33.2.0"
   },
   "devDependencies": {
     "eslint": "^8",
