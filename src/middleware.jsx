@@ -28,7 +28,6 @@ export const config = {
     "/api/update:path*",
     "/api/singleItem:path*",
     "/api/readall",
-    "/api/selection",
 
     //:path*は、該当フォルダーに含まれる全てのファイル&フォルダーに適応するときにつける
   ],
