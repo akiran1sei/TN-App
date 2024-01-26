@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
 import dotenv from "dotenv";
+import { revalidatePath } from "next/cache";
 const SelectionPage = async () => {
   dotenv.config();
   const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
@@ -12,6 +13,7 @@ const SelectionPage = async () => {
     cache: "no-store",
   });
   const allItems = await response.json();
+  revalidatePath("http://localhost:3000/page/selection");
   return (
     <>
       <Head>
