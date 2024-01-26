@@ -5,16 +5,16 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "s-maxage=1, stale-while-revalidate=59"
         }
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "/page/selection",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "value": "s-maxage=1, stale-while-revalidate=59"
         }
       ]
     }
