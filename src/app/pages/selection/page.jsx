@@ -13,7 +13,7 @@ const SelectionPage = async () => {
     cache: "no-store",
   });
   const allItems = await response.json();
-  revalidatePath("http://localhost:3000/page/selection");
+  revalidatePath(`${NEXTAUTH_URL}` + "/page/selection");
   return (
     <>
       <Head>
