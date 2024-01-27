@@ -13,6 +13,7 @@
     "@auth/mongodb-adapter": "^2.0.9",
     "axios": "^1.6.2",
     "dotenv": "^16.3.1",
+    "firebase": "^10.7.2",
     "fs": "^0.0.1-security",
     "jose": "^5.2.0",
     "mongodb": "^6.3.0",
