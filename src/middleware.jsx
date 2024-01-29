@@ -27,6 +27,8 @@ export const config = {
     "/api/delete:path*",
     "/api/update:path*",
     "/api/singleItem:path*",
+    "/api/user/login",
+    "/api/user/register",
 
     //:path*は、該当フォルダーに含まれる全てのファイル&フォルダーに適応するときにつける
   ],
