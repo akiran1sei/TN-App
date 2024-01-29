@@ -7,9 +7,9 @@ const useAuth = () => {
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const router = useRouter();
   useEffect(() => {
-    const checkToken = async () => {
-      const token = localStorage.getItem("token");
-      if (router.pathname !== "/pages/user/login") {
+    if (router.pathname !== "/pages/user/login") {
+      const checkToken = async () => {
+        const token = localStorage.getItem("token");
         // '/pages/user/login'以外のURLでの処理
         if (!token) {
           router.push("/pages/user/login");
@@ -21,9 +21,9 @@ const useAuth = () => {
         } catch (error) {
           router.push("/pages/user/login");
         }
-      }
-    };
-    checkToken();
+      };
+      checkToken();
+    }
   }, [router]);
   return loginUserEmail;
 };
