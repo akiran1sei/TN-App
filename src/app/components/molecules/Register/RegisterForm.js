@@ -48,6 +48,7 @@ export function RegisterForm(data) {
               ユーザーネーム
             </label>
             <input
+              id="username"
               type="text"
               name="username"
               className={signs.sign_input}
@@ -62,6 +63,7 @@ export function RegisterForm(data) {
               メールアドレス
             </label>
             <input
+              id="email"
               type="email"
               name="email"
               className={signs.sign_input}
@@ -76,6 +78,7 @@ export function RegisterForm(data) {
               パスワード
             </label>
             <input
+              id="password"
               type="password"
               name="password"
               className={signs.sign_input}

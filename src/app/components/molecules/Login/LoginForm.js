@@ -38,10 +38,11 @@ export function LoginForm() {
       <div className={signs.sign_card}>
         <form onSubmit={handleSubmit} className={signs.sign_form}>
           <div className={signs.sign_inputBox}>
-            <label htmlFor="email" className={signs.sign_label} id="email">
+            <label htmlFor="email" className={signs.sign_label} i>
               メールアドレス
             </label>
             <input
+              d="email"
               type="email"
               name="email"
               className={signs.sign_input}
@@ -52,14 +53,11 @@ export function LoginForm() {
             />
           </div>
           <div className={signs.sign_inputBox}>
-            <label
-              htmlFor="password"
-              className={signs.sign_label}
-              id="password"
-            >
+            <label htmlFor="password" className={signs.sign_label}>
               パスワード
             </label>
             <input
+              id="password"
               type="password"
               name="password"
               className={signs.sign_input}
