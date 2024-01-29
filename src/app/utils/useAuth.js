@@ -12,14 +12,14 @@ const useAuth = () => {
       if (router.pathname !== "/pages/user/login") {
         // '/pages/user/login'以外のURLでの処理
         if (!token) {
-          router.push("/");
+          router.push("/pages/user/login");
         }
         try {
           const secretKey = new TextEncoder().encode("TastingNote");
           const decodedJwt = await jwtVerify(token, secretKey);
           setLoginUserEmail(decodedJwt.payload.email);
         } catch (error) {
-          router.push("/");
+          router.push("/pages/user/login");
         }
       }
     };
