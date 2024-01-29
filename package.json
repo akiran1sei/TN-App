@@ -13,7 +13,6 @@
     "@auth/mongodb-adapter": "^2.0.9",
     "axios": "^1.6.2",
     "dotenv": "^16.3.1",
-    "firebase": "^10.7.2",
     "fs": "^0.0.1-security",
     "jose": "^5.2.0",
     "mongodb": "^6.3.0",
@@ -26,8 +25,7 @@
     "react-dom": "^18",
     "react-router-dom": "^6.21.1",
     "sharp": "^0.33.1",
-    "swr": "^2.2.4",
-    "vercel": "^33.2.0"
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "eslint": "^8",
