@@ -10,7 +10,7 @@ const useAuth = () => {
   useEffect(() => {
     const checkToken = async () => {
       const token = localStorage.getItem("token");
-      if (!token || !hasNavigated) {
+      if (!token || hasNavigated) {
         router.push("/pages/user/login");
         setHasNavigated(true);
       }
@@ -19,7 +19,7 @@ const useAuth = () => {
         const decodedJwt = await jwtVerify(token, secretKey);
         setLoginUserEmail(decodedJwt.payload.email);
       } catch (error) {
-        if (!hasNavigated) {
+        if (hasNavigated) {
           router.push("/pages/user/login");
           setHasNavigated(true);
         }
