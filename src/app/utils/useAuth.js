@@ -5,23 +5,21 @@ import { useState, useEffect } from "react";
 
 const useAuth = () => {
   const [loginUserEmail, setLoginUserEmail] = useState("");
-  const [hasNavigated, setHasNavigated] = useState(false);
   const router = useRouter();
   useEffect(() => {
     const checkToken = async () => {
       const token = localStorage.getItem("token");
-      if (!token || hasNavigated) {
-        router.push("/pages/user/login");
-        setHasNavigated(true);
-      }
-      try {
-        const secretKey = new TextEncoder().encode("TastingNote");
-        const decodedJwt = await jwtVerify(token, secretKey);
-        setLoginUserEmail(decodedJwt.payload.email);
-      } catch (error) {
-        if (hasNavigated) {
-          router.push("/pages/user/login");
-          setHasNavigated(true);
+      if (router.pathname !== "/pages/user/login") {
+        // '/pages/user/login'以外のURLでの処理
+        if (!token) {
+          router.push("/");
+        }
+        try {
+          const secretKey = new TextEncoder().encode("TastingNote");
+          const decodedJwt = await jwtVerify(token, secretKey);
+          setLoginUserEmail(decodedJwt.payload.email);
+        } catch (error) {
+          router.push("/");
         }
       }
     };
