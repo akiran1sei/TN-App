@@ -1,5 +1,5 @@
 "use client";
-import useAuth from "@/app/utils/useAuth";
+import useAuth from "@/utils/useAuth";
 import styles from "@/app/styles/Home.module.css";
 import Link from "next/link";
 

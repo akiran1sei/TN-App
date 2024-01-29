@@ -1,6 +1,6 @@
 const { NextResponse } = require("next/server");
-import connectDB from "@/app/utils/database";
-import { UserModel } from "@/app/utils/schemaModels";
+import connectDB from "@/utils/database";
+import { UserModel } from "@/utils/schemaModels";
 import { SignJWT } from "jose";
 export async function POST(request) {
   await connectDB();

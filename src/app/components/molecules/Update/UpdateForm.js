@@ -5,7 +5,7 @@ import { React, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Inventory } from "./Inventory";
 import { HomeBtn } from "../../../components/atoms/HomeBtn";
-import useAuth from "../../../utils/useAuth";
+import useAuth from "../../../../utils/useAuth";
 import { CreateBtn } from "../../../components/atoms/CreateBtn";
 
 export function UpdateForm(data) {

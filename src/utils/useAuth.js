@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 const useAuth = () => {
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const router = useRouter();
+  console.log(router.pathname);
+
   useEffect(() => {
     if (router.pathname !== "/pages/user/login") {
       const checkToken = async () => {

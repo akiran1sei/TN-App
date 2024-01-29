@@ -38,7 +38,7 @@ export function LoginForm() {
       <div className={signs.sign_card}>
         <form onSubmit={handleSubmit} className={signs.sign_form}>
           <div className={signs.sign_inputBox}>
-            <label htmlFor="email" className={signs.sign_label}>
+            <label htmlFor="email" className={signs.sign_label} id="email">
               メールアドレス
             </label>
             <input
@@ -52,7 +52,11 @@ export function LoginForm() {
             />
           </div>
           <div className={signs.sign_inputBox}>
-            <label htmlFor="password" className={signs.sign_label}>
+            <label
+              htmlFor="password"
+              className={signs.sign_label}
+              id="password"
+            >
               パスワード
             </label>
             <input
