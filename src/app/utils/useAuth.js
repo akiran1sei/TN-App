@@ -10,14 +10,14 @@ const useAuth = () => {
     const checkToken = async () => {
       const token = localStorage.getItem("token");
       if (!token) {
-        router.push("/");
+        router.push("/pages/user/login");
       }
       try {
         const secretKey = new TextEncoder().encode("TastingNote");
         const decodedJwt = await jwtVerify(token, secretKey);
         setLoginUserEmail(decodedJwt.payload.email);
       } catch (error) {
-        router.push("/");
+        router.push("/pages/user/login");
       }
     };
     checkToken();
