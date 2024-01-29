@@ -4,8 +4,9 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   try {
     await connectDB();
-    const allItems = await BeansModel.find({});
-
+    // const allItems = await BeansModel.find({});
+    const allItems = await BeansModel.find({}).lean().exec();
+    console.log("allItems:", allItems);
     return NextResponse.json({
       message: "読み取り成功（オール）",
       allItems: allItems,
