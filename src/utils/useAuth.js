@@ -9,19 +9,19 @@ const useAuth = () => {
   console.log(router.pathname);
 
   useEffect(() => {
-    if (router.pathname !== "/pages/user/login") {
+    if (router.pathname !== "/user/login") {
       const checkToken = async () => {
         const token = localStorage.getItem("token");
-        // '/pages/user/login'以外のURLでの処理
+        // '/user/login'以外のURLでの処理
         if (!token) {
-          router.push("/pages/user/login");
+          router.push("/user/login");
         }
         try {
           const secretKey = new TextEncoder().encode("TastingNote");
           const decodedJwt = await jwtVerify(token, secretKey);
           setLoginUserEmail(decodedJwt.payload.email);
         } catch (error) {
-          router.push("/pages/user/login");
+          router.push("/user/login");
         }
       };
       checkToken();
