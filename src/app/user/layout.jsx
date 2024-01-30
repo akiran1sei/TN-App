@@ -1,14 +1,14 @@
-import styles from "@/app//styles/Home.module.css";
+import signs from "@/app/styles/Sign.module.css";
 export default function PagesLayout({ children }) {
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.header_title}>
-          <h1 className={styles.header_title_txt}>Tasting Note</h1>
+      <header className={signs.sign_header}>
+        <div className={signs.sign_header_title}>
+          <h1 className={signs.sign_header_title_txt}>Tasting Note</h1>
         </div>
       </header>
-      <main className={styles.main}>
-        <div className={styles.main_contents}>{children}</div>
+      <main className={signs.sign_main}>
+        <div className={signs.sign_main_contents}>{children}</div>
       </main>
     </>
   );
