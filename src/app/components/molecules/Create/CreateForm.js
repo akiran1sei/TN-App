@@ -2,7 +2,7 @@
 
 import styles from "@/app/styles/Home.module.css";
 import { useState, useEffect } from "react";
-import useAuth from "../../../../utils/useAuth";
+import useAuth from "../../../utils/useAuth";
 import { useRouter } from "next/navigation";
 import { HomeBtn } from "../../../components/atoms/HomeBtn";
 import { CreateBtn } from "../../../components/atoms/CreateBtn";

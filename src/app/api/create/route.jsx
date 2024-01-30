@@ -1,8 +1,8 @@
 // import auth from "@/utils/auth.js";
-import connectDB from "../../../utils/database";
-import { BeansModel } from "../../../utils/schemaModels";
+import connectDB from "../../utils/database";
+import { BeansModel } from "../../utils/schemaModels";
 import { jwtVerify } from "jose";
-import { UserModel } from "../../../utils/schemaModels";
+import { UserModel } from "../../utils/schemaModels";
 import { NextResponse } from "next/server";
 export async function POST(request) {
   try {

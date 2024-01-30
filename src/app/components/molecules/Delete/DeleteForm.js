@@ -1,6 +1,6 @@
 "use client";
 import styles from "../../../styles/Home.module.css";
-import useAuth from "../../../../utils/useAuth";
+import useAuth from "../../../utils/useAuth";
 import { DeleteBtn } from "../../../components/atoms/DeleteBtn";
 import Link from "next/link";
 

@@ -2,7 +2,7 @@
 import header from "@/app/styles/Header.module.css";
 import React, { useState } from "react";
 import Link from "next/link";
-import useAuth from "../../../utils/useAuth";
+import useAuth from "../../utils/useAuth";
 // import { useRouter } from "next/navigation";
 export function Header() {
   const [isActive, setIsActive] = useState(false);
