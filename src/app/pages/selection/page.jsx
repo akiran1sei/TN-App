@@ -1,19 +1,18 @@
 import Head from "next/head";
 import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
-import dotenv from "dotenv";
+
 import { revalidatePath } from "next/cache";
 const SelectionPage = async () => {
-  dotenv.config();
-  const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
-
-  const URL = `${NEXTAUTH_URL}` + `/api/readall`;
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  // const AppUrl = `http://localhost:3000`;
+  const URL = `${AppUrl}/api/readall`;
   // console.log(URL);
   const response = await fetch(URL, {
     method: "GET",
     cache: "no-store",
   });
   const allItems = await response.json();
-  revalidatePath(`${NEXTAUTH_URL}` + "/page/selection");
+  revalidatePath(`${AppUrl}/page/selection`);
   return (
     <>
       <Head>
