@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
+import { SelectionForm } from "../../components/molecules/Selection/SelectionForm-simple";
+// import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
 
 import { revalidatePath } from "next/cache";
 const SelectionPage = async () => {

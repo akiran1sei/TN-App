@@ -210,7 +210,9 @@
 ----------select ----------
 
 */
-
+/* -----.select_list_box----- */
+.select_list_box {
+}
 /*-----.select_list-----*/
 .select_list {
   width: 100%;
@@ -257,7 +259,7 @@
 }
 .select_item_title,
 .select_sp_item_title {
-  font-size: var(--font-size-small);
+  font-size: var(--font-size-base);
   color: var(--color-yellow);
 }
 /*-----select_item_aroma_table
