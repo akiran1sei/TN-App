@@ -69,17 +69,13 @@ export function SelectionForm(context) {
       </div>
       <div className={`${styles.select_item} ${styles.select_coffee}`}>
         <h3 className={styles.select_item_title}>
-          珈琲豆の名 or 番号
+          珈琲豆or番号
           {/* NAME or NUMBER */}
         </h3>
         <div className={styles.select_item_value}>{beans.coffee}</div>
       </div>
       <div className={`${styles.select_item} ${styles.select_total}`}>
-        <h3 className={styles.select_item_title}>
-          TOTAL
-          <br />
-          （＋３６）
-        </h3>
+        <h3 className={styles.select_item_title}>TOTAL(+36)</h3>
         <div className={styles.select_item_value}>{beans.total}点</div>
       </div>
     </div>
