@@ -3,9 +3,16 @@ import styles from "@/app/styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import useAuth from "../../../utils/useAuth";
+import { useState } from "react";
 export function SelectionForm(context) {
+  const [limit, setLimit] = useState(5);
+  const handleShowMore = () => {
+    setLimit(limit + 5);
+  };
   const loginUserEmail = useAuth();
-  const list = context.data.allItems.map((beans) => (
+  const data = context.data.allItems;
+  const limitedData = data.slice(0, limit);
+  const list = limitedData.map((beans) => (
     <div className={styles.select_list} key={beans._id}>
       <div className={`${styles.select_btn_box} ${styles.btn_box}`}>
         <button className={styles.icon_btn}>
@@ -83,6 +90,10 @@ export function SelectionForm(context) {
       <>
         <h1 className={styles.contents_title}>SELECT</h1>
         <div className={styles.select_list_box}>{list}</div>
+
+        {limit < data.length && (
+          <button onClick={handleShowMore}>もっと見る</button>
+        )}
       </>
     );
   }
