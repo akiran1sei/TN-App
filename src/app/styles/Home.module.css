@@ -281,8 +281,9 @@
   font-size: var(--font-size-base);
   color: var(--color-yellow);
 }
-.select_date {
+/* .select_date {
   grid-area: 1/2/2/2;
+  width: 150px;
 }
 .select_username {
   grid-area: 2/1/3/3;
@@ -292,8 +293,8 @@
 }
 .select_total {
   grid-area: 4/1/5/3;
-}
-@media screen and (min-width: 768px) {
+} */
+/* @media screen and (min-width: 768px) {
   .select_date {
     grid-area: 2/1/3/2;
   }
@@ -306,7 +307,7 @@
   .select_total {
     grid-area: 1/3/2/4;
   }
-}
+} */
 /*-----select_item_aroma_table
       browse_item_aroma_table
       delete_item_aroma_table
@@ -392,13 +393,13 @@ delete_popup
 /* grid-layout 1000px*/
 @media screen and (min-width: 768px) {
   .select_btn_box {
-    grid-area: 1/1/2/2;
+    /* grid-area: 1/1/2/2; */
   }
   .select_date {
-    grid-area: 2/1/3/2;
+    /* grid-area: 2/1/3/2; */
   }
   .select_username {
-    grid-area: 1/2/2/3;
+    /* grid-area: 1/2/2/3; */
   }
   .select_coffee {
     /* grid-area: 1/6/2/12; */
@@ -1128,3 +1129,30 @@ grid-layout 768px
     height: calc(100vh - 60px);
   }
 }
+/* セレクションページのパソコン時のグリッド表示 */
+/*
+    grid-area: 1/1/2/2;
+     grid-area: 2/1/3/2;
+ grid-area: 1/2/2/5;
+grid-area: 1/5/2/9;
+grid-area: 2/2/3/3;
+grid-area: 2/3/3/4;
+ grid-area: 2/4/3/5;
+grid-area: 2/5/3/6;
+ grid-area: 2/6/3/7;
+grid-area: 2/7/3/8;
+grid-area: 2/8/3/9;
+grid-area: 2/9/3/10;
+ grid-area: 2/10/3/11;
+grid-area: 2/11/3/12;
+grid-area: 1/9/2/10;
+grid-area: 1/10/2/11;
+ grid-area: 1/11/2/12;
+ grid-area: 3/1/4/12;
+
+
+
+
+
+
+*/
