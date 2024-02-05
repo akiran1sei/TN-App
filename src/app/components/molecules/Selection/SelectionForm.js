@@ -3,16 +3,27 @@ import styles from "@/app/styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import useAuth from "../../../utils/useAuth";
+import { useState } from "react";
 export function SelectionForm(context) {
   const loginUserEmail = useAuth();
-
+  const [isContents, setIsContents] = useState(false);
+  const handleListButton = () => {
+    setIsContents(!isContents);
+  };
   if (loginUserEmail) {
     return (
       <>
         <h1 className={styles.contents_title}>SELECT</h1>
         <div className={styles.select_list_box}>
           {context.data.allItems.map((beans) => (
-            <div className={styles.select_list} key={beans._id}>
+            <div
+              className={
+                isContents
+                  ? `${styles["select_list"]} ${styles["active"]}`
+                  : styles["select_list"]
+              }
+              key={beans._id}
+            >
               <div className={`${styles.select_btn_box} ${styles.btn_box}`}>
                 <button className={styles.icon_btn}>
                   <Link href={`/pages/delete/${beans._id}`} passHref>
@@ -36,9 +47,13 @@ export function SelectionForm(context) {
                     />
                   </Link>
                 </button>
+                {/* <div className={styles.triangle_btn} onClick={handleListButton}>
+                  <button className={styles.open_btn}></button>
+                  <button className={styles.close_btn}></button>
+                </div> */}
+
                 <button className={styles.icon_btn}>
                   <Link href={`/pages/browse/${beans._id}`} passHref>
-                    {/* <Link href={`/pages/${beans._id}`} passHref> */}
                     <Image
                       src="/images/visibility_img.svg"
                       alt="閲覧ボタン"
@@ -75,6 +90,7 @@ export function SelectionForm(context) {
                 </h3>
                 <div className={styles.select_item_value}>{beans.coffee}</div>
               </div>
+
               <div className={`${styles.select_item} ${styles.select_roast}`}>
                 <h3 className={styles.select_item_title}>
                   ロースト

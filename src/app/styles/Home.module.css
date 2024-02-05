@@ -246,9 +246,14 @@
     width: 100%;
     max-width: 1000px;
     margin: 1rem auto;
-    grid-template: none;
+    /*  grid-template: none;
     display: grid;
     align-content: center;
+    justify-content: space-evenly;
+    align-items: center; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
   }
@@ -281,9 +286,18 @@
   font-size: var(--font-size-base);
   color: var(--color-yellow);
 }
-/* .select_date {
-  grid-area: 1/2/2/2;
+
+.select_btn_box {
   width: 150px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  grid-area: 1/1/2/2;
+}
+.select_date {
+  grid-area: 1/2/2/2;
 }
 .select_username {
   grid-area: 2/1/3/3;
@@ -293,21 +307,121 @@
 }
 .select_total {
   grid-area: 4/1/5/3;
-} */
+}
+
+.select_roast {
+  display: none;
+  opacity: 0;
+}
+.select_aroma {
+  display: none;
+  opacity: 0;
+}
+.select_defects {
+  display: none;
+  opacity: 0;
+}
+.select_cleancap {
+  display: none;
+  opacity: 0;
+}
+.select_sweet {
+  display: none;
+  opacity: 0;
+}
+.select_acidity {
+  display: none;
+  opacity: 0;
+}
+.select_mouthfeel {
+  display: none;
+  opacity: 0;
+}
+.select_flavor {
+  display: none;
+  opacity: 0;
+}
+.select_after {
+  display: none;
+  opacity: 0;
+}
+.select_balance {
+  display: none;
+  opacity: 0;
+}
+.select_overall {
+  display: none;
+  opacity: 0;
+}
+.select_result {
+  display: none;
+  opacity: 0;
+}
+
+.select_impression {
+  display: none;
+  opacity: 0;
+}
+
+/* セレクションページのパソコン時のグリッド表示 */
+
 /* @media screen and (min-width: 768px) {
+  .select_btn_box {
+    grid-area: 1/1/2/2;
+  }
   .select_date {
     grid-area: 2/1/3/2;
   }
   .select_username {
-    grid-area: 1/2/2/3;
+    grid-area: 1/2/2/5;
   }
   .select_coffee {
-    grid-area: 2/2/3/4;
+    grid-area: 1/5/2/9;
+  }
+  .select_roast {
+    grid-area: 2/2/3/3;
+  }
+  .select_aroma {
+    grid-area: 2/3/3/4;
+  }
+  .select_defects {
+    grid-area: 2/4/3/5;
+  }
+  .select_cleancap {
+    grid-area: 2/5/3/6;
+  }
+  .select_sweet {
+    grid-area: 2/6/3/7;
+  }
+  .select_acidity {
+    grid-area: 2/7/3/8;
+  }
+  .select_mouthfeel {
+    grid-area: 2/8/3/9;
+  }
+  .select_flavor {
+    grid-area: 2/9/3/10;
+  }
+  .select_after {
+    grid-area: 2/10/3/11;
+  }
+  .select_balance {
+    grid-area: 2/11/3/12;
+  }
+  .select_overall {
+    grid-area: 1/9/2/10;
+  }
+  .select_result {
+    grid-area: 1/10/2/11;
   }
   .select_total {
-    grid-area: 1/3/2/4;
+    grid-area: 1/11/2/12;
+  }
+  .select_impression {
+    grid-area: 3/1/4/12;
   }
 } */
+/* セレクションページのパソコン時の flex表示(簡易版) */
 /*-----select_item_aroma_table
       browse_item_aroma_table
       delete_item_aroma_table
@@ -814,19 +928,18 @@ delete_popup
 -----edit_submit-box-----
 -----browse_return_btn_box-----
  */
-.btn_box {
-  width: 150px;
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  grid-area: 1/1/2/2;
-}
+
 .icon_btn,
+.triangle_btn,
 .text_btn {
   width: 48px;
   height: 48px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-white);
   border: 2px solid var(--color-yellow);
   border-radius: 50%;
   box-shadow: 2px 2px 3px var(--color-box-shadow);
@@ -841,6 +954,35 @@ delete_popup
 .text_btn {
   font-weight: bold;
 }
+
+.active .triangle_btn {
+  background: var(--color-yellow);
+}
+.open_btn {
+  width: 20px;
+  height: auto;
+  border-style: solid;
+  border-color: var(--color-yellow) transparent transparent transparent;
+  border-width: 25px 15px 0 15px;
+}
+.active .open_btn {
+  opacity: 0;
+  display: none;
+}
+.active .close_btn {
+  opacity: 1;
+  display: block;
+}
+.close_btn {
+  width: 20px;
+  height: auto;
+  border-style: dashed;
+  border-color: transparent transparent var(--color-white) transparent;
+  border-width: 0px 15px 25px 15px;
+  opacity: 0;
+  display: none;
+}
+
 /* edit_error */
 .edit_error {
   color: red;
@@ -1129,30 +1271,3 @@ grid-layout 768px
     height: calc(100vh - 60px);
   }
 }
-/* セレクションページのパソコン時のグリッド表示 */
-/*
-    grid-area: 1/1/2/2;
-     grid-area: 2/1/3/2;
- grid-area: 1/2/2/5;
-grid-area: 1/5/2/9;
-grid-area: 2/2/3/3;
-grid-area: 2/3/3/4;
- grid-area: 2/4/3/5;
-grid-area: 2/5/3/6;
- grid-area: 2/6/3/7;
-grid-area: 2/7/3/8;
-grid-area: 2/8/3/9;
-grid-area: 2/9/3/10;
- grid-area: 2/10/3/11;
-grid-area: 2/11/3/12;
-grid-area: 1/9/2/10;
-grid-area: 1/10/2/11;
- grid-area: 1/11/2/12;
- grid-area: 3/1/4/12;
-
-
-
-
-
-
-*/
