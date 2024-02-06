@@ -1,7 +1,7 @@
 import Head from "next/head";
 // import { SelectionForm } from "../../components/molecules/Selection/SelectionForm-simple";
-import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
-
+// import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
+import { SelectionForm } from "@/app/components/molecules/Selection/SelectionForm-table";
 import { revalidatePath } from "next/cache";
 const SelectionPage = async () => {
   const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
