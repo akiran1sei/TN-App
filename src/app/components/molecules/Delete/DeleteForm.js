@@ -13,211 +13,155 @@ export function DeleteForm(data) {
       <>
         <h1 className={styles.contents_title}>DELETE</h1>
         <div className={styles.delete_data}>
-          <div className={styles.delete_main}>
-            <div className={styles.delete_list}>
-              <p className={styles.delete_date}>{ItemData.date}</p>
-              <div
-                className={`${styles.delete_item} ${styles.delete_username}`}
-              >
-                <h3 className={styles.delete_item_title}>作成者</h3>
-                <p>{ItemData.username}</p>
-              </div>
-              <div className={`${styles.delete_item} ${styles.delete_coffee}`}>
-                <h3 className={styles.delete_item_title}>1：珈琲豆 or 番号</h3>
-                <p>{ItemData.coffee}</p>
-              </div>
-              <div className={`${styles.delete_item} ${styles.delete_roast}`}>
-                <h3 className={styles.delete_item_title}>2：ロースト</h3>
-                <p>{ItemData.roast}%</p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.roastMessage}</p>
-              </div>
-
-              <div className={`${styles.delete_item} ${styles.delete_aroma}`}>
-                <h3 className={styles.delete_item_title}>3：アロマ </h3>
-                <div className={styles.delete_item_value}>
-                  <p className={styles.delete_item_text}>単位(点)</p>
-                  <table className={styles.delete_item_aroma_table}>
-                    <thead>
+          <table border="0" className={styles.delete_list}>
+            <tbody>
+              <tr className={styles.delete_number}>
+                <td className={styles.delete_item_title}>No.</td>
+                <td className={styles.delete_item_value}>1</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Date</td>
+                <td className={styles.delete_item_value}>{ItemData.date}</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>UserName</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.username}
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>
+                  Coffee
+                  <br />
+                  /Number
+                </td>
+                <td className={styles.delete_item_value}>{ItemData.coffee}</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Roast</td>
+                <td className={styles.delete_item_value}>{ItemData.roast}％</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Aroma</td>
+                <td className={styles.delete_item_value}>
+                  <table border="1" className={styles.delete_item_aroma_table}>
+                    <tbody>
                       <tr>
-                        <th></th>
+                        <td>(点)</td>
                         <th className={styles.delete_item_aroma_header}>
-                          強さ
+                          Strong
                         </th>
                         <th className={styles.delete_item_aroma_header}>
-                          ／質
+                          Quality
                         </th>
                       </tr>
-                    </thead>
-                    <tbody>
                       <tr className={styles.delete_item_aroma_table_row}>
-                        <th className={styles.delete_item_aroma_header}>D</th>
+                        <th className={styles.delete_item_aroma_header}>Dry</th>
                         <td>{ItemData.aromaDryStrength}</td>
                         <td>{ItemData.aromaDryQuality}</td>
                       </tr>
                       <tr className={styles.delete_item_aroma_table_row}>
-                        <th className={styles.delete_item_aroma_header}>C</th>
+                        <td className={styles.delete_item_aroma_header}>
+                          Crust
+                        </td>
                         <td>{ItemData.aromaCrustStrength}</td>
                         <td>{ItemData.aromaCrustQuality}</td>
                       </tr>
                       <tr className={styles.delete_item_aroma_table_row}>
-                        <th className={styles.delete_item_aroma_header}>B</th>
+                        <td className={styles.delete_item_aroma_header}>
+                          Break
+                        </td>
                         <td>{ItemData.aromaBreakStrength}</td>
                         <td>{ItemData.aromaBreakQuality}</td>
                       </tr>
                     </tbody>
                   </table>
-                </div>
-                <div className={styles.delete_item_message_box}>
-                  <h4 className={styles.delete_item_memo}>
-                    <span className={styles.delete_yellow_color}>memo</span>
-                  </h4>
-                  <br />
-                  <p>{ItemData.aromaMessage}</p>
-                </div>
-              </div>
-              <div className={`${styles.delete_item} ${styles.delete_defects}`}>
-                <h3 className={styles.delete_item_title}>4：欠点・瑕疵</h3>
-                <p>
-                  {ItemData.defects}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.defectsMessage}</p>
-              </div>
-              <div
-                className={`${styles.delete_item} ${styles.delete_cleancap}`}
-              >
-                <h3 className={styles.delete_item_title}>5：カップの綺麗さ</h3>
-                <p>
-                  {ItemData.cleancap}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.cleancapMessage}</p>
-              </div>
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Defects</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.defects}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>CleanCap</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.cleancap}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Sweet</td>
+                <td className={styles.delete_item_value}>{ItemData.sweet}点</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Acidity</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.acidity}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Mouthfeel</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.mouthfeel}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Flavor</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.flavor}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>After</td>
+                <td className={styles.delete_item_value}>{ItemData.after}点</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Balance</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.balance}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>OverAll</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.overall}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Result</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.result}点
+                </td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>
+                  TOTAL <br />
+                  （+36）
+                </td>
+                <td className={styles.delete_item_value}>{ItemData.total}点</td>
+              </tr>
+              <tr>
+                <td className={styles.delete_item_title}>Impression</td>
+                <td className={styles.delete_item_value}>
+                  {ItemData.impression}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-              <div className={`${styles.delete_item} ${styles.delete_sweet}`}>
-                <h3 className={styles.delete_item_title}>6：甘さ</h3>
-                <p>
-                  {ItemData.sweet}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.sweetMessage}</p>
-              </div>
-
-              <div className={`${styles.delete_item} ${styles.delete_acidity}`}>
-                <h3 className={styles.delete_item_title}>7：酸の質</h3>
-                <p>
-                  {ItemData.acidity}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.acidityMessage}</p>
-                <p>{ItemData.acidityStrength}</p>
-              </div>
-
-              <div
-                className={`${styles.delete_item} ${styles.delete_mouthfeel}`}
-              >
-                <h3 className={styles.delete_item_title}>8：口に含んだ質感</h3>
-                <p>
-                  {ItemData.mouthfeel}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.mouthfeelMessage}</p>
-                <p>{ItemData.bodyStrength}</p>
-              </div>
-              <div className={`${styles.delete_item} ${styles.delete_flavor}`}>
-                <h3 className={styles.delete_item_title}>9：フレーバー</h3>
-                <p>
-                  {ItemData.flavor}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.flavorMessage}</p>
-              </div>
-
-              <div className={`${styles.delete_item} ${styles.delete_after}`}>
-                <h3 className={styles.delete_item_title}>10：後味の印象度</h3>
-                <p>
-                  {ItemData.after}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.afterMessage}</p>
-              </div>
-              <div className={`${styles.delete_item} ${styles.delete_balance}`}>
-                <h3 className={styles.delete_item_title}>11：バランス</h3>
-                <p>
-                  {ItemData.balance}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-                <h4 className={styles.delete_item_memo}>
-                  <span className={styles.delete_yellow_color}>memo</span>
-                </h4>
-                <p>{ItemData.balanceMessage}</p>
-              </div>
-
-              <div className={`${styles.delete_item} ${styles.delete_overall}`}>
-                <h3 className={styles.delete_item_title}>12：総合評価</h3>
-                <p>
-                  {ItemData.overall}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-              </div>
-              <div className={`${styles.delete_item} ${styles.delete_total}`}>
-                <h3 className={styles.delete_item_title}>13：TOTAL（+36）</h3>
-                <p>
-                  {ItemData.result}
-                  <span className={styles.delete_yellow_color}>点</span>
-                  <span>（＋３６）</span>
-                </p>
-                <p>
-                  {ItemData.total}
-                  <span className={styles.delete_yellow_color}>点</span>
-                </p>
-              </div>
-
-              <div
-                className={`${styles.delete_item} ${styles.delete_impression}`}
-              >
-                <h3 className={styles.delete_item_title}>14：味の印象</h3>
-                <p>{ItemData.impression}</p>
-              </div>
-            </div>
-            {/* <DeleteBtnForm data={ItemData._id} /> */}
-            <div className={styles.delete_popup}>
-              <div className={styles.delete_box}>
-                <p className={styles.page_title}>削除しますか？</p>
-                <form>
-                  <DeleteBtn data={ItemData._id} />
-                </form>
-                <button>
-                  <Link href={"/pages/selection"} passHref>
-                    キャンセル
-                  </Link>
-                </button>
-              </div>
-            </div>
+        <div className={styles.delete_popup}>
+          <div className={styles.delete_box}>
+            <p className={styles.page_title}>削除しますか？</p>
+            <form>
+              <DeleteBtn data={ItemData._id} />
+            </form>
+            <button>
+              <Link href={"/pages/selection"} passHref>
+                キャンセル
+              </Link>
+            </button>
           </div>
         </div>
       </>
