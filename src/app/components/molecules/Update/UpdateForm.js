@@ -970,11 +970,11 @@ export function UpdateForm(data) {
                 </div>
               </div>
             </div>
-            <div className={styles.btn_box}>
+            <div className={styles.edit_btn_box}>
               <CreateBtn />
             </div>
           </form>
-          <div className={styles.btn_box}>
+          <div className={styles.edit_btn_box}>
             <HomeBtn />
           </div>
         </div>

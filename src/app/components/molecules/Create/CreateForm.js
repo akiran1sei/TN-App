@@ -1063,7 +1063,7 @@ export function CreateForm() {
                 </div>
               </div>
             </div>
-            <div className={styles.btn_box}>
+            <div className={styles.edit_btn_box}>
               {error && (
                 <span
                   onChange={(e) => setError(e.target.value)}
