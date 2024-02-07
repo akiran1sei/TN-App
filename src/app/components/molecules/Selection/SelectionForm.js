@@ -26,7 +26,11 @@ export function SelectionForm(context) {
             >
               <div className={`${styles.select_btn_box} ${styles.btn_box}`}>
                 <button className={styles.icon_btn}>
-                  <Link href={`/pages/delete/${beans._id}`} passHref>
+                  <Link
+                    href={`/pages/delete/${beans._id}`}
+                    scroll={false}
+                    passHref
+                  >
                     <Image
                       src="/images/delete_img.svg"
                       alt="削除ボタン"
@@ -37,7 +41,11 @@ export function SelectionForm(context) {
                   </Link>
                 </button>
                 <button className={styles.icon_btn}>
-                  <Link href={`/pages/update/${beans._id}`} passHref>
+                  <Link
+                    href={`/pages/update/${beans._id}`}
+                    scroll={false}
+                    passHref
+                  >
                     <Image
                       src="/images/edit_img.svg"
                       alt="編集ボタン"
@@ -53,7 +61,11 @@ export function SelectionForm(context) {
                 </div> */}
 
                 <button className={styles.icon_btn}>
-                  <Link href={`/pages/browse/${beans._id}`} passHref>
+                  <Link
+                    href={`/pages/browse/${beans._id}`}
+                    scroll={false}
+                    passHref
+                  >
                     <Image
                       src="/images/visibility_img.svg"
                       alt="閲覧ボタン"

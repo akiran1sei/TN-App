@@ -127,7 +127,7 @@ export function RegisterForm(data) {
         <div className={signs.sign_TextRow}>
           登録済みのかたは、
           <span className={signs.sign_LinkText}>
-            <Link href={"/user/login"} passHref>
+            <Link href={"/user/login"} scroll={false} passHref>
               Loginページ
             </Link>
           </span>

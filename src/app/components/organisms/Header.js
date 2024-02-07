@@ -41,12 +41,12 @@ export function Header() {
         >
           <ul className={header.menu_list}>
             <li className={header.menu_item}>
-              <Link href={"/pages/selection"} passHref>
+              <Link href={"/pages/selection"} scroll={false} passHref>
                 Select
               </Link>
             </li>
             <li className={header.menu_item}>
-              <Link href={"/pages/create"} passHref>
+              <Link href={"/pages/create"} scroll={false} passHref>
                 New
               </Link>
             </li>
@@ -65,12 +65,12 @@ export function Header() {
       >
         <ul className={header.menu_list}>
           <li className={header.menu_item}>
-            <Link href={"/pages/sign-in"} passHref>
+            <Link href={"/pages/sign-in"} scroll={false} passHref>
               Sign In
             </Link>
           </li>
           <li className={header.menu_item}>
-            <Link href={"/pages/sign-up"} passHref>
+            <Link href={"/pages/sign-up"} scroll={false} passHref>
               Sign Up
             </Link>
           </li>
@@ -115,12 +115,12 @@ export function Header() {
         >
           <ul className={header.menu_list}>
             <li className={header.menu_item}>
-              <Link href={"/user/login"} passHref>
+              <Link href={"/user/login"} scroll={false} passHref>
                 Login
               </Link>
             </li>
             <li className={header.menu_item}>
-              <Link href={"/user/register"} passHref>
+              <Link href={"/user/register"} scroll={false} passHref>
                 SignUp
               </Link>
             </li>

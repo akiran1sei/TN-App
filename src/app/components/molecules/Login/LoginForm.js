@@ -106,7 +106,7 @@ export function LoginForm() {
         <div className={signs.sign_TextRow}>
           未登録のかたは、
           <span className={signs.sign_LinkText}>
-            <Link href={"/user/register"} passHref>
+            <Link href={"/user/register"} scroll={false} passHref>
               SignUpページ
             </Link>
           </span>
