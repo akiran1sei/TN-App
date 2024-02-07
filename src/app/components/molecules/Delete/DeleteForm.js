@@ -15,9 +15,10 @@ export function DeleteForm(data) {
         <div className={styles.delete_data}>
           <table border="0" className={styles.delete_list}>
             <tbody>
-              <tr className={styles.delete_number}>
-                <td className={styles.delete_item_title}>No.</td>
-                <td className={styles.delete_item_value}>1</td>
+              <tr>
+                <td className={styles.delete_item_number} colSpan={2}>
+                  No.1
+                </td>
               </tr>
               <tr>
                 <td className={styles.delete_item_title}>Date</td>
@@ -158,7 +159,7 @@ export function DeleteForm(data) {
               <DeleteBtn data={ItemData._id} />
             </form>
             <button>
-              <Link href={"/pages/selection"} passHref>
+              <Link href={"/pages/selection"} scroll={false} passHref>
                 キャンセル
               </Link>
             </button>

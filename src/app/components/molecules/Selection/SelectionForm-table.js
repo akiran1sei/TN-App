@@ -16,31 +16,12 @@ export function SelectionForm(context) {
             <table border="0" className={styles.select_list} key={beans._id}>
               <tbody>
                 <tr>
-                  <td className={`${styles.select_btn_box} ${styles.btn_box}`}>
-                    <button className={styles.icon_btn}>
-                      <Link href={`/pages/delete/${beans._id}`} passHref>
-                        <Image
-                          src="/images/delete_img.svg"
-                          alt="削除ボタン"
-                          width={48}
-                          height={48}
-                          priority
-                        />
-                      </Link>
-                    </button>
-                    <button className={styles.icon_btn}>
-                      <Link href={`/pages/update/${beans._id}`} passHref>
-                        <Image
-                          src="/images/edit_img.svg"
-                          alt="編集ボタン"
-                          width={48}
-                          height={48}
-                          priority
-                        />
-                      </Link>
-                    </button>
+                  <td
+                    className={`${styles.select_item_value} ${styles.select_item_number}`}
+                    colSpan={2}
+                  >
+                    No.1
                   </td>
-                  <td className={styles.select_item_value}>No.1</td>
                 </tr>
 
                 <tr>
@@ -55,7 +36,7 @@ export function SelectionForm(context) {
                   <td className={styles.select_item_title}>
                     Coffee
                     <br />
-                    /Number
+                    Number
                   </td>
                   <td className={styles.select_item_value}>{beans.coffee}</td>
                 </tr>
@@ -168,6 +149,57 @@ export function SelectionForm(context) {
                   <td className={styles.select_item_title}>Impression</td>
                   <td className={styles.select_item_value}>
                     {beans.impression}
+                  </td>
+                </tr>
+                <tr>
+                  <td className={styles.select_btn} colSpan={2}>
+                    <div className={styles.select_btn_box}>
+                      <button className={styles.icon_btn}>
+                        <Link
+                          href={`/pages/delete/${beans._id}`}
+                          scroll={false}
+                          passHref
+                        >
+                          <Image
+                            src="/images/delete_img.svg"
+                            alt="削除ボタン"
+                            width={48}
+                            height={48}
+                            priority
+                          />
+                        </Link>
+                      </button>
+                      <button className={styles.icon_btn}>
+                        <Link
+                          href={`/pages/update/${beans._id}`}
+                          scroll={false}
+                          passHref
+                        >
+                          <Image
+                            src="/images/edit_img.svg"
+                            alt="編集ボタン"
+                            width={48}
+                            height={48}
+                            priority
+                          />
+                        </Link>
+                      </button>
+                      <button className={styles.icon_btn}>
+                        <Link
+                          href={`/pages/browse/${beans._id}`}
+                          scroll={false}
+                          passHref
+                        >
+                          <Image
+                            src="/images/visibility_img.svg"
+                            alt="閲覧ボタン"
+                            width={48}
+                            height={48}
+                            priority
+                          />
+                        </Link>
+                      </button>
+                    </div>
                   </td>
                 </tr>
               </tbody>

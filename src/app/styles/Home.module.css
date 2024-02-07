@@ -207,28 +207,20 @@
 
 /* 
 
-----------select ----------
+---------------select ---------------
+---------------delete ---------------
+
 
 */
-/* -----.select_list_box----- */
-.select_list_box {
-  width: 100%;
-  max-width: 767px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: center;
-  align-items: stretch;
-}
-@media screen and (min-width: 768px) {
-  .select_list_box {
-    max-width: none;
-  }
-}
+/* 
 
+-----select_list-----
+-----.delete_list-----
+
+*/
 /* table表示 */
-.select_list {
+.select_list,
+.delete_list {
   width: 100%;
   max-width: 320px;
   display: block;
@@ -236,39 +228,63 @@
   padding: 0.5rem;
   border: 1px solid var(--color-yellow);
 }
+/* 
 
-/*-----.select_item-----*/
+-----.select_list_box-----
+-----.delete_list_box-----
+-----.delete_data-----
 
-@media screen and (min-width: 630px) and (max-width: 767px) {
-  .view > .select_sp_list {
-    margin: 0 auto auto 1rem;
-  }
-  .view > .select_list {
-    margin: 2rem 1rem auto auto;
-  }
-}
-
-.select_item {
+*/
+.select_list_box,
+.delete_data {
   width: 100%;
-  height: auto;
-  display: grid;
-  text-align: center;
+  max-width: 767px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
 }
-.select_item_value {
-  text-align: center;
+@media screen and (min-width: 768px) {
+  .select_list_box,
+  .delete_list_box {
+    max-width: 1000px;
+  }
+}
+
+/*
+
+-----select_item_*****-----
+-----delete_item_*****-----
+
+*/
+
+.select_item_value,
+.delete_item_value {
   width: 100%;
+  text-align: center;
+  border-top: 1px solid;
+  line-height: 2;
 }
-.select_item_text,
-.browse_item_text,
-.delete_item_text {
-  font-size: var(--font-size-small);
+.select_item_number {
+  border: none;
 }
+.delete_item_number {
+  width: 100%;
+  text-align: center;
+  line-height: 2;
+}
+
 .select_item_title,
-.select_sp_item_title {
+.delete_item_title {
   font-size: var(--font-size-base);
   color: var(--color-yellow);
+  border-top: 1px solid;
+  line-height: 2;
 }
-
+.select_btn {
+  width: 100%;
+}
 .select_btn_box {
   width: 100%;
   display: flex;
@@ -276,29 +292,24 @@
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-evenly;
-  grid-area: 1/1/2/2;
-}
-.btn_box {
-  display: flex;
 }
 
-/*-----select_item_aroma_table
-      browse_item_aroma_table
-      delete_item_aroma_table
------*/
+/*
+
+-----select_item_aroma_table-----
+-----delete_item_aroma_table-----
+
+*/
 .select_item_aroma_table,
-.browse_item_aroma_table,
 .delete_item_aroma_table {
   margin: 0 auto;
   width: 100%;
 }
 .select_item_aroma_table_row,
-.browse_item_aroma_table_row,
 .delete_item_aroma_table_row {
   line-height: 1em;
 }
 .select_item_aroma_header,
-.browse_item_aroma_header,
 .delete_item_aroma_header {
   font-size: var(--font-size-small);
   color: var(--color-yellow);
@@ -307,14 +318,13 @@
   text-align: center;
 }
 .select_aroma_value,
-.browse_aroma_value,
 .delete_aroma_value {
   font-size: var(--font-size-small);
 }
 
 /* 
 
-delete_popup
+-----delete_popup-----
 
 */
 
@@ -346,9 +356,6 @@ delete_popup
   transform: translateX(-50%);
 }
 
-/* @media screen and (min-width: 768px) and (max-width: 1000px) {
- 
-} */
 /* grid-layout 1000px*/
 @media screen and (min-width: 768px) {
 }
@@ -357,19 +364,19 @@ delete_popup
 
 ----------edit----------
 ----------browse----------
-----------delete----------
+
 
 
 
 */
 
-.edit,
+/* .edit,
 .browse,
 .delete {
   width: 100%;
   margin: 2rem 0;
   text-align: end;
-}
+} */
 
 /* -----edit_point----- */
 .edit_point {
@@ -520,25 +527,26 @@ delete_popup
 
 /* -----edit_data-----
    -----browse_data-----
-   -----delete_data-----
+  
     */
 .edit_data,
-.browse_data,
-.delete_data {
+.browse_data {
   display: block;
 }
 
+.browse_item_text {
+  font-size: var(--font-size-small);
+}
 /* 
 
 ----------edit_list----------
 ----------browse_list----------
-----------delete_list----------
+
 
 
 */
 .edit_list,
-.browse_list,
-.delete_list {
+.browse_list {
   width: 100%;
   height: auto;
   position: relative;
@@ -557,15 +565,13 @@ delete_popup
 }
 @media screen and (min-width: 768px) {
   .edit_list,
-  .browse_list,
-  .delete_list {
+  .browse_list {
     min-width: 768px;
   }
 }
 @media screen and (min-width: 1000px) {
   .edit_list,
-  .browse_list,
-  .delete_list {
+  .browse_list {
     max-width: 1000px;
   }
 }
@@ -596,12 +602,10 @@ delete_popup
 
 ----------edit_item----------
 ----------browse_item--------
-----------delete_item--------
 
 */
 .edit_item,
-.browse_item,
-.delete_item {
+.browse_item {
   width: 100%;
   max-width: 500px;
   height: 100%;
@@ -616,13 +620,10 @@ delete_popup
 }
 
 .edit_overall,
-.browse_overall,
-.delete_overall {
+.browse_overall {
   justify-content: flex-start !important;
 }
-.edit_item_value,
-.browse_item_value,
-.delete_item_value {
+.edit_item_value {
   display: inline-block;
   /* width: 150px; */
   width: auto;
@@ -631,9 +632,7 @@ delete_popup
   font-size: var(--font-size-small);
   text-align: center;
 }
-.edit_item_value_box,
-.browse_item_value_box,
-.delete_item_value_box {
+.edit_item_value_box {
   width: 100%;
   position: relative;
 }
@@ -646,20 +645,17 @@ delete_popup
 .edit_item.mouthfeel,
 .edit_item.acidity,
 .browse_item.mouthfeel,
-.browse_item.acidity,
-.delete_item.mouthfeel,
-.delete_item.acidity {
+.browse_item.acidity {
   justify-content: flex-start !important;
 }
 
 /* 
 -----edit_item_title-----
 -----browse_item_title-----
------delete_item_title-----
+
 */
 .edit_item_title,
-.browse_item_title,
-.delete_item_title {
+.browse_item_title {
   margin: 0.5rem 0 1rem 0;
   border-bottom: 3px solid var(--color-yellow);
 }
@@ -674,11 +670,10 @@ delete_popup
 /* 
 -----edit_item_message-----
 -----browse_item_message-----
------delete_item_message-----
+
 */
 .edit_item_message,
-.browse_item_message,
-.delete_item_message {
+.browse_item_message {
   width: 90%;
   height: 150px;
 }
@@ -749,7 +744,16 @@ delete_popup
   margin: 0.5rem;
   background: var(--color-white);
 }
+/* -----.edit_btn_box----- */
 
+.edit_btn_box {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 /*
 -----edit_submit-box-----
 -----browse_return_btn_box-----
@@ -848,7 +852,7 @@ grid-layout 768px
             -----browse-----
             -----delete-----
 */
-@media screen and (min-width: 768px) and (max-width: 1000px) {
+/* @media screen and (min-width: 768px) and (max-width: 1000px) {
   .browse_date,
   .delete_date {
     position: absolute;
@@ -934,16 +938,15 @@ grid-layout 768px
   .delete_error {
     grid-area: 11/1/11/3;
   }
-}
+} */
 /* 
 ----------grid-layout 1000px----------
             -----edit-----
             -----browse-----
             -----delete-----
 */
-@media screen and (min-width: 1000px) {
-  .browse_date,
-  .delete_date {
+/* @media screen and (min-width: 1000px) {
+  .browse_date {
     position: absolute;
     right: 0;
   }
@@ -1028,7 +1031,7 @@ grid-layout 768px
     width: 100%;
     grid-area: 9/1/10/4;
   }
-}
+} */
 /* browse_yellow_color */
 .browse_yellow_color,
 .delete_yellow_color {
