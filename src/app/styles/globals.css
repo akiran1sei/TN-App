@@ -5,7 +5,14 @@
   --color-black: #333;
   --color-white: #fffffe;
   --color-yellow: #dba52c;
-  --color-yellow-light: #dba52ccc;
+  --color-yellow-80: #dba52ccc;
+  --color-yellow-70: #dba52cb3;
+  --color-yellow-60: #dba52c99;
+  --color-yellow-50: #dba52c80;
+  --color-yellow-40: #dba52c66;
+  --color-yellow-30: #dba52c4d;
+  --color-yellow-20: #dba52c33;
+  --color-yellow-10: #dba52c1a;
   --color-box-shadow: #333333b3;
   --color-linear-gradient-radial: radial-gradient(
     54% 54% at 50% 50%,
