@@ -35,7 +35,7 @@ export function SelectionForm(context) {
                 <tr>
                   <td className={styles.select_item_title}>
                     Coffee
-                    <br />
+                    <wbr />
                     Number
                   </td>
                   <td className={styles.select_item_value}>{beans.coffee}</td>
