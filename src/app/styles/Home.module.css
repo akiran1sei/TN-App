@@ -461,6 +461,7 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+
 /* -----edit_point----- */
 .edit_point {
   width: 30px;
@@ -612,18 +613,9 @@
 
   
     */
-.edit_data {
+.edit_contents {
   display: block;
 }
-
-/* 
-
-----------edit_list----------
-
-
-
-
-*/
 .edit_list {
   width: 100%;
   height: auto;
@@ -638,8 +630,6 @@
   justify-items: center;
   margin: 2rem auto;
   text-align: center;
-  border: 1px solid var(--color-yellow);
-  box-shadow: -2px 2px 3px var(--color-box-shadow);
 }
 @media screen and (min-width: 768px) {
   .edit_list,
@@ -653,35 +643,6 @@
     max-width: 1000px;
   }
 }
-
-/* 
-
-----------edit_input---------
-
-*/
-
-.edit_input_name {
-  width: 90%;
-  padding-left: 0.5rem;
-}
-/* @media screen and (min-width: 1000px) {
-  .edit_input_name {
-    width: 50%;
-  }
-} */
-.edit_input_range {
-  width: 200px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--color-linear-gradient-linear);
-}
-
-/* 
-
-----------edit_item----------
-
-
-*/
 .edit_item {
   width: 100%;
   max-width: 500px;
@@ -695,6 +656,36 @@
   justify-content: space-between;
   position: relative;
 }
+.edit_input_box {
+  width: 100%;
+}
+.edit_item_message_box {
+  width: 100%;
+}
+.edit_item_message {
+  width: 100%;
+}
+.edit_input_date {
+}
+.edit_input_name {
+  width: 100%;
+}
+
+.edit_input_roast {
+  width: 90%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--color-linear-gradient-linear);
+}
+.edit_roast_value {
+}
+
+/* 
+
+----------edit_item----------
+
+
+*/
 
 .edit_overall,
 .browse_overall {
@@ -740,10 +731,7 @@
 .edit_item_sub_title {
   font-size: var(--font-size-small);
 }
-/* edit_item_message_box */
-.edit_item_message_box {
-  width: 100%;
-}
+
 /* 
 -----edit_item_message-----
 
