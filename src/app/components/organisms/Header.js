@@ -26,11 +26,13 @@ export function Header() {
                 ? `${header["button"]} ${header["active"]}`
                 : header["button"]
             }
+            type="button"
             onClick={handleButtonClick}
           >
             <span className={header.menu_bar}></span>
             <span className={header.menu_bar}></span>
             <span className={header.menu_bar}></span>
+            <span className={header.visuallyHidden}>メニュー</span>
           </button>
         </div>
 

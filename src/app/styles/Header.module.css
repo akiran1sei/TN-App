@@ -160,3 +160,12 @@
 .active .menu_bar:nth-child(3) {
   transform: rotate(-45deg) translateY(-2px);
 }
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
