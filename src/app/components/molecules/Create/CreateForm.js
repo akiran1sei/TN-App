@@ -10,6 +10,7 @@ export function CreateForm() {
   // const [username, setUserName] = useState("");
   const [coffee, setCoffee] = useState("");
   const [roast, setRoast] = useState("50");
+  const [roastValue, setRoastValue] = useState("");
   const [roastMessage, setRoastMessage] = useState("");
   const [aromaDryStrength, setAromaDryStrength] = useState("");
   const [aromaCrustStrength, setAromaCrustStrength] = useState("");
@@ -50,6 +51,31 @@ export function CreateForm() {
   const handleEditListButton = () => {
     setIsEditContents(!isEditContents);
   };
+
+  function RoastSelect() {
+    const NumberRoast = Number(roast);
+    if (NumberRoast >= 0 && NumberRoast <= 15) {
+      return "ライトロースト";
+    } else if (NumberRoast > 15 && NumberRoast <= 30) {
+      return "シナモンロースト";
+    } else if (NumberRoast > 30 && NumberRoast <= 45) {
+      return "ミディアムロースト";
+    } else if (NumberRoast > 45 && NumberRoast <= 60) {
+      return "ハイロースト";
+    } else if (NumberRoast > 60 && NumberRoast <= 75) {
+      return "シティロースト";
+    } else if (NumberRoast > 75 && NumberRoast <= 90) {
+      return "フルシティロースト";
+    } else if (NumberRoast > 90 && NumberRoast < 100) {
+      return "フレンチロースト";
+    } else if (NumberRoast === 100) {
+      return "イタリアンロースト";
+    }
+  }
+
+  console.log(RoastSelect());
+  const roastArticle = RoastSelect();
+  console.log(roastArticle);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -121,7 +147,7 @@ export function CreateForm() {
             body: JSON.stringify({
               coffee: coffee,
               roast: roast,
-              roastMessage: roastMessage,
+              roastMessage: roastValue,
               aromaDryStrength: aromaDryStrength,
               aromaCrustStrength: aromaCrustStrength,
               aromaBreakStrength: aromaBreakStrength,
@@ -299,16 +325,18 @@ export function CreateForm() {
           </ul>
         </div>
 
-        <div className={styles.edit_data}>
-          <form onSubmit={handleSubmit} className={styles.edit_main}>
-            <input
-              type="date"
-              name="date"
-              id="date"
-              className={styles.edit_date}
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
+        <div className={styles.edit_contents}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.edit_input_box}>
+              <input
+                type="date"
+                name="date"
+                id="date"
+                className={styles.edit_input_date}
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </div>
             <div className={styles.edit_list}>
               {/* 選択式 */}
 
@@ -316,28 +344,30 @@ export function CreateForm() {
                 <label htmlFor="coffee" className={styles.edit_item_title}>
                   1：珈琲豆 or 番号
                 </label>
-                <input
-                  className={styles.edit_input_name}
-                  type="text"
-                  name="coffee"
-                  id="coffee"
-                  width={300}
-                  height={50}
-                  placeholder="名前 or 番号"
-                  value={coffee}
-                  onChange={(e) => setCoffee(e.target.value)}
-                />
+                <div className={styles.edit_input_box}>
+                  <input
+                    className={styles.edit_input_name}
+                    type="text"
+                    name="coffee"
+                    id="coffee"
+                    width={"30"}
+                    height={50}
+                    placeholder="名前 or 番号"
+                    value={coffee}
+                    onChange={(e) => setCoffee(e.target.value)}
+                  />
+                </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_roast}`}>
                 <label htmlFor="roast" className={styles.edit_item_title}>
                   2：ロースト
                 </label>
-                <div className={styles.edit_item_value_box}>
+                <div className={styles.edit_input_box}>
                   <input
                     type="range"
                     name="roast"
                     id="roast"
-                    className={styles.edit_input_range}
+                    className={styles.edit_input_roast}
                     value={roast}
                     list="roast_value"
                     onChange={(e) => setRoast(e.target.value)}
@@ -352,20 +382,22 @@ export function CreateForm() {
                     <option value="90">フレンチ</option>
                     <option value="100">イタリアン</option>
                   </datalist>
-
                   <p className={styles.edit_roast_value}>{roast}%</p>
-                </div>
-                <div className={styles.edit_item_message_box}>
-                  <label htmlFor="roast-message">memo</label>
-                  <br />
-                  <textarea
-                    className={styles.edit_item_message}
-                    name="roast-message"
-                    id="roast-message"
-                    placeholder="ローストの参考にしてください。0%：ライト、15%：シナモン、30%：ミディアム、45%：ハイ、60%：シティ、75%：フルシティ、90%：フレンチ、100%：イタリアン"
-                    value={roastMessage}
-                    onChange={(e) => setRoastMessage(e.target.value)}
-                  ></textarea>
+
+                  <input type="hidden" value={roastArticle} />
+                  <output>{roastArticle}</output>
+                  <div className={styles.edit_item_message_box}>
+                    <label htmlFor="roast-message">memo</label>
+                    <br />
+                    <textarea
+                      className={styles.edit_item_message}
+                      name="roast-message"
+                      id="roast-message"
+                      placeholder="ご記入ください。"
+                      value={roastMessage}
+                      onChange={(e) => setRoastMessage(e.target.value)}
+                    ></textarea>
+                  </div>
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_aroma}`}>
@@ -543,7 +575,7 @@ export function CreateForm() {
                     </div>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="aroma_message">memo</label>
                   <br />
                   <textarea
@@ -605,7 +637,7 @@ export function CreateForm() {
                     value={defects}
                     onChange={(e) => setDefects(e.target.value)}
                   />
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="defects-message">memo</label>
                     <br />
                     <textarea
@@ -650,7 +682,7 @@ export function CreateForm() {
                     </select>
                   </div>
 
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="cleancap-message">memo</label>
                     <br />
                     <textarea
@@ -694,7 +726,7 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="sweet-message">memo</label>
                     <br />
                     <textarea
@@ -762,7 +794,7 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="acidity-message">memo</label>
                   <br />
                   <textarea
@@ -829,7 +861,7 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="mouthfeel-message">memo</label>
                   <br />
                   <textarea
@@ -872,7 +904,7 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="flavor-message">memo</label>
                     <br />
                     <textarea
@@ -918,7 +950,7 @@ export function CreateForm() {
                     </select>
                   </div>
 
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="after-message">memo</label>
                     <br />
                     <textarea
@@ -963,7 +995,7 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="balance-message">memo</label>
                   <br />
                   <textarea
@@ -1050,7 +1082,7 @@ export function CreateForm() {
                 <label htmlFor="impression" className={styles.edit_item_title}>
                   14：味の印象
                 </label>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   memo
                   <br />
                   <textarea
