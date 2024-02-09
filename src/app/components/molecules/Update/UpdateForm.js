@@ -204,8 +204,8 @@ export function UpdateForm(data) {
         <h1 className={styles.contents_title}>UP DATE</h1>
 
         <Inventory />
-        <div className={styles.edit_data}>
-          <form className={styles.edit_main} onSubmit={handleSubmit}>
+        <div className={styles.edit_contents}>
+          <form onSubmit={handleSubmit}>
             <input
               type="date"
               name="date"
@@ -271,7 +271,7 @@ export function UpdateForm(data) {
                   </datalist>
                   <p className={styles.edit_roast_value}>{roast}%</p>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="roast-message">memo</label>
                   <br />
                   <textarea
@@ -459,7 +459,7 @@ export function UpdateForm(data) {
                     </div>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="aroma_message">memo</label>
                   <br />
                   <textarea
@@ -520,7 +520,7 @@ export function UpdateForm(data) {
                     value={defects}
                     onChange={(e) => setDefects(e.target.value)}
                   />
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="defects-message">memo</label>
                     <br />
                     <textarea
@@ -563,7 +563,7 @@ export function UpdateForm(data) {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="cleancap-message">memo</label>
                     <br />
                     <textarea
@@ -606,7 +606,7 @@ export function UpdateForm(data) {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="sweet-message">memo</label>
                     <br />
                     <textarea
@@ -673,7 +673,7 @@ export function UpdateForm(data) {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="acidity-message">memo</label>
                   <br />
                   <textarea
@@ -739,7 +739,7 @@ export function UpdateForm(data) {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="mouthfeel-message">memo</label>
                   <br />
                   <textarea
@@ -781,7 +781,7 @@ export function UpdateForm(data) {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="flavor-message">memo</label>
                     <br />
                     <textarea
@@ -824,7 +824,7 @@ export function UpdateForm(data) {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message_box}>
+                  <div className={styles.edit_item_message}>
                     <label htmlFor="after-message">memo</label>
                     <br />
                     <textarea
@@ -868,7 +868,7 @@ export function UpdateForm(data) {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   <label htmlFor="balance-message">memo</label>
                   <br />
                   <textarea
@@ -957,7 +957,7 @@ export function UpdateForm(data) {
                 <label htmlFor="impression" className={styles.edit_item_title}>
                   14：味の印象
                 </label>
-                <div className={styles.edit_item_message_box}>
+                <div className={styles.edit_item_message}>
                   memo
                   <br />
                   <textarea
