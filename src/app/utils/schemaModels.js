@@ -10,6 +10,7 @@ const BeansSchema = new Schema(
     email: String,
     coffee: String,
     roast: String,
+    roastDegree: String,
     roastMessage: String,
     aromaDryStrength: String,
     aromaCrustStrength: String,
