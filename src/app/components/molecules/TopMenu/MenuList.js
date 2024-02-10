@@ -14,7 +14,7 @@ export function MenuList() {
         </h1>
         <ul className={styles.top_nav_list}>
           <li className={styles.top_nav_item}>
-            <button className={styles.top_btn}>
+            <button type="button" className={styles.top_btn}>
               <Link href={"/pages/selection"} scroll={false} passHref>
                 Start
               </Link>
@@ -31,7 +31,7 @@ export function MenuList() {
         </h1>
         <ul className={styles.top_nav_list}>
           <li className={styles.top_nav_item}>
-            <button className={styles.top_btn}>
+            <button type="button" className={styles.top_btn}>
               <Link href={"/user/login"} scroll={false} passHref>
                 Login
               </Link>
@@ -39,7 +39,7 @@ export function MenuList() {
           </li>
 
           <li className={styles.top_nav_item}>
-            <button className={styles.top_btn}>
+            <button type="button" className={styles.top_btn}>
               <Link href={"/user/register"} scroll={false} passHref>
                 SignUp
               </Link>

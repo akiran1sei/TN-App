@@ -15,7 +15,7 @@ export function SelectionForm(context) {
   const list = limitedData.map((beans) => (
     <div className={styles.select_list} key={beans._id}>
       <div className={`${styles.select_btn_box} ${styles.btn_box}`}>
-        <button className={styles.icon_btn}>
+        <button type="button" className={styles.icon_btn}>
           <Link href={`/pages/delete/${beans._id}`} scroll={false} passHref>
             <Image
               src="/images/delete_img.svg"
@@ -26,7 +26,7 @@ export function SelectionForm(context) {
             />
           </Link>
         </button>
-        <button className={styles.icon_btn}>
+        <button type="button" className={styles.icon_btn}>
           <Link href={`/pages/update/${beans._id}`} scroll={false} passHref>
             <Image
               src="/images/edit_img.svg"
@@ -37,7 +37,7 @@ export function SelectionForm(context) {
             />
           </Link>
         </button>
-        <button className={styles.icon_btn}>
+        <button type="button" className={styles.icon_btn}>
           <Link href={`/pages/browse/${beans._id}`} scroll={false} passHref>
             {/* <Link href={`/pages/${beans._id}`} scroll={false} passHref> */}
             <Image
@@ -88,7 +88,9 @@ export function SelectionForm(context) {
         <div className={styles.select_list_box}>{list}</div>
 
         {limit < data.length && (
-          <button onClick={handleShowMore}>もっと見る</button>
+          <button type="button" onClick={handleShowMore}>
+            もっと見る
+          </button>
         )}
       </>
     );

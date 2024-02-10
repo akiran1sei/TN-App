@@ -25,7 +25,7 @@ export function SelectionForm(context) {
               key={beans._id}
             >
               <div className={`${styles.select_btn_box} ${styles.btn_box}`}>
-                <button className={styles.icon_btn}>
+                <button type="button" className={styles.icon_btn}>
                   <Link
                     href={`/pages/delete/${beans._id}`}
                     scroll={false}
@@ -40,7 +40,7 @@ export function SelectionForm(context) {
                     />
                   </Link>
                 </button>
-                <button className={styles.icon_btn}>
+                <button type="button" className={styles.icon_btn}>
                   <Link
                     href={`/pages/update/${beans._id}`}
                     scroll={false}
@@ -56,11 +56,11 @@ export function SelectionForm(context) {
                   </Link>
                 </button>
                 {/* <div className={styles.triangle_btn} onClick={handleListButton}>
-                  <button className={styles.open_btn}></button>
-                  <button className={styles.close_btn}></button>
+                  <button type="button" className={styles.open_btn}></button>
+                  <button type="button" className={styles.close_btn}></button>
                 </div> */}
 
-                <button className={styles.icon_btn}>
+                <button type="button" className={styles.icon_btn}>
                   <Link
                     href={`/pages/browse/${beans._id}`}
                     scroll={false}

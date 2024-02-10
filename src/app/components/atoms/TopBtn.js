@@ -7,9 +7,9 @@ export function TopBtn() {
 
   return (
     <button
+      type="button"
       className={styles.text_btn}
       onClick={() => router.replace("/")}
-      type="button"
     >
       Top
     </button>

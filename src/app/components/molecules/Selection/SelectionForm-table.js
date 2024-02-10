@@ -154,7 +154,7 @@ export function SelectionForm(context) {
                 <tr>
                   <td className={styles.select_btn} colSpan={2}>
                     <div className={styles.select_btn_box}>
-                      <button className={styles.icon_btn}>
+                      <button type="button" className={styles.icon_btn}>
                         <Link
                           href={`/pages/delete/${beans._id}`}
                           scroll={false}
@@ -169,7 +169,7 @@ export function SelectionForm(context) {
                           />
                         </Link>
                       </button>
-                      <button className={styles.icon_btn}>
+                      <button type="button" className={styles.icon_btn}>
                         <Link
                           href={`/pages/update/${beans._id}`}
                           scroll={false}
@@ -184,7 +184,7 @@ export function SelectionForm(context) {
                           />
                         </Link>
                       </button>
-                      <button className={styles.icon_btn}>
+                      <button type="button" className={styles.icon_btn}>
                         <Link
                           href={`/pages/browse/${beans._id}`}
                           scroll={false}

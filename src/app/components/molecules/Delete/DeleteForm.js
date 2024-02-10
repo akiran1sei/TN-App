@@ -158,7 +158,7 @@ export function DeleteForm(data) {
             <form>
               <DeleteBtn data={ItemData._id} />
             </form>
-            <button>
+            <button type="button">
               <Link href={"/pages/selection"} scroll={false} passHref>
                 キャンセル
               </Link>

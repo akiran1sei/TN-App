@@ -14,8 +14,8 @@ export function TriangleBtn() {
       }
     >
       <div className={styles.btn_box} onClick={handleListButton}>
-        <button className={styles.open_btn}></button>
-        <button className={styles.close_btn}></button>
+        <button type="button" className={styles.open_btn}></button>
+        <button type="button" className={styles.close_btn}></button>
       </div>
     </div>
   );

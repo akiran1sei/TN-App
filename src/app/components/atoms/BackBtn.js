@@ -7,9 +7,9 @@ export function BackBtn() {
 
   return (
     <button
+      type="button"
       className={styles.icon_btn}
       onClick={() => router.replace("/")}
-      type="button"
     >
       <Image
         src="/images/undo_img.svg"

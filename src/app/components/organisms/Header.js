@@ -21,12 +21,12 @@ export function Header() {
 
         <div className={header.header_button}>
           <button
+            type="button"
             className={
               isActive
                 ? `${header["button"]} ${header["active"]}`
                 : header["button"]
             }
-            type="button"
             onClick={handleButtonClick}
           >
             <span className={header.menu_bar}></span>
@@ -53,7 +53,7 @@ export function Header() {
               </Link>
             </li>
             {/* <li className={header.menu_item}>
-            <button onClick={() => signOut(() => router.push("/"))}>
+            <button type="button" onClick={() => signOut(() => router.push("/"))}>
               Sign out
             </button>
           </li> */}
@@ -89,6 +89,7 @@ export function Header() {
 
         <div className={header.header_button}>
           <button
+            type="button"
             className={
               isActive
                 ? `${header["button"]} ${header["active"]}`

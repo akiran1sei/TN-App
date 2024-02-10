@@ -214,7 +214,11 @@ export function CreateForm() {
           }
         >
           <div className={styles.edit_toc}>
-            <button className={styles.button} onClick={handleEditListButton}>
+            <button
+              type="button"
+              className={styles.button}
+              onClick={handleEditListButton}
+            >
               編集目次<span className={styles.edit_toc_open}>▼</span>
               <span className={styles.edit_toc_close}>△</span>
             </button>

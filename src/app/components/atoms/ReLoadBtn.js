@@ -7,7 +7,7 @@ export function ReLoadBtn() {
   };
 
   return (
-    <button onClick={handleClick} className={styles.icon_btn}>
+    <button type="button" onClick={handleClick} className={styles.icon_btn}>
       <Image
         src="/images/refresh_img.svg"
         alt="リロードボタン"

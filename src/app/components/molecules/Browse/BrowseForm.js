@@ -306,7 +306,7 @@ export function BrowseForm(context) {
         <div className={styles.browse_btn_box}>
           <HomeBtn />
 
-          <button className={styles.icon_btn}>
+          <button type="button" className={styles.icon_btn}>
             <Link href={`../update/${data.singleItem._id}`} passHref>
               <Image
                 src="/images/edit_img.svg"
@@ -317,7 +317,7 @@ export function BrowseForm(context) {
               />
             </Link>
           </button>
-          <button className={styles.icon_btn}>
+          <button type="button" className={styles.icon_btn}>
             <Link href={`../delete/${data.singleItem._id}`} passHref>
               <Image
                 src="/images/delete_img.svg"
