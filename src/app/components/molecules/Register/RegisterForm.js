@@ -122,7 +122,7 @@ export function RegisterForm(data) {
               />
             </button>
           </div>
-          <button type="button" className={signs.sign_submitBtn}>
+          <button type="submit" className={signs.sign_submitBtn}>
             登録
           </button>
         </form>

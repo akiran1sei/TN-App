@@ -101,7 +101,7 @@ export function LoginForm() {
               />
             </button>
           </div>
-          <button type="button" className={signs.sign_submitBtn}>
+          <button type="submit" className={signs.sign_submitBtn}>
             ログイン
           </button>
         </form>

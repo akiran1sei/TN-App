@@ -45,7 +45,7 @@ export function BrowseForm(context) {
             <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>2:ロースト</h3>
               <div className={styles.browse_item_value}>
-                {data.singleItem.roast}%
+                {data.singleItem.roastDegree}：{data.singleItem.roast}%
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -307,7 +307,11 @@ export function BrowseForm(context) {
           <HomeBtn />
 
           <button type="button" className={styles.icon_btn}>
-            <Link href={`../update/${data.singleItem._id}`} passHref>
+            <Link
+              href={`../update/${data.singleItem._id}`}
+              scroll={false}
+              passHref
+            >
               <Image
                 src="/images/edit_img.svg"
                 alt="編集ボタン"
@@ -318,7 +322,11 @@ export function BrowseForm(context) {
             </Link>
           </button>
           <button type="button" className={styles.icon_btn}>
-            <Link href={`../delete/${data.singleItem._id}`} passHref>
+            <Link
+              href={`../delete/${data.singleItem._id}`}
+              scroll={false}
+              passHref
+            >
               <Image
                 src="/images/delete_img.svg"
                 alt="削除ボタン"
