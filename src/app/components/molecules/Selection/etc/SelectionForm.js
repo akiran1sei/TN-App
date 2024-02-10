@@ -2,7 +2,7 @@
 import styles from "@/app/styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import useAuth from "../../../utils/useAuth";
+import useAuth from "../../../../utils/useAuth";
 import { useState } from "react";
 export function SelectionForm(context) {
   const loginUserEmail = useAuth();
