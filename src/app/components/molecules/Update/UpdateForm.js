@@ -15,6 +15,7 @@ export function UpdateForm(data) {
 
   const [coffee, setCoffee] = useState(singleData.coffee);
   const [roast, setRoast] = useState(singleData.roast);
+  const [roastDegree, setRoastDegree] = useState(singleData.roastDegree);
   const [roastMessage, setRoastMessage] = useState(singleData.roastMessage);
   const [aromaDryStrength, setAromaDryStrength] = useState(
     singleData.aromaDryStrength
@@ -73,6 +74,29 @@ export function UpdateForm(data) {
   const loginUserEmail = useAuth();
 
   const URL = `/api/update/${singleData._id}`;
+  function RoastArticle() {
+    const NumberRoast = Number(roast);
+    if (NumberRoast >= 0 && NumberRoast <= 15) {
+      return "ライトロースト";
+    } else if (NumberRoast > 15 && NumberRoast <= 30) {
+      return "シナモンロースト";
+    } else if (NumberRoast > 30 && NumberRoast <= 45) {
+      return "ミディアムロースト";
+    } else if (NumberRoast > 45 && NumberRoast <= 60) {
+      return "ハイロースト";
+    } else if (NumberRoast > 60 && NumberRoast <= 75) {
+      return "シティロースト";
+    } else if (NumberRoast > 75 && NumberRoast <= 90) {
+      return "フルシティロースト";
+    } else if (NumberRoast > 90 && NumberRoast < 100) {
+      return "フレンチロースト";
+    } else if (NumberRoast === 100) {
+      return "イタリアンロースト";
+    }
+  }
+  console.log(RoastArticle());
+  const RoastSelect = RoastArticle();
+  console.log(RoastSelect);
   const sum =
     Number(cleancap) +
     Number(sweet) +
@@ -88,6 +112,7 @@ export function UpdateForm(data) {
     _id: singleData._id,
     coffee: coffee,
     roast: roast,
+    roastDegree: roastDegree,
     roastMessage: roastMessage,
     aromaDryStrength: aromaDryStrength,
     aromaCrustStrength: aromaCrustStrength,
@@ -134,6 +159,8 @@ export function UpdateForm(data) {
         return alert("未記入:名前または、番号を入力してください");
       } else if (!roast || null) {
         return alert("未記入:roastを入力してください");
+      } else if (!roastDegree || null) {
+        return setError("未記入:roastDegreeを選択してください");
       } else if (!aromaDryStrength || null) {
         return alert("未記入:アロマのドライ（強さ）を入力してください");
       } else if (!aromaCrustStrength || null) {
@@ -254,7 +281,7 @@ export function UpdateForm(data) {
                     type="range"
                     name="roast"
                     id="roast"
-                    className={styles.edit_input_range}
+                    className={styles.edit_input_roast}
                     value={roast}
                     list="roast_value"
                     onChange={(e) => setRoast(e.target.value)}
@@ -269,7 +296,39 @@ export function UpdateForm(data) {
                     <option value="90">フレンチ</option>
                     <option value="100">イタリアン</option>
                   </datalist>
-                  <p className={styles.edit_roast_value}>{roast}%</p>
+                  <p className={styles.edit_roast_value}>
+                    <output>{RoastSelect}</output>
+                    {roast}%
+                  </p>
+                  <br />
+                  <label
+                    htmlFor="roast-degree"
+                    className={styles.edit_item_sub_title}
+                  >
+                    焙煎度
+                  </label>
+                  <select
+                    name="roast-degree"
+                    id="roast-degree"
+                    value={roastDegree}
+                    onChange={(e) => setRoastDegree(e.target.value)}
+                  >
+                    <option></option>
+                    <option value="ライトロースト">ライトロースト</option>
+                    <option value="シナモンロースト">シナモンロースト</option>
+                    <option value="ミディアムロースト">
+                      ミディアムロースト
+                    </option>
+                    <option value="ハイロースト">ハイロースト</option>
+                    <option value="シティロースト">シティロースト</option>
+                    <option value="フルシティロースト">
+                      フルシティロースト
+                    </option>
+                    <option value="フレンチロースト">フレンチロースト</option>
+                    <option value="イタリアンロースト">
+                      イタリアンロースト
+                    </option>
+                  </select>
                 </div>
                 <div className={styles.edit_item_message}>
                   <label htmlFor="roast-message">memo</label>
@@ -278,7 +337,7 @@ export function UpdateForm(data) {
                     className={styles.edit_item_message}
                     name="roast-message"
                     id="roast-message"
-                    placeholder="ローストの参考にしてください。0%：ライト、15%：シナモン、30%：ミディアム、45%：ハイ、60%：シティ、75%：フルシティ、90%：フレンチ、100%：イタリアン"
+                    placeholder="ご自由にご記入ください。"
                     value={roastMessage}
                     onChange={(e) => setRoastMessage(e.target.value)}
                   ></textarea>

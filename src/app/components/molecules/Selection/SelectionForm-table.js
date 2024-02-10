@@ -41,6 +41,12 @@ export function SelectionForm(context) {
                   <td className={styles.select_item_value}>{beans.coffee}</td>
                 </tr>
                 <tr>
+                  <td className={styles.select_item_title}>RoastDegree</td>
+                  <td className={styles.select_item_value}>
+                    {beans.roastDegree}
+                  </td>
+                </tr>
+                <tr>
                   <td className={styles.select_item_title}>Roast</td>
                   <td className={styles.select_item_value}>{beans.roast}％</td>
                 </tr>

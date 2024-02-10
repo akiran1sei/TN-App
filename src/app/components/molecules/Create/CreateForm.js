@@ -10,7 +10,7 @@ export function CreateForm() {
   // const [username, setUserName] = useState("");
   const [coffee, setCoffee] = useState("");
   const [roast, setRoast] = useState("50");
-  const [roastValue, setRoastValue] = useState("");
+  const [roastDegree, setRoastDegree] = useState();
   const [roastMessage, setRoastMessage] = useState("");
   const [aromaDryStrength, setAromaDryStrength] = useState("");
   const [aromaCrustStrength, setAromaCrustStrength] = useState("");
@@ -52,7 +52,7 @@ export function CreateForm() {
     setIsEditContents(!isEditContents);
   };
 
-  function RoastSelect() {
+  function RoastArticle() {
     const NumberRoast = Number(roast);
     if (NumberRoast >= 0 && NumberRoast <= 15) {
       return "ライトロースト";
@@ -72,10 +72,9 @@ export function CreateForm() {
       return "イタリアンロースト";
     }
   }
-
-  console.log(RoastSelect());
-  const roastArticle = RoastSelect();
-  console.log(roastArticle);
+  console.log(RoastArticle());
+  const RoastSelect = RoastArticle();
+  console.log(RoastSelect);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -95,6 +94,8 @@ export function CreateForm() {
         return setError("未記入:名前または、番号を入力してください");
       } else if (!roast || null) {
         return setError("未記入:roastを入力してください");
+      } else if (!roastDegree || null) {
+        return setError("未記入:roastDegreeを選択してください");
       } else if (!aromaDryStrength || null) {
         return setError("未記入:アロマのドライ（強さ）を入力してください");
       } else if (!aromaCrustStrength || null) {
@@ -142,12 +143,12 @@ export function CreateForm() {
         const response = // フォームの入力値をサーバーに送信する
           await fetch(URL, {
             cache: "no-store",
-
             method: "POST",
             body: JSON.stringify({
               coffee: coffee,
               roast: roast,
-              roastMessage: roastValue,
+              roastDegree: roastDegree,
+              roastMessage: roastMessage,
               aromaDryStrength: aromaDryStrength,
               aromaCrustStrength: aromaCrustStrength,
               aromaBreakStrength: aromaBreakStrength,
@@ -187,10 +188,10 @@ export function CreateForm() {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           });
+
         const jsonData = await response.json();
-
         alert(jsonData.message);
-
+        console.log(await jsonData);
         return router.replace("/pages/selection");
       }
     } catch (error) {
@@ -369,6 +370,8 @@ export function CreateForm() {
                 <div className={styles.edit_input_box}>
                   <input
                     type="range"
+                    min="0"
+                    max="100"
                     name="roast"
                     id="roast"
                     className={styles.edit_input_roast}
@@ -386,10 +389,39 @@ export function CreateForm() {
                     <option value="90">フレンチ</option>
                     <option value="100">イタリアン</option>
                   </datalist>
-                  <p className={styles.edit_roast_value}>{roast}%</p>
-
-                  <input type="hidden" value={roastArticle} />
-                  <output>{roastArticle}</output>
+                  <p className={styles.edit_roast_value}>
+                    <output>{RoastSelect}</output>
+                    {roast}%
+                  </p>
+                  <br />
+                  <label
+                    htmlFor="roast-degree"
+                    className={styles.edit_item_sub_title}
+                  >
+                    焙煎度
+                  </label>
+                  <select
+                    name="roast-degree"
+                    id="roast-degree"
+                    value={roastDegree}
+                    onChange={(e) => setRoastDegree(e.target.value)}
+                  >
+                    <option></option>
+                    <option value="ライトロースト">ライトロースト</option>
+                    <option value="シナモンロースト">シナモンロースト</option>
+                    <option value="ミディアムロースト">
+                      ミディアムロースト
+                    </option>
+                    <option value="ハイロースト">ハイロースト</option>
+                    <option value="シティロースト">シティロースト</option>
+                    <option value="フルシティロースト">
+                      フルシティロースト
+                    </option>
+                    <option value="フレンチロースト">フレンチロースト</option>
+                    <option value="イタリアンロースト">
+                      イタリアンロースト
+                    </option>
+                  </select>
                   <div className={styles.edit_item_message_box}>
                     <label htmlFor="roast-message">memo</label>
                     <br />
@@ -397,7 +429,7 @@ export function CreateForm() {
                       className={styles.edit_item_message}
                       name="roast-message"
                       id="roast-message"
-                      placeholder="ご記入ください。"
+                      placeholder="ご自由にご記入ください。"
                       value={roastMessage}
                       onChange={(e) => setRoastMessage(e.target.value)}
                     ></textarea>
@@ -586,7 +618,7 @@ export function CreateForm() {
                     className={styles.edit_item_message}
                     name="aroma_message"
                     id="aroma_message"
-                    placeholder="ご記入ください。"
+                    placeholder="ご自由にご記入ください。"
                     value={aromaMessage}
                     onChange={(e) => setAromaMessage(e.target.value)}
                   ></textarea>
@@ -648,7 +680,7 @@ export function CreateForm() {
                       className={styles.edit_item_message}
                       name="defects-message"
                       id="defects-message"
-                      placeholder="ご記入ください。"
+                      placeholder="ご自由にご記入ください。"
                       value={defectsMessage}
                       onChange={(e) => setDefectsMessage(e.target.value)}
                     ></textarea>
@@ -693,7 +725,7 @@ export function CreateForm() {
                       className={styles.edit_item_message}
                       name="cleancap-message"
                       id="cleancap-message"
-                      placeholder="ご記入ください。"
+                      placeholder="ご自由にご記入ください。"
                       value={cleancapMessage}
                       onChange={(e) => setCleancapMessage(e.target.value)}
                     ></textarea>
@@ -737,7 +769,7 @@ export function CreateForm() {
                       className={styles.edit_item_message}
                       name="sweet-message"
                       id="sweet-message"
-                      placeholder="ご記入ください。"
+                      placeholder="ご自由にご記入ください。"
                       value={sweetMessage}
                       onChange={(e) => setSweetMessage(e.target.value)}
                     ></textarea>
@@ -805,7 +837,7 @@ export function CreateForm() {
                     className={styles.edit_item_message}
                     name="acidity-message"
                     id="acidity-message"
-                    placeholder="ご記入ください。"
+                    placeholder="ご自由にご記入ください。"
                     value={acidityMessage}
                     onChange={(e) => setAcidityMessage(e.target.value)}
                   ></textarea>
@@ -872,7 +904,7 @@ export function CreateForm() {
                     className={styles.edit_item_message}
                     name="mouthfeel-message"
                     id="mouthfeel-message"
-                    placeholder="ご記入ください。"
+                    placeholder="ご自由にご記入ください。"
                     value={mouthfeelMessage}
                     onChange={(e) => setMouthfeelMessage(e.target.value)}
                   ></textarea>
@@ -915,7 +947,7 @@ export function CreateForm() {
                       className={styles.edit_item_message}
                       name="flavor-message"
                       id="flavor-message"
-                      placeholder="ご記入ください。"
+                      placeholder="ご自由にご記入ください。"
                       value={flavorMessage}
                       onChange={(e) => setFlavorMessage(e.target.value)}
                     ></textarea>
@@ -961,7 +993,7 @@ export function CreateForm() {
                       className={styles.edit_item_message}
                       name="after-message"
                       id="after-message"
-                      placeholder="ご記入ください。"
+                      placeholder="ご自由にご記入ください。"
                       value={afterMessage}
                       onChange={(e) => setAfterMessage(e.target.value)}
                     ></textarea>
@@ -1006,7 +1038,7 @@ export function CreateForm() {
                     className={styles.edit_item_message}
                     name="balance-message"
                     id="balance-message"
-                    placeholder="ご記入ください。"
+                    placeholder="ご自由にご記入ください。"
                     value={balanceMessage}
                     onChange={(e) => setBalanceMessage(e.target.value)}
                   ></textarea>

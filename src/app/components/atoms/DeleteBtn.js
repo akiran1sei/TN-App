@@ -28,7 +28,7 @@ export function DeleteBtn(context) {
   }
   return (
     <>
-      <button type="button" onClick={handleSubmit}>
+      <button type="submit" onClick={handleSubmit}>
         削除する
       </button>
     </>

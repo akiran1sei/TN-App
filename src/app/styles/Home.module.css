@@ -673,6 +673,7 @@
 
 .edit_input_roast {
   width: 90%;
+  border-radius: 10px;
   -webkit-appearance: none;
   appearance: none;
   background: var(--color-linear-gradient-linear);
