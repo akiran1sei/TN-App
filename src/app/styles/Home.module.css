@@ -464,6 +464,15 @@
 
 /* -----edit_point----- */
 .edit_point {
+  position: relative;
+  width: 100%;
+  height: auto;
+  top: 15px;
+}
+/* .active.edit_point {
+  height: auto !important;
+} */
+.edit_point_btn {
   width: 30px;
   height: 30px;
   display: flex;
@@ -472,72 +481,50 @@
   align-items: center;
   margin: 0;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0%;
+  left: 50%;
+  border: 2px solid var(--color-yellow);
+  border-radius: 50px;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
 
-  /* transform: translateX(60%); */
-}
-.edit_point_open {
-  color: var(--color-white);
-  margin: 0;
-}
-.active.edit_point_btn > .edit_point_open {
+.edit_point_memo {
   display: none;
 }
-.edit_point_close {
+.edit_point_text {
+}
+.edit_point_txtBox {
+  margin-top: 2rem;
+}
+.active > .edit_point_tail {
   display: none;
 }
-.active.edit_point_btn > .edit_point_close {
-  display: block;
-  color: var(--color-white);
-  margin: 0;
-}
-.edit_point_tail {
-  width: 0;
-  height: 0;
-  display: inline-block;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: -36%;
-  transform: translate(50%, -50%);
-  border-top: 10px solid transparent;
-  border-right: 10px solid var(--color-yellow);
-  border-bottom: 10px solid transparent;
-}
-.active > .edit_point_btn > .edit_point_tail {
-  display: none;
-}
-.edit_point_btn {
-  width: 100%;
-  height: 100%;
-  background: var(--color-yellow);
-  border-radius: 50%;
-  position: relative;
-  z-index: 100;
-}
-/* .active > .edit_point_btn {
+
+.active > .edit_point_btn {
   background: var(--color-white);
-} */
+}
+
 .edit_point_list {
   display: none;
 }
-.active > .edit_point_list {
-  width: 70%;
+.active > .edit_point_memo {
+  width: 100%;
   max-width: 350px;
   height: auto;
   font-size: var(--font-size-small);
-  color: var(--color-white);
+  color: var(--color-black);
+  border: 2px solid var(--color-yellow);
   border-radius: 10px;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: flex-start;
-  position: absolute;
+  /* position: absolute;
   top: 0;
   right: 50%;
-  transform: translateX(50%);
-  background: var(--color-yellow);
+  transform: translateX(50%); */
+  background: var(--color-white);
   padding: 1rem;
   z-index: 0;
 }
@@ -548,14 +535,23 @@
 
 */
 .edit_number {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  z-index: var(--z-index-popup);
   margin: 1rem;
   padding: 1rem;
-  border: 2px solid var(--color-box-shadow);
-  background: var(--color-white);
-  color: var(--color-yellow);
+  /* border: 2px solid var(--color-box-shadow); */
+  border-radius: 10px;
+  background: var(--color-yellow);
+  color: var(--color-white);
   text-align: start;
 }
-
+.active.edit_number {
+  width: auto;
+  height: 80vh;
+  overflow-y: scroll;
+}
 /* edit_number_list */
 .edit_number_list {
   display: none;
@@ -569,13 +565,7 @@
   padding: 1rem;
   gap: 1rem;
   justify-content: center;
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 1rem;
-  gap: 1rem;
-  justify-content: center;
+
   flex-direction: column;
 }
 
@@ -584,9 +574,10 @@
 }
 /* edit_number_sup */
 .edit_number_sup {
-  margin-left: 1rem;
+  margin: 1rem;
   color: var(--color-black);
   font-size: var(--font-size-small);
+  font-weight: 600;
 }
 @media screen and (min-width: 1000px) {
   .edit_number_list {
@@ -594,14 +585,21 @@
   }
 }
 
-/* edit_toc_open */
+/* 
+
+---------edit_toc---------
+
+*/
+.edit_toc {
+  text-align: end;
+}
 .active > .edit_toc > .button .edit_toc_open {
   display: none;
 }
 .edit_toc_open {
   display: inline-block;
 }
-/* edit_toc_close */
+
 .active > .edit_toc > .button .edit_toc_close {
   display: inline-block;
 }
@@ -658,14 +656,20 @@
 }
 .edit_input_box {
   width: 100%;
+  position: relative;
 }
-.edit_item_message_box {
+.edit_item_messageBox {
   width: 100%;
+  height: auto;
+  margin-top: 3rem;
 }
 .edit_item_message {
   width: 100%;
 }
 .edit_input_date {
+  /* position: absolute;
+  top: 0;
+  right: 0; */
 }
 .edit_input_name {
   width: 100%;
@@ -731,16 +735,6 @@
 /* edit_item_sub_title */
 .edit_item_sub_title {
   font-size: var(--font-size-small);
-}
-
-/* 
------edit_item_message-----
-
-
-*/
-.edit_item_message {
-  width: 90%;
-  height: 150px;
 }
 
 /* edit_defects_calc */

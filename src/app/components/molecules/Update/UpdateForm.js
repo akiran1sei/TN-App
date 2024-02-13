@@ -7,6 +7,7 @@ import { Inventory } from "./Inventory";
 import { HomeBtn } from "../../../components/atoms/HomeBtn";
 import useAuth from "../../../utils/useAuth";
 import { CreateBtn } from "../../../components/atoms/CreateBtn";
+import Image from "next/image";
 
 export function UpdateForm(data) {
   const singleData = data.data;
@@ -71,6 +72,10 @@ export function UpdateForm(data) {
   const [overall, setOverall] = useState(singleData.overall);
   const [impression, setImpression] = useState(singleData.impression);
   const [date, setDate] = useState(singleData.date);
+  const [isPointContents, setIsPointContents] = useState(false);
+  const handlePointButton = () => {
+    setIsPointContents(!isPointContents);
+  };
   const loginUserEmail = useAuth();
 
   const URL = `/api/update/${singleData._id}`;
@@ -94,9 +99,7 @@ export function UpdateForm(data) {
       return "イタリアンロースト";
     }
   }
-  console.log(RoastArticle());
   const RoastSelect = RoastArticle();
-  console.log(RoastSelect);
   const sum =
     Number(cleancap) +
     Number(sweet) +
@@ -230,17 +233,19 @@ export function UpdateForm(data) {
       <>
         <h1 className={styles.contents_title}>UP DATE</h1>
 
-        <Inventory />
+        {/* <Inventory /> */}
         <div className={styles.edit_contents}>
           <form onSubmit={handleSubmit}>
-            <input
-              type="date"
-              name="date"
-              className={styles.edit_date}
-              placeholder="年／月／日"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
+            <div className={styles.edit_input_box}>
+              <input
+                type="date"
+                name="date"
+                className={styles.edit_input_date}
+                placeholder="年／月／日"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </div>
             <div className={styles.edit_list}>
               <div className={`${styles.edit_item} ${styles.edit_username}`}>
                 <label htmlFor="username" className={styles.edit_item_title}>
@@ -267,7 +272,7 @@ export function UpdateForm(data) {
                   id="coffee"
                   width={300}
                   height={50}
-                  placeholder="名前 or 番号"
+                  placeholder="珈琲豆 or 番号"
                   value={coffee}
                   onChange={(e) => setCoffee(e.target.value)}
                 />
@@ -517,10 +522,52 @@ export function UpdateForm(data) {
                       </p>
                     </div>
                   </div>
+                  <div
+                    className={
+                      isPointContents
+                        ? `${styles["edit_point"]} ${styles["active"]}`
+                        : styles["edit_point"]
+                    }
+                  >
+                    <button
+                      type="button"
+                      className={styles.edit_point_btn}
+                      onClick={handlePointButton}
+                    >
+                      <Image
+                        src="/images/priority_high_img.svg"
+                        alt="トップページボタン"
+                        width={24}
+                        height={24}
+                        priority
+                      />
+                    </button>
+
+                    <div className={styles.edit_point_memo}>
+                      <ul className={styles.edit_point_txtBox}>
+                        <li className={styles.edit_point_text}>
+                          『ドライ』:
+                          <wbr /> 粉の状態からアロマ
+                        </li>
+                        <li className={styles.edit_point_text}>
+                          『 クラスト』：
+                          <wbr />
+                          湯を注いだ直後のアロマ
+                        </li>
+                        <li className={styles.edit_point_text}>
+                          『ブレーク』：
+                          <wbr />
+                          混ぜた後のアロマ
+                        </li>
+                      </ul>
+                      <p className={styles.edit_point_text}>
+                        の３つで香りの強さ（左）と質（右）を評価
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className={styles.edit_item_message}>
+                <div className={styles.edit_item_messageBox}>
                   <label htmlFor="aroma_message">memo</label>
-                  <br />
                   <textarea
                     className={styles.edit_item_message}
                     name="aroma_message"
