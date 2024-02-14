@@ -6,6 +6,7 @@ import useAuth from "../../../utils/useAuth";
 import { useRouter } from "next/navigation";
 import { HomeBtn } from "../../../components/atoms/HomeBtn";
 import { CreateBtn } from "../../../components/atoms/CreateBtn";
+import Image from "next/image";
 export function CreateForm() {
   // const [username, setUserName] = useState("");
   const [coffee, setCoffee] = useState("");
@@ -44,6 +45,65 @@ export function CreateForm() {
   const [impression, setImpression] = useState("");
   const [date, setDate] = useState("");
   const [isEditContents, setIsEditContents] = useState(false);
+  const [isPointCoffeeNameContents, setIsPointCoffeeNameContents] =
+    useState(false);
+  const [isPointRoastContents, setIsPointRoastContents] = useState(false);
+  const [isPointAromaContents, setIsPointAromaContents] = useState(false);
+  const [isPointDefectsContents, setIsPointDefectsContents] = useState(false);
+  const [isPointCleancapContents, setIsPointCleancapContents] = useState(false);
+  const [isPointSweetContents, setIsPointSweetContents] = useState(false);
+  const [isPointAcidityContents, setIsPointAcidityContents] = useState(false);
+  const [isPointMouthfeelContents, setIsPointMouthfeelContents] =
+    useState(false);
+  const [isPointFlavorContents, setIsPointFlavorContents] = useState(false);
+  const [isPointAfterContents, setIsPointAfterContents] = useState(false);
+  const [isPointTotalContents, setIsPointTotalContents] = useState(false);
+  const [isPointBalanceContents, setIsPointBalanceContents] = useState(false);
+  const [isPointOverallContents, setIsPointOverallContents] = useState(false);
+  const [isPointImpressionContents, setIsPointImpressionContents] =
+    useState(false);
+  const handlePointCoffeeNameBtn = () => {
+    setIsPointCoffeeNameContents(!isPointCoffeeNameContents);
+  };
+  const handlePointRoastBtn = () => {
+    setIsPointRoastContents(!isPointRoastContents);
+  };
+  const handlePointAromaBtn = () => {
+    setIsPointAromaContents(!isPointAromaContents);
+  };
+  const handlePointDefectsBtn = () => {
+    setIsPointDefectsContents(!isPointDefectsContents);
+  };
+  const handlePointCleancapBtn = () => {
+    setIsPointCleancapContents(!isPointCleancapContents);
+  };
+  const handlePointSweetBtn = () => {
+    setIsPointSweetContents(!isPointSweetContents);
+  };
+  const handlePointAcidityBtn = () => {
+    setIsPointAcidityContents(!isPointAcidityContents);
+  };
+  const handlePointMouthfeelBtn = () => {
+    setIsPointMouthfeelContents(!isPointMouthfeelContents);
+  };
+  const handlePointFlavorBtn = () => {
+    setIsPointFlavorContents(!isPointFlavorContents);
+  };
+  const handlePointAfterBtn = () => {
+    setIsPointAfterContents(!isPointAfterContents);
+  };
+  const handlePointBalanceBtn = () => {
+    setIsPointBalanceContents(!isPointBalanceContents);
+  };
+  const handlePointOverallBtn = () => {
+    setIsPointOverallContents(!isPointOverallContents);
+  };
+  const handlePointTotalBtn = () => {
+    setIsPointTotalContents(!isPointTotalContents);
+  };
+  const handlePointImpressionBtn = () => {
+    setIsPointImpressionContents(!isPointImpressionContents);
+  };
   const router = useRouter();
 
   const URL = `/api/create`;
@@ -207,132 +267,10 @@ export function CreateForm() {
     return (
       <>
         <h1 className={styles.contents_title}>CREATE</h1>
-        <div
-          className={
-            isEditContents
-              ? `${styles["edit_number"]} ${styles["active"]}`
-              : styles["edit_number"]
-          }
-        >
-          <div className={styles.edit_toc}>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={handleEditListButton}
-            >
-              編集目次<span className={styles.edit_toc_open}>▼</span>
-              <span className={styles.edit_toc_close}>△</span>
-            </button>
-          </div>
-          <ul className={styles.edit_number_list}>
-            <li className={styles.edit_number_item}>
-              1:コーヒー豆の名前 or 番号
-              <br />
-              <span className={styles.edit_number_sup}>
-                豆の名前、又は、番号
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              2:ロースト <br />
-              <span className={styles.edit_number_sup}>焙煎具合</span>
-            </li>
-            <li className={styles.edit_number_item}>
-              3:アロマ
-              <br />
-              <span className={styles.edit_number_sup}>
-                粉の状態の『ドライ』
-                <br />
-                湯を注いだ直後の『クラスト』
-                <br />
-                混ぜた後の『ブレーク』
-                <br />
-                の３つで香りの強さ（左）と質（右）を評価
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              4:欠点・瑕疵
-              <br />
-              <span className={styles.edit_number_sup}>
-                スペシャルティコーヒーなどは、欠点・瑕疵がないことが多く『０』で進めることが多い
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              5:カップの綺麗さ
-              <br />
-              <span className={styles.edit_number_sup}>味わいの透明度</span>
-            </li>
-            <li className={styles.edit_number_item}>
-              6:甘さ
-              <br />
-              <span className={styles.edit_number_sup}>
-                味わいに甘味の印象が強ければ強い程よいとされる
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              7:酸の質
-              <br />
-              <span className={styles.edit_number_sup}>
-                H（high）M（middle）L（low）で酸の強さを計り、得点部分には質を評価。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              8:口に含んだ質感
-              <br />
-              <span className={styles.edit_number_sup}>
-                舌触りの滑らかさ。
-                H（high）M（middle）L（low）でボディの強さを表わす。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              9:フレーバー
-              <br />
-              <span className={styles.edit_number_sup}>風味の質を評価する</span>
-            </li>
-            <li className={styles.edit_number_item}>
-              10:後味の印象度
-              <br />
-              <span className={styles.edit_number_sup}>
-                後味は心地よいか、そうでないか評価。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              11:バランス
-              <br />
-              <span className={styles.edit_number_sup}>
-                「５～１０」の要素に悪目立ちしているものがなく、全体のバランスが良い程加点。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              12:総合評価
-              <br />
-              <span className={styles.edit_number_sup}>
-                味わいの奥行など項目にない点にも着目し、ここまでの評価に囚われず、主観で付ける。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              13:TOTAL
-              <br />
-              （+36）
-              <br />
-              <span className={styles.edit_number_sup}>
-                「４～１２」の得点に、定数３６点を足した１００点満点で評価。
-              </span>
-            </li>
-            <li className={styles.edit_number_item}>
-              14:味の印象
-              <br />
-              <span className={styles.edit_number_sup}>
-                具体的な味の印象を記入。フレーバーの表現もカッピングの重要な目的。
-                <br />
-                冷めていく過程で、味わいがどのように変化したかも都度メモしておくとよい。
-              </span>
-            </li>
-          </ul>
-        </div>
 
         <div className={styles.edit_contents}>
           <form onSubmit={handleSubmit}>
-            <div className={styles.edit_input_box}>
+            <div className={styles.edit_item_value_box}>
               <input
                 type="date"
                 name="date"
@@ -349,7 +287,7 @@ export function CreateForm() {
                 <label htmlFor="coffee" className={styles.edit_item_title}>
                   1：珈琲豆 or 番号
                 </label>
-                <div className={styles.edit_input_box}>
+                <div className={styles.edit_item_value_box}>
                   <input
                     className={styles.edit_input_name}
                     type="text"
@@ -362,12 +300,39 @@ export function CreateForm() {
                     onChange={(e) => setCoffee(e.target.value)}
                   />
                 </div>
+                <div
+                  className={
+                    isPointCoffeeNameContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointCoffeeNameBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      豆の名前、又は、番号
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_roast}`}>
                 <label htmlFor="roast" className={styles.edit_item_title}>
                   2：ロースト
                 </label>
-                <div className={styles.edit_input_box}>
+                <div className={styles.edit_item_value_box}>
                   <input
                     type="range"
                     min="0"
@@ -390,7 +355,12 @@ export function CreateForm() {
                     <option value="100">イタリアン</option>
                   </datalist>
                   <p className={styles.edit_roast_value}>
-                    <output>{RoastSelect}</output>
+                    <output>
+                      <span className={styles.edit_smallFont}>
+                        {RoastSelect}
+                      </span>
+                    </output>
+                    <br />
                     {roast}%
                   </p>
                   <br />
@@ -422,18 +392,47 @@ export function CreateForm() {
                       イタリアンロースト
                     </option>
                   </select>
-                  <div className={styles.edit_item_message_box}>
-                    <label htmlFor="roast-message">memo</label>
-                    <br />
-                    <textarea
-                      className={styles.edit_item_message}
-                      name="roast-message"
-                      id="roast-message"
-                      placeholder="ご自由にご記入ください。"
-                      value={roastMessage}
-                      onChange={(e) => setRoastMessage(e.target.value)}
-                    ></textarea>
+                </div>
+                <div
+                  className={
+                    isPointRoastContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointRoastBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      焙煎具合、パーセンテージによって焙煎度名が変化するので、
+                      <wbr />
+                      それに合わせて焙煎度の中から選んでください。
+                    </p>
                   </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
+                  <label htmlFor="roast-message">memo</label>
+                  <br />
+                  <textarea
+                    className={styles.edit_item_message}
+                    name="roast-message"
+                    id="roast-message"
+                    placeholder="ご自由にご記入ください。"
+                    value={roastMessage}
+                    onChange={(e) => setRoastMessage(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_aroma}`}>
@@ -442,9 +441,9 @@ export function CreateForm() {
                   －３～３
                   <br />
                   <div className={styles.edit_item_dry_box}>
-                    <p className={styles.edit_item_sub_title}>ドライ</p>
-                    {/* ドライ（強さ） */}
                     <div className={styles.edit_item_value_box}>
+                      <p className={styles.edit_item_sub_title}>ドライ</p>
+                      {/* ドライ（強さ） */}
                       <p className={styles.edit_item_value}>
                         <label
                           htmlFor="aroma-dry-strength"
@@ -497,8 +496,8 @@ export function CreateForm() {
                     </div>
                   </div>
                   <div className={styles.edit_item_crust_box}>
-                    <p className={styles.edit_item_sub_title}>クラスト</p>
                     <div className={styles.edit_item_value_box}>
+                      <p className={styles.edit_item_sub_title}>クラスト</p>
                       {/* クラスト（強さ） */}
                       <p className={styles.edit_item_value}>
                         <label
@@ -554,8 +553,8 @@ export function CreateForm() {
                     </div>
                   </div>
                   <div className={styles.edit_item_break_box}>
-                    <p className={styles.edit_item_sub_title}>ブレーク</p>
                     <div className={styles.edit_item_value_box}>
+                      <p className={styles.edit_item_sub_title}>ブレーク</p>
                       {/* ブレーク（強さ） */}
                       <p className={styles.edit_item_value}>
                         <label
@@ -611,7 +610,52 @@ export function CreateForm() {
                     </div>
                   </div>
                 </div>
-                <div className={styles.edit_item_message}>
+                <div
+                  className={
+                    isPointAromaContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointAromaBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <ul className={styles.edit_point_txtBox}>
+                      <li className={styles.edit_point_text}>
+                        <span className={styles.edit_yellow}>『ドライ』</span>
+                        <br /> 粉の状態からアロマ
+                      </li>
+                      <li className={styles.edit_point_text}>
+                        <span className={styles.edit_yellow}>
+                          『 クラスト』
+                        </span>
+                        <br />
+                        湯を注いだ直後のアロマ
+                      </li>
+                      <li className={styles.edit_point_text}>
+                        <span className={styles.edit_yellow}>『ブレーク』</span>
+                        <br />
+                        混ぜた後のアロマ
+                      </li>
+                    </ul>
+                    <p className={styles.edit_point_text}>
+                      の３つで香りの強さ（左）と質（右）を評価
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
                   <label htmlFor="aroma_message">memo</label>
                   <br />
                   <textarea
@@ -673,18 +717,45 @@ export function CreateForm() {
                     value={defects}
                     onChange={(e) => setDefects(e.target.value)}
                   />
-                  <div className={styles.edit_item_message}>
-                    <label htmlFor="defects-message">memo</label>
-                    <br />
-                    <textarea
-                      className={styles.edit_item_message}
-                      name="defects-message"
-                      id="defects-message"
-                      placeholder="ご自由にご記入ください。"
-                      value={defectsMessage}
-                      onChange={(e) => setDefectsMessage(e.target.value)}
-                    ></textarea>
+                </div>
+                <div
+                  className={
+                    isPointDefectsContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointDefectsBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      スペシャルティコーヒーなどは、欠点・瑕疵がないことが多く『０』で進めることが多い
+                    </p>
                   </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
+                  <label htmlFor="defects-message">memo</label>
+                  <br />
+                  <textarea
+                    className={styles.edit_item_message}
+                    name="defects-message"
+                    id="defects-message"
+                    placeholder="ご自由にご記入ください。"
+                    value={defectsMessage}
+                    onChange={(e) => setDefectsMessage(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_cleancap}`}>
@@ -717,19 +788,43 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
+                </div>
+                <div
+                  className={
+                    isPointCleancapContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointCleancapBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
 
-                  <div className={styles.edit_item_message}>
-                    <label htmlFor="cleancap-message">memo</label>
-                    <br />
-                    <textarea
-                      className={styles.edit_item_message}
-                      name="cleancap-message"
-                      id="cleancap-message"
-                      placeholder="ご自由にご記入ください。"
-                      value={cleancapMessage}
-                      onChange={(e) => setCleancapMessage(e.target.value)}
-                    ></textarea>
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>味わいの透明度</p>
                   </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
+                  <label htmlFor="cleancap-message">memo</label>
+                  <br />
+                  <textarea
+                    className={styles.edit_item_message}
+                    name="cleancap-message"
+                    id="cleancap-message"
+                    placeholder="ご自由にご記入ください。"
+                    value={cleancapMessage}
+                    onChange={(e) => setCleancapMessage(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_sweet}`}>
@@ -762,18 +857,45 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message}>
-                    <label htmlFor="sweet-message">memo</label>
-                    <br />
-                    <textarea
-                      className={styles.edit_item_message}
-                      name="sweet-message"
-                      id="sweet-message"
-                      placeholder="ご自由にご記入ください。"
-                      value={sweetMessage}
-                      onChange={(e) => setSweetMessage(e.target.value)}
-                    ></textarea>
+                </div>
+                <div
+                  className={
+                    isPointSweetContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointSweetBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      味わいに甘味の印象が強ければ強い程よいとされる
+                    </p>
                   </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
+                  <label htmlFor="sweet-message">memo</label>
+                  <br />
+                  <textarea
+                    className={styles.edit_item_message}
+                    name="sweet-message"
+                    id="sweet-message"
+                    placeholder="ご自由にご記入ください。"
+                    value={sweetMessage}
+                    onChange={(e) => setSweetMessage(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_acidity}`}>
@@ -830,7 +952,34 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message}>
+                <div
+                  className={
+                    isPointAcidityContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointAcidityBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      H（high）M（middle）L（low）で酸の強さを計り、得点部分には質を評価。
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
                   <label htmlFor="acidity-message">memo</label>
                   <br />
                   <textarea
@@ -897,7 +1046,36 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message}>
+                <div
+                  className={
+                    isPointMouthfeelContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointMouthfeelBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      舌触りの滑らかさ。
+                      <br />
+                      H（high）M（middle）L（low）でボディの強さを表わす。
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
                   <label htmlFor="mouthfeel-message">memo</label>
                   <br />
                   <textarea
@@ -940,7 +1118,34 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
-                  <div className={styles.edit_item_message}>
+                  <div
+                    className={
+                      isPointFlavorContents
+                        ? `${styles["edit_point"]} ${styles["active"]}`
+                        : styles["edit_point"]
+                    }
+                  >
+                    <button
+                      type="button"
+                      className={styles.edit_point_btn}
+                      onClick={handlePointFlavorBtn}
+                    >
+                      <Image
+                        src="/images/priority_high_img.svg"
+                        alt="エクスクラメーションボタン"
+                        width={24}
+                        height={24}
+                        priority
+                      />
+                    </button>
+
+                    <div className={styles.edit_point_memo}>
+                      <p className={styles.edit_point_text}>
+                        風味の質を評価する
+                      </p>
+                    </div>
+                  </div>
+                  <div className={styles.edit_item_messageBox}>
                     <label htmlFor="flavor-message">memo</label>
                     <br />
                     <textarea
@@ -985,19 +1190,45 @@ export function CreateForm() {
                       <option value={8}>8</option>
                     </select>
                   </div>
+                </div>
+                <div
+                  className={
+                    isPointAfterContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointAfterBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
 
-                  <div className={styles.edit_item_message}>
-                    <label htmlFor="after-message">memo</label>
-                    <br />
-                    <textarea
-                      className={styles.edit_item_message}
-                      name="after-message"
-                      id="after-message"
-                      placeholder="ご自由にご記入ください。"
-                      value={afterMessage}
-                      onChange={(e) => setAfterMessage(e.target.value)}
-                    ></textarea>
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      後味は心地よいか、そうでないか評価。
+                    </p>
                   </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
+                  <label htmlFor="after-message">memo</label>
+                  <br />
+                  <textarea
+                    className={styles.edit_item_message}
+                    name="after-message"
+                    id="after-message"
+                    placeholder="ご自由にご記入ください。"
+                    value={afterMessage}
+                    onChange={(e) => setAfterMessage(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_balance}`}>
@@ -1031,7 +1262,36 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.edit_item_message}>
+                <div
+                  className={
+                    isPointBalanceContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointBalanceBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      「５～１０」の要素に悪目立ちしているものがなく、
+                      <wbr />
+                      全体のバランスが良い程加点。
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
                   <label htmlFor="balance-message">memo</label>
                   <br />
                   <textarea
@@ -1075,9 +1335,35 @@ export function CreateForm() {
                     </select>
                   </div>
                 </div>
+                <div
+                  className={
+                    isPointOverallContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointOverallBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      味わいの奥行など項目にない点にも着目し、ここまでの評価に囚われず、主観で付ける。
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_total}`}>
-                <div className=""></div>
                 <label className={styles.edit_item_title}>
                   13：TOTAL（+36）
                 </label>
@@ -1096,6 +1382,33 @@ export function CreateForm() {
                         Number(overall)}
                     </output>
                     <span className={styles.edit_basic}>＋３６</span>
+                  </div>
+                </div>
+                <div
+                  className={
+                    isPointTotalContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointTotalBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      「４～１２」の得点に、定数３６点を足した１００点満点で評価。
+                    </p>
                   </div>
                 </div>
                 <div className={styles.edit_total_value}>
@@ -1118,7 +1431,36 @@ export function CreateForm() {
                 <label htmlFor="impression" className={styles.edit_item_title}>
                   14：味の印象
                 </label>
-                <div className={styles.edit_item_message}>
+                <div
+                  className={
+                    isPointImpressionContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointImpressionBtn}
+                  >
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
+
+                  <div className={styles.edit_point_memo}>
+                    <p className={styles.edit_point_text}>
+                      具体的な味の印象を記入。フレーバーの表現もカッピングの重要な目的。
+                      <br />
+                      冷めていく過程で、味わいがどのように変化したかも都度メモしておくとよい。
+                    </p>
+                  </div>
+                </div>
+                <div className={styles.edit_item_messageBox}>
                   memo
                   <br />
                   <textarea

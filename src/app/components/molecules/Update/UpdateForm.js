@@ -636,52 +636,50 @@ export function UpdateForm(data) {
                       </p>
                     </div>
                   </div>
-                  <div
-                    className={
-                      isPointAromaContents
-                        ? `${styles["edit_point"]} ${styles["active"]}`
-                        : styles["edit_point"]
-                    }
+                </div>
+                <div
+                  className={
+                    isPointAromaContents
+                      ? `${styles["edit_point"]} ${styles["active"]}`
+                      : styles["edit_point"]
+                  }
+                >
+                  <button
+                    type="button"
+                    className={styles.edit_point_btn}
+                    onClick={handlePointAromaBtn}
                   >
-                    <button
-                      type="button"
-                      className={styles.edit_point_btn}
-                      onClick={handlePointAromaBtn}
-                    >
-                      <Image
-                        src="/images/priority_high_img.svg"
-                        alt="エクスクラメーションボタン"
-                        width={24}
-                        height={24}
-                        priority
-                      />
-                    </button>
+                    <Image
+                      src="/images/priority_high_img.svg"
+                      alt="エクスクラメーションボタン"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                  </button>
 
-                    <div className={styles.edit_point_memo}>
-                      <ul className={styles.edit_point_txtBox}>
-                        <li className={styles.edit_point_text}>
-                          <span className={styles.edit_yellow}>『ドライ』</span>
-                          <br /> 粉の状態からアロマ
-                        </li>
-                        <li className={styles.edit_point_text}>
-                          <span className={styles.edit_yellow}>
-                            『 クラスト』
-                          </span>
-                          <br />
-                          湯を注いだ直後のアロマ
-                        </li>
-                        <li className={styles.edit_point_text}>
-                          <span className={styles.edit_yellow}>
-                            『ブレーク』
-                          </span>
-                          <br />
-                          混ぜた後のアロマ
-                        </li>
-                      </ul>
-                      <p className={styles.edit_point_text}>
-                        の３つで香りの強さ（左）と質（右）を評価
-                      </p>
-                    </div>
+                  <div className={styles.edit_point_memo}>
+                    <ul className={styles.edit_point_txtBox}>
+                      <li className={styles.edit_point_text}>
+                        <span className={styles.edit_yellow}>『ドライ』</span>
+                        <br /> 粉の状態からアロマ
+                      </li>
+                      <li className={styles.edit_point_text}>
+                        <span className={styles.edit_yellow}>
+                          『 クラスト』
+                        </span>
+                        <br />
+                        湯を注いだ直後のアロマ
+                      </li>
+                      <li className={styles.edit_point_text}>
+                        <span className={styles.edit_yellow}>『ブレーク』</span>
+                        <br />
+                        混ぜた後のアロマ
+                      </li>
+                    </ul>
+                    <p className={styles.edit_point_text}>
+                      の３つで香りの強さ（左）と質（右）を評価
+                    </p>
                   </div>
                 </div>
                 <div className={styles.edit_item_messageBox}>
@@ -1143,7 +1141,7 @@ export function UpdateForm(data) {
                 </div>
                 <div
                   className={
-                    isPointDefectsContents
+                    isPointFlavorContents
                       ? `${styles["edit_point"]} ${styles["active"]}`
                       : styles["edit_point"]
                   }
