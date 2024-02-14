@@ -108,9 +108,9 @@ export function CreateForm() {
 
   const URL = `/api/create`;
   const loginUserEmail = useAuth();
-  const handleEditListButton = () => {
-    setIsEditContents(!isEditContents);
-  };
+  // const handleEditListButton = () => {
+  //   setIsEditContents(!isEditContents);
+  // };
 
   function RoastArticle() {
     const NumberRoast = Number(roast);
@@ -368,7 +368,7 @@ export function CreateForm() {
                     htmlFor="roast-degree"
                     className={styles.edit_item_sub_title}
                   >
-                    焙煎度
+                    焙煎度：
                   </label>
                   <select
                     name="roast-degree"

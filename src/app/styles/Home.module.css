@@ -526,23 +526,6 @@
   }
 }
 
-.edit_toc {
-  text-align: end;
-}
-.active > .edit_toc > .button .edit_toc_open {
-  display: none;
-}
-.edit_toc_open {
-  display: inline-block;
-}
-
-.active > .edit_toc > .button .edit_toc_close {
-  display: inline-block;
-}
-.edit_toc_close {
-  display: none;
-}
-
 .edit_contents {
   display: block;
 }
@@ -599,9 +582,8 @@
   width: 100%;
 }
 .edit_input_date {
-  /* position: absolute;
-  top: 0;
-  right: 0; */
+  width: 150px;
+  text-align: center;
 }
 .edit_input_name {
   width: 100%;
@@ -722,55 +704,6 @@
 .edit_smallFont {
   font-size: var(--font-size-small);
 }
-.icon_btn,
-.triangle_btn,
-.text_btn {
-  width: 48px;
-  height: 48px;
-
-  background: var(--color-white);
-  border: 2px solid var(--color-yellow);
-  border-radius: 50%;
-  box-shadow: 2px 2px 3px var(--color-box-shadow);
-}
-.icon_btn:active,
-.text_btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: inset 3px 3px 3px var(--color-black);
-  transition-duration: 0.2s;
-  background: var(--color-yellow-80);
-}
-.text_btn {
-  font-weight: bold;
-}
-
-.active .triangle_btn {
-  background: var(--color-yellow);
-}
-.open_btn {
-  width: 20px;
-  height: auto;
-  border-style: solid;
-  border-color: var(--color-yellow) transparent transparent transparent;
-  border-width: 25px 15px 0 15px;
-}
-.active .open_btn {
-  opacity: 0;
-  display: none;
-}
-.active .close_btn {
-  opacity: 1;
-  display: block;
-}
-.close_btn {
-  width: 20px;
-  height: auto;
-  border-style: dashed;
-  border-color: transparent transparent var(--color-white) transparent;
-  border-width: 0px 15px 25px 15px;
-  opacity: 0;
-  display: none;
-}
 
 .edit_error {
   color: red;
@@ -838,4 +771,73 @@
   .error_text {
     font-size: 300px;
   }
+}
+
+/* コンポーネントフォルダーのatomsフォルダーにて */
+.icon_btn,
+.triangle_btn,
+.text_btn {
+  width: 48px;
+  height: 48px;
+
+  background: var(--color-white);
+  border: 2px solid var(--color-yellow);
+  border-radius: 50%;
+  box-shadow: 2px 2px 3px var(--color-box-shadow);
+}
+.icon_btn:active,
+.text_btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 3px 3px 3px var(--color-black);
+  transition-duration: 0.2s;
+  background: var(--color-yellow-80);
+}
+.text_btn {
+  font-weight: bold;
+}
+
+.active .triangle_btn {
+  background: var(--color-yellow);
+}
+.open_btn {
+  width: 20px;
+  height: auto;
+  border-style: solid;
+  border-color: var(--color-yellow) transparent transparent transparent;
+  border-width: 25px 15px 0 15px;
+}
+.active .open_btn {
+  opacity: 0;
+  display: none;
+}
+.active .close_btn {
+  opacity: 1;
+  display: block;
+}
+.close_btn {
+  width: 20px;
+  height: auto;
+  border-style: dashed;
+  border-color: transparent transparent var(--color-white) transparent;
+  border-width: 0px 15px 25px 15px;
+  opacity: 0;
+  display: none;
+}
+
+/* Inventoryファイルにて */
+.edit_toc {
+  text-align: end;
+}
+.active > .edit_toc > .button .edit_toc_open {
+  display: none;
+}
+.edit_toc_open {
+  display: inline-block;
+}
+
+.active > .edit_toc > .button .edit_toc_close {
+  display: inline-block;
+}
+.edit_toc_close {
+  display: none;
 }

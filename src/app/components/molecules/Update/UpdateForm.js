@@ -395,7 +395,7 @@ export function UpdateForm(data) {
                     htmlFor="roast-degree"
                     className={styles.edit_item_sub_title}
                   >
-                    焙煎度
+                    焙煎度：
                   </label>
                   <select
                     name="roast-degree"
