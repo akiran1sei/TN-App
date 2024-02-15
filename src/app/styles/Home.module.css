@@ -181,6 +181,7 @@
   margin: 2rem auto;
   padding: 0.5rem;
   border: 1px solid var(--color-yellow);
+  table-layout: auto;
 }
 
 .select_list_box,
@@ -203,9 +204,12 @@
 .select_item_value,
 .delete_item_value {
   width: 100%;
+
+  height: auto;
   text-align: center;
   border-top: 1px solid;
   line-height: 2;
+  word-wrap: break-word;
 }
 .select_item_number {
   border: none;
@@ -218,6 +222,8 @@
 
 .select_item_title,
 .delete_item_title {
+  width: auto;
+  height: auto;
   font-size: var(--font-size-base);
   color: var(--color-yellow);
   border-top: 1px solid;
