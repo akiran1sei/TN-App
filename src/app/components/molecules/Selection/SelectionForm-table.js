@@ -12,7 +12,7 @@ export function SelectionForm(context) {
   };
   const data = context.data.allItems;
   const limitedData = data.slice(0, limit);
-  const list = limitedData.map((beans) => (
+  const list = limitedData.map((beans, index) => (
     <table border="0" className={styles.select_list} key={beans._id}>
       <tbody>
         <tr>
@@ -20,7 +20,7 @@ export function SelectionForm(context) {
             className={`${styles.select_item_value} ${styles.select_item_number}`}
             colSpan={2}
           >
-            No.1
+            No.{index + 1}
           </td>
         </tr>
 
