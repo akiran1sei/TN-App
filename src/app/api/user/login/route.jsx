@@ -1,4 +1,5 @@
 const { NextResponse } = require("next/server");
+import { cookies } from "next/headers";
 import connectDB from "@/app/utils/database";
 import { UserModel } from "@/app/utils/schemaModels";
 import { SignJWT } from "jose";
@@ -23,9 +24,24 @@ export async function POST(request) {
           .setExpirationTime(" 4h")
           .sign(secretKey);
 
+        async function create(data) {
+          cookies().set("name", "lee");
+          // or
+          cookies().set("name", "lee", { secure: true });
+          // or
+          cookies().set({
+            name: "name",
+            value: "lee",
+            httpOnly: true,
+            path: "/",
+          });
+        }
+        const cookie = create();
+
         return NextResponse.json({
           message: "ログイン成功",
           token: token,
+          cookies: cookie,
           status: 200,
         });
       } else {
