@@ -4,17 +4,12 @@ import { SelectionForm } from "@/app/components/molecules/Selection/SelectionFor
 import { revalidatePath } from "next/cache";
 
 const SelectionPage = async () => {
-  function LoginId() {
-    const cookieStore = cookies();
-    const dataEmail = cookieStore.get("dataEmail");
+  const GetCookies = cookies();
+  const dataId = GetCookies.get(`dataId`);
 
-    return dataEmail;
-  }
-  console.log(LoginId().value);
   // const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const AppUrl = `http://localhost:3000`;
-  const URL = `${AppUrl}/api/readall`;
-  // console.log(URL);
+  const URL = `${AppUrl}/api/mypage/${dataId.value}`;
   const response = await fetch(URL, {
     method: "GET",
     cache: "no-store",

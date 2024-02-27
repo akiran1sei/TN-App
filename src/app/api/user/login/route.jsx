@@ -26,7 +26,12 @@ export async function POST(request) {
           .setProtectedHeader({ alg: "HS256" })
           .setExpirationTime(" 4h")
           .sign(secretKey);
-
+        async function deleteCookie(data) {
+          cookies().delete("dataId");
+          cookies().delete("dataName");
+          cookies().delete("dataEmail");
+        }
+        deleteCookie();
         async function create(data) {
           cookies().set({
             name: "dataId",
@@ -43,19 +48,20 @@ export async function POST(request) {
               path: "/",
             }),
             cookies().set({
-              name: "a",
+              name: "dataEmail",
               value: UserEmail,
               secure: true,
               httpOnly: true,
               path: "/",
             });
         }
-        const cookie = create();
+
+        const NewCookie = create();
 
         return NextResponse.json({
           message: "ログイン成功",
           token: token,
-          cookies: cookie,
+          cookies: NewCookie,
           status: 200,
         });
       } else {

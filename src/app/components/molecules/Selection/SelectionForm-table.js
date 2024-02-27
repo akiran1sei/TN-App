@@ -10,7 +10,7 @@ export function SelectionForm(context) {
   const handleShowMore = () => {
     setLimit(limit + 5);
   };
-  const data = context.data.allItems;
+  const data = context.data.UserBeans;
   const limitedData = data.slice(0, limit);
   const list = limitedData.map((beans, index) => (
     <table border="0" className={styles.select_list} key={beans._id}>

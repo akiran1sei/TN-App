@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import useAuth from "../../utils/useAuth";
 // import { useRouter } from "next/navigation";
-export function Header() {
+export function Header(res) {
   const [isActive, setIsActive] = useState(false);
 
   // const router = useRouter();
@@ -50,6 +50,11 @@ export function Header() {
             <li className={header.menu_item}>
               <Link href={"/pages/create"} scroll={false} passHref>
                 New
+              </Link>
+            </li>
+            <li className={header.menu_item}>
+              <Link href={`/pages/mypage/${res.data}`} scroll={false} passHref>
+                MyPage
               </Link>
             </li>
             {/* <li className={header.menu_item}>
