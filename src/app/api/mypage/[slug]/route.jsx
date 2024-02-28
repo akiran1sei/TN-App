@@ -9,17 +9,23 @@ export async function GET(req, res) {
     await connectDB();
 
     const singleUser = await UserModel.findById(res.params.slug);
-    const UserBeans = await BeansModel.find({ email: singleUser.email });
+
+    const UserBeans = await BeansModel.find({ email: singleUser.email })
+      .sort({
+        date: -1,
+      })
+      .lean()
+      .exec();
 
     return NextResponse.json({
-      message: "読み取り成功（シングル）",
+      message: "読み取り成功（マイページ）",
       singleUser: singleUser,
       UserBeans: UserBeans,
       status: 200,
     });
   } catch (err) {
     return NextResponse.json({
-      message: "読み取り失敗（シングル）",
+      message: "読み取り失敗（マイページ）",
       status: 500,
     });
   }
