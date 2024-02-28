@@ -6,7 +6,7 @@ import useAuth from "../../../utils/useAuth";
 import { useState } from "react";
 export function SelectionForm(context) {
   const loginUserEmail = useAuth();
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(3);
   const handleShowMore = () => {
     setLimit(limit + 5);
   };
