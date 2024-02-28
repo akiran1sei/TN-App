@@ -94,7 +94,7 @@ export function RegisterForm(data) {
             <span className={signs.sign_dividerLine}></span>
           </div>
           <div className={signs.sign_socialButtons}>
-            <button className={signs.sign_socialBtn}>
+            <button type="button" className={signs.sign_socialBtn}>
               <Image
                 src="/images/google.svg"
                 alt="googleボタン"
@@ -103,7 +103,7 @@ export function RegisterForm(data) {
                 priority
               />
             </button>
-            <button className={signs.sign_socialBtn}>
+            <button type="button" className={signs.sign_socialBtn}>
               <Image
                 src="/images/facebook.svg"
                 alt="facebookボタン"
@@ -112,7 +112,7 @@ export function RegisterForm(data) {
                 priority
               />
             </button>
-            <button className={signs.sign_socialBtn}>
+            <button type="button" className={signs.sign_socialBtn}>
               <Image
                 src="/images/github.svg"
                 alt="githubボタン"
@@ -122,12 +122,14 @@ export function RegisterForm(data) {
               />
             </button>
           </div>
-          <button className={signs.sign_submitBtn}>登録</button>
+          <button type="submit" className={signs.sign_submitBtn}>
+            登録
+          </button>
         </form>
         <div className={signs.sign_TextRow}>
           登録済みのかたは、
           <span className={signs.sign_LinkText}>
-            <Link href={"/user/login"} passHref>
+            <Link href={"/user/login"} scroll={false} passHref>
               Loginページ
             </Link>
           </span>

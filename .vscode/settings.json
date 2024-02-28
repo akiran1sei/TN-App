@@ -1,0 +1,7 @@
+{
+  "markuplint.enable": true,
+  "markuplint.debug": true,
+  "markuplint.defaultConfig": {
+    "extends": ["markuplint:recommended"]
+  }
+}

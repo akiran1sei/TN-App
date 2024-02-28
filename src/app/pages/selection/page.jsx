@@ -1,12 +1,15 @@
 import Head from "next/head";
-import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
-
+import { cookies } from "next/headers";
+import { SelectionForm } from "@/app/components/molecules/Selection/SelectionForm-table";
 import { revalidatePath } from "next/cache";
+
 const SelectionPage = async () => {
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  // const AppUrl = `http://localhost:3000`;
-  const URL = `${AppUrl}/api/readall`;
-  // console.log(URL);
+  const GetCookies = cookies();
+  const dataId = GetCookies.get(`dataId`);
+
+  // const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  const AppUrl = `http://localhost:3000`;
+  const URL = `${AppUrl}/api/mypage/${dataId.value}`;
   const response = await fetch(URL, {
     method: "GET",
     cache: "no-store",

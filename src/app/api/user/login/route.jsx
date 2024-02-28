@@ -1,4 +1,5 @@
 const { NextResponse } = require("next/server");
+import { cookies } from "next/headers";
 import connectDB from "@/app/utils/database";
 import { UserModel } from "@/app/utils/schemaModels";
 import { SignJWT } from "jose";
@@ -8,7 +9,10 @@ export async function POST(request) {
   // console.log(body);
   try {
     const UserData = await UserModel.findOne({ email: body.email });
-    // console.log(UserData);
+    const UserId = UserData._id;
+    const UserName = UserData.username;
+    const UserEmail = UserData.email;
+
     if (UserData) {
       //ユーザーデータが存在する場合
       if (body.password === UserData.password) {
@@ -20,12 +24,44 @@ export async function POST(request) {
 
         const token = await new SignJWT(payload)
           .setProtectedHeader({ alg: "HS256" })
-          .setExpirationTime(" 1 d")
+          .setExpirationTime(" 4h")
           .sign(secretKey);
+        async function deleteCookie(data) {
+          cookies().delete("dataId");
+          cookies().delete("dataName");
+          cookies().delete("dataEmail");
+        }
+        deleteCookie();
+        async function create(data) {
+          cookies().set({
+            name: "dataId",
+            value: UserId,
+            secure: true,
+            httpOnly: true,
+            path: "/",
+          }),
+            cookies().set({
+              name: "dataName",
+              value: UserName,
+              secure: true,
+              httpOnly: true,
+              path: "/",
+            }),
+            cookies().set({
+              name: "dataEmail",
+              value: UserEmail,
+              secure: true,
+              httpOnly: true,
+              path: "/",
+            });
+        }
+
+        const NewCookie = create();
 
         return NextResponse.json({
           message: "ログイン成功",
           token: token,
+          cookies: NewCookie,
           status: 200,
         });
       } else {

@@ -106,7 +106,7 @@
   margin: 0px;
   padding: 1rem 1.25rem;
   border: 0px;
-  outline: 0px;
+
   cursor: pointer;
   background: var(--color-yellow);
   color: white;
@@ -122,7 +122,9 @@
   min-height: 2.25rem;
   width: 100%;
 }
-
+.sign_submitBtn:focus:not(:focus-visible) {
+  outline: 0; /* キーボード操作"以外"でフォーカスされた際はoutlineを消す */
+}
 .sign_Link {
   display: flex;
   flex-direction: column;
