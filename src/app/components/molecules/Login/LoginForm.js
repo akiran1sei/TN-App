@@ -8,10 +8,11 @@ export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`/api/user/login`, {
+      const response = await fetch(`${AppUrl}/api/user/login`, {
         cache: "no-store",
 
         method: "POST",
