@@ -175,8 +175,8 @@
 .select_list,
 .delete_list {
   width: 100%;
-  /* max-width: 320px; */
-  max-width: 600px;
+  max-width: 320px;
+  /* max-width: 600px; */
   display: block;
   margin: 2rem auto;
   padding: 0.5rem;
@@ -187,17 +187,19 @@
 .select_list_box,
 .delete_data {
   width: 100%;
-  max-width: 767px;
+  max-width: none;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
+  align-content: center;
 }
 @media screen and (min-width: 768px) {
   .select_list_box,
   .delete_list_box {
-    max-width: 1000px;
+    /* flex-direction: row;
+    max-width: 1400px; */
   }
 }
 
@@ -630,7 +632,9 @@
 }
 
 .edit_item_title {
-  border-bottom: 3px solid var(--color-yellow);
+  /* border-bottom: 3px solid var(--color-yellow); */
+  color: var(--color-yellow);
+  font-weight: bold;
   font-size: var(--font-size-base);
   margin: 1rem 0;
 }
