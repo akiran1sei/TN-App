@@ -57,6 +57,11 @@ export function Header(res) {
                 MyPage
               </Link>
             </li>
+            <li className={header.menu_item}>
+              <Link href={`/user/login`} scroll={false} passHref>
+                Login
+              </Link>
+            </li>
             {/* <li className={header.menu_item}>
             <button type="button" onClick={() => signOut(() => router.push("/"))}>
               Sign out
