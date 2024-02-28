@@ -285,7 +285,10 @@ export function CreateForm() {
 
               <div className={`${styles.edit_item} ${styles.edit_coffee}`}>
                 <label htmlFor="coffee" className={styles.edit_item_title}>
-                  1：珈琲豆 or 番号
+                  1：coffee beans <br />
+                  or <br />
+                  numbers
+                  {/* 珈琲豆 or 番号 */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <input
@@ -330,7 +333,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_roast}`}>
                 <label htmlFor="roast" className={styles.edit_item_title}>
-                  2：ロースト
+                  2：roast
+                  {/* ロースト */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <input
@@ -345,14 +349,14 @@ export function CreateForm() {
                     onChange={(e) => setRoast(e.target.value)}
                   />
                   <datalist id="roast_value">
-                    <option value="0">ライト</option>
-                    <option value="15">シナモン</option>
-                    <option value="30">ミディアム</option>
-                    <option value="45">ハイ</option>
-                    <option value="60">シティ</option>
-                    <option value="75">フルシティ</option>
-                    <option value="90">フレンチ</option>
-                    <option value="100">イタリアン</option>
+                    <option value="0">light</option>
+                    <option value="15">cinnamon</option>
+                    <option value="30">medium</option>
+                    <option value="45">hight</option>
+                    <option value="60">city</option>
+                    <option value="75">full city</option>
+                    <option value="90">french</option>
+                    <option value="100">italian</option>
                   </datalist>
                   <p className={styles.edit_roast_value}>
                     <output>
@@ -368,7 +372,7 @@ export function CreateForm() {
                     htmlFor="roast-degree"
                     className={styles.edit_item_sub_title}
                   >
-                    焙煎度：
+                    roast level：
                   </label>
                   <select
                     name="roast-degree"
@@ -377,20 +381,14 @@ export function CreateForm() {
                     onChange={(e) => setRoastDegree(e.target.value)}
                   >
                     <option></option>
-                    <option value="ライトロースト">ライトロースト</option>
-                    <option value="シナモンロースト">シナモンロースト</option>
-                    <option value="ミディアムロースト">
-                      ミディアムロースト
-                    </option>
-                    <option value="ハイロースト">ハイロースト</option>
-                    <option value="シティロースト">シティロースト</option>
-                    <option value="フルシティロースト">
-                      フルシティロースト
-                    </option>
-                    <option value="フレンチロースト">フレンチロースト</option>
-                    <option value="イタリアンロースト">
-                      イタリアンロースト
-                    </option>
+                    <option value="light">light</option>
+                    <option value="cinnamon">cinnamon</option>
+                    <option value="medium">medium</option>
+                    <option value="hight">hight</option>
+                    <option value="city">city</option>
+                    <option value="full city">full city</option>
+                    <option value="french">french</option>
+                    <option value="italian">italian</option>
                   </select>
                 </div>
                 <div
@@ -436,20 +434,23 @@ export function CreateForm() {
                 </div>
               </div>
               <div className={`${styles.edit_item} ${styles.edit_aroma}`}>
-                <p className={styles.edit_item_title}>3：アロマ </p>
+                <p className={styles.edit_item_title}>
+                  3：aroma
+                  {/* アロマ */}
+                </p>
                 <div className={styles.edit_item_value_box}>
                   －３～３
                   <br />
                   <div className={styles.edit_item_dry_box}>
                     <div className={styles.edit_item_value_box}>
-                      <p className={styles.edit_item_sub_title}>ドライ</p>
+                      <p className={styles.edit_item_sub_title}>●dry</p>
                       {/* ドライ（強さ） */}
                       <p className={styles.edit_item_value}>
                         <label
                           htmlFor="aroma-dry-strength"
                           className={styles.edit_item_sub_title}
                         >
-                          （強さ）
+                          strength
                         </label>
                         <br />
                         <select
@@ -474,7 +475,7 @@ export function CreateForm() {
                           htmlFor="aroma-dry-quality"
                           className={styles.edit_item_sub_title}
                         >
-                          （質）
+                          quality
                         </label>
                         <br />
                         <select
@@ -497,14 +498,14 @@ export function CreateForm() {
                   </div>
                   <div className={styles.edit_item_crust_box}>
                     <div className={styles.edit_item_value_box}>
-                      <p className={styles.edit_item_sub_title}>クラスト</p>
+                      <p className={styles.edit_item_sub_title}>●crust</p>
                       {/* クラスト（強さ） */}
                       <p className={styles.edit_item_value}>
                         <label
                           htmlFor="aroma_crust-strength"
                           className={styles.edit_item_sub_title}
                         >
-                          （強さ）
+                          strength
                         </label>
                         <br />
                         <select
@@ -531,7 +532,7 @@ export function CreateForm() {
                           htmlFor="aroma_crust-quality"
                           className={styles.edit_item_sub_title}
                         >
-                          （質）
+                          quality
                         </label>
                         <br />
                         <select
@@ -554,14 +555,14 @@ export function CreateForm() {
                   </div>
                   <div className={styles.edit_item_break_box}>
                     <div className={styles.edit_item_value_box}>
-                      <p className={styles.edit_item_sub_title}>ブレーク</p>
+                      <p className={styles.edit_item_sub_title}>●break</p>
                       {/* ブレーク（強さ） */}
                       <p className={styles.edit_item_value}>
                         <label
                           htmlFor="aroma_break-strength"
                           className={styles.edit_item_sub_title}
                         >
-                          （強さ）
+                          strength
                         </label>
                         <br />
                         <select
@@ -588,7 +589,7 @@ export function CreateForm() {
                           htmlFor="aroma_break-quality"
                           className={styles.edit_item_sub_title}
                         >
-                          （質）
+                          quality
                         </label>
                         <br />
                         <select
@@ -634,20 +635,18 @@ export function CreateForm() {
                   <div className={styles.edit_point_memo}>
                     <ul className={styles.edit_point_txtBox}>
                       <li className={styles.edit_point_text}>
-                        <span className={styles.edit_yellow}>『ドライ』</span>
-                        <br /> 粉の状態からアロマ
+                        <span className={styles.edit_yellow}>『dry』</span>
+                        <br /> 粉の状態からaroma
                       </li>
                       <li className={styles.edit_point_text}>
-                        <span className={styles.edit_yellow}>
-                          『 クラスト』
-                        </span>
+                        <span className={styles.edit_yellow}>『crust』</span>
                         <br />
-                        湯を注いだ直後のアロマ
+                        湯を注いだ直後のaroma
                       </li>
                       <li className={styles.edit_point_text}>
-                        <span className={styles.edit_yellow}>『ブレーク』</span>
+                        <span className={styles.edit_yellow}>『break』</span>
                         <br />
-                        混ぜた後のアロマ
+                        混ぜた後のaroma
                       </li>
                     </ul>
                     <p className={styles.edit_point_text}>
@@ -670,7 +669,7 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_defects}`}>
                 <label htmlFor="defects" className={styles.edit_item_title}>
-                  4：欠点・瑕疵
+                  4：defects {/*欠点・瑕疵 */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <p className={styles.edit_defects_explanation}>
@@ -760,7 +759,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_cleancap}`}>
                 <label htmlFor="cleancap" className={styles.edit_item_title}>
-                  5：カップの綺麗さ
+                  5：cleancap
+                  {/* カップのきれいさ */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -829,7 +829,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_sweet}`}>
                 <label htmlFor="sweet" className={styles.edit_item_title}>
-                  6：甘さ
+                  6：sweet
+                  {/* 甘さ */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -900,7 +901,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_acidity}`}>
                 <label htmlFor="acidity" className={styles.edit_item_title}>
-                  7：酸の質
+                  7：acidity
+                  {/* 酸の質 */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -929,7 +931,7 @@ export function CreateForm() {
                     </select>
                   </div>
                   <div className={styles.edit_item_value}>
-                    酸の強さ
+                    acid strength
                     <br />
                     <select
                       name="acidity"
@@ -994,7 +996,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_mouthfeel}`}>
                 <label htmlFor="mouthfeel" className={styles.edit_item_title}>
-                  8：口に含んだ質感
+                  8：mouthfeel
+                  {/* 口に含んだ質感 */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -1023,7 +1026,7 @@ export function CreateForm() {
                     </select>
                   </div>
                   <div className={styles.edit_item_value}>
-                    Bodyの強さ
+                    body strength
                     <br />
                     <select
                       name="body"
@@ -1090,7 +1093,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_flavor}`}>
                 <label htmlFor="flavor" className={styles.edit_item_title}>
-                  9：フレーバー
+                  9：flavor
+                  {/* フレーバー */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -1162,7 +1166,8 @@ export function CreateForm() {
 
               <div className={`${styles.edit_item} ${styles.edit_after}`}>
                 <label htmlFor="after" className={styles.edit_item_title}>
-                  10：後味の印象度
+                  10：after
+                  {/* 後味の印象度 */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -1233,7 +1238,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_balance}`}>
                 <label htmlFor="balance" className={styles.edit_item_title}>
-                  11：バランス
+                  11：balance
+                  {/* バランス */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
@@ -1306,7 +1312,8 @@ export function CreateForm() {
               </div>
               <div className={`${styles.edit_item} ${styles.edit_overall}`}>
                 <label htmlFor="overall" className={styles.edit_item_title}>
-                  12：総合評価
+                  12：overall
+                  {/* 総合評価 */}
                 </label>
                 <div className={styles.edit_item_value_box}>
                   <div className={styles.edit_item_value}>
