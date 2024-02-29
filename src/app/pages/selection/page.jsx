@@ -8,7 +8,7 @@ const SelectionPage = async () => {
   const dataId = GetCookies.get(`dataId`);
 
   const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  //const AppUrl = `http://localhost:3000`;
+  //  const AppUrl = `http://localhost:3000`;//const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/mypage/${dataId.value}`;
   const response = await fetch(URL, {
     method: "GET",

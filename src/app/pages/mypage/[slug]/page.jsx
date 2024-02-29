@@ -6,8 +6,7 @@ import { revalidatePath } from "next/cache";
 import styles from "@/app/styles/Home.module.css";
 const MyPage = async (data) => {
   const dataId = data.params.slug;
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  //const AppUrl = `http://localhost:3000`;
+  const AppUrl = `http://localhost:3000`; //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/mypage/${dataId}`;
   // console.log(URL);
   const response = await fetch(URL, {
