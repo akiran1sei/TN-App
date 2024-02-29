@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import signs from "../../../styles/Sign.module.css";
+import styles from "../../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
 export function LoginForm() {
@@ -34,47 +34,47 @@ export function LoginForm() {
     }
   };
   return (
-    <div className={signs.sign_page}>
-      <h1 className={signs.sign_titleText}>Login</h1>
-      <div className={signs.sign_card}>
-        <form onSubmit={handleSubmit} className={signs.sign_form}>
-          <div className={signs.sign_inputBox}>
-            <label htmlFor="email" className={signs.sign_label}>
+    <div className={styles.sign_page}>
+      <h1 className={styles.contents_title}>Login</h1>
+      <div className={styles.sign_card}>
+        <form onSubmit={handleSubmit} className={styles.sign_form}>
+          <div className={styles.sign_inputBox}>
+            <label htmlFor="email" className={styles.sign_label}>
               メールアドレス
             </label>
             <input
               id="email"
               type="email"
               name="email"
-              className={signs.sign_input}
+              className={styles.sign_input}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="メールアドレス"
               required
             />
           </div>
-          <div className={signs.sign_inputBox}>
-            <label htmlFor="password" className={signs.sign_label}>
+          <div className={styles.sign_inputBox}>
+            <label htmlFor="password" className={styles.sign_label}>
               パスワード
             </label>
             <input
               id="password"
               type="password"
               name="password"
-              className={signs.sign_input}
+              className={styles.sign_input}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="パスワード"
               required
             />
           </div>
-          <div className={signs.sign_dividerRow}>
-            <span className={signs.sign_dividerLine}></span>
-            <span className={signs.sign_dividerText}>or</span>
-            <span className={signs.sign_dividerLine}></span>
+          <div className={styles.sign_dividerRow}>
+            <span className={styles.sign_dividerLine}></span>
+            <span className={styles.sign_dividerText}>or</span>
+            <span className={styles.sign_dividerLine}></span>
           </div>
-          <div className={signs.sign_socialButtons}>
-            <button type="button" className={signs.sign_socialBtn}>
+          <div className={styles.sign_socialButtons}>
+            <button type="button" className={styles.sign_socialBtn}>
               <Image
                 src="/images/google.svg"
                 alt="googleボタン"
@@ -83,7 +83,7 @@ export function LoginForm() {
                 priority
               />
             </button>
-            <button type="button" className={signs.sign_socialBtn}>
+            <button type="button" className={styles.sign_socialBtn}>
               <Image
                 src="/images/facebook.svg"
                 alt="facebookボタン"
@@ -92,7 +92,7 @@ export function LoginForm() {
                 priority
               />
             </button>
-            <button type="button" className={signs.sign_socialBtn}>
+            <button type="button" className={styles.sign_socialBtn}>
               <Image
                 src="/images/github.svg"
                 alt="githubボタン"
@@ -102,13 +102,13 @@ export function LoginForm() {
               />
             </button>
           </div>
-          <button type="submit" className={signs.sign_submitBtn}>
+          <button type="submit" className={styles.sign_submitBtn}>
             ログイン
           </button>
         </form>
-        <div className={signs.sign_TextRow}>
+        <div className={styles.sign_TextRow}>
           未登録のかたは、
-          <span className={signs.sign_LinkText}>
+          <span className={styles.sign_LinkText}>
             <Link href={"/user/register"} scroll={false} passHref>
               SignUpページ
             </Link>
