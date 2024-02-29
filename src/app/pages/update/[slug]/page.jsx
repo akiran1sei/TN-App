@@ -4,7 +4,7 @@ import { UpdateForm } from "../../../components/molecules/Update/UpdateForm";
 
 const UpdatePage = async (context) => {
   "use server";
-  const AppUrl = `https://courageous-creponne-2fa598.netlify.app`;
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   //const AppUrl = `http://localhost:3000`;
   const URL = `${AppUrl}/api/singleItem/` + `${context.params.slug}`;
   const response = await fetch(URL, { cache: "no-store" });
