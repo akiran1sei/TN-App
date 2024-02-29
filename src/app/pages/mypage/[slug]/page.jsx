@@ -29,11 +29,22 @@ const MyPage = async (data) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div>
-        <p> {UserData.singleUser.username}</p>
-        <p> {UserData.singleUser.email}</p>
         {/* {UserData.UserBeans.map((beans) => (
           <div key={beans._id}>{beans._id}</div>
         ))} */}
+        <div className={styles.mypage_page}>
+          <h1 className={styles.contents_title}>MyPage</h1>
+          <div className={styles.mypage_card}>
+            <div className={styles.mypage_username}>
+              <h2 className={styles.mypage_item_title}>user name</h2>
+              <p> {UserData.singleUser.username}</p>
+            </div>
+            <div className={styles.mypage_email}>
+              <h2 className={styles.mypage_item_title}>email</h2>
+              <p> {UserData.singleUser.email}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
