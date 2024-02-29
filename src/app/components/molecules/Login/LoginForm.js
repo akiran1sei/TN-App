@@ -14,7 +14,6 @@ export function LoginForm() {
     try {
       const response = await fetch(`${AppUrl}/api/user/login`, {
         cache: "no-store",
-
         method: "POST",
         headers: {
           Accept: "application/json",

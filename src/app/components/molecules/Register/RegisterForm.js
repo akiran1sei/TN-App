@@ -10,6 +10,7 @@ export function RegisterForm(data) {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const handleSubmit = async (e) => {
     e.preventDefault();
