@@ -46,7 +46,10 @@ export function SelectionForm(context) {
         </tr>
         <tr>
           <td className={styles.select_item_title}>Roast</td>
-          <td className={styles.select_item_value}>{beans.roast}％</td>
+          <td className={styles.select_item_value}>
+            {beans.roast}
+            <span className={styles.select_item_smallTxt}>%</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Aroma</td>
@@ -54,22 +57,22 @@ export function SelectionForm(context) {
             <table border="1" className={styles.select_item_aroma_table}>
               <tbody>
                 <tr>
-                  <td>(点)</td>
-                  <th className={styles.select_item_aroma_header}>Strong</th>
-                  <th className={styles.select_item_aroma_header}>Quality</th>
+                  <td></td>
+                  <th className={styles.select_item_smallTxt}>Strong</th>
+                  <th className={styles.select_item_smallTxt}>Quality</th>
                 </tr>
                 <tr className={styles.select_item_aroma_table_row}>
-                  <th className={styles.select_item_aroma_header}>Dry</th>
+                  <th className={styles.select_item_smallTxt}>Dry</th>
                   <td>{beans.aromaDryStrength}</td>
                   <td>{beans.aromaDryQuality}</td>
                 </tr>
                 <tr className={styles.select_item_aroma_table_row}>
-                  <td className={styles.select_item_aroma_header}>Crust</td>
+                  <td className={styles.select_item_smallTxt}>Crust</td>
                   <td>{beans.aromaCrustStrength}</td>
                   <td>{beans.aromaCrustQuality}</td>
                 </tr>
                 <tr className={styles.select_item_aroma_table_row}>
-                  <td className={styles.select_item_aroma_header}>Break</td>
+                  <td className={styles.select_item_smallTxt}>Break</td>
                   <td>{beans.aromaBreakStrength}</td>
                   <td>{beans.aromaBreakQuality}</td>
                 </tr>
@@ -79,50 +82,82 @@ export function SelectionForm(context) {
         </tr>
         <tr>
           <td className={styles.select_item_title}>Defects</td>
-          <td className={styles.select_item_value}>{beans.defects}点</td>
+          <td className={styles.select_item_value}>{beans.defects}</td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>CleanCap</td>
-          <td className={styles.select_item_value}>{beans.cleancap}点</td>
+          <td className={styles.select_item_value}>
+            {beans.cleancap}
+            <span className={styles.select_item_smallTxt}>
+              <span className={styles.select_item_smallTxt}>/10</span>
+            </span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Sweet</td>
-          <td className={styles.select_item_value}>{beans.sweet}点</td>
+          <td className={styles.select_item_value}>
+            {beans.sweet}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Acidity</td>
-          <td className={styles.select_item_value}>{beans.acidity}点</td>
+          <td className={styles.select_item_value}>
+            {beans.acidity}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Mouthfeel</td>
-          <td className={styles.select_item_value}>{beans.mouthfeel}点</td>
+          <td className={styles.select_item_value}>
+            {beans.mouthfeel}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Flavor</td>
-          <td className={styles.select_item_value}>{beans.flavor}点</td>
+          <td className={styles.select_item_value}>
+            {beans.flavor}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>After</td>
-          <td className={styles.select_item_value}>{beans.after}点</td>
+          <td className={styles.select_item_value}>
+            {beans.after}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Balance</td>
-          <td className={styles.select_item_value}>{beans.balance}点</td>
+          <td className={styles.select_item_value}>
+            {beans.balance}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>OverAll</td>
-          <td className={styles.select_item_value}>{beans.overall}点</td>
+          <td className={styles.select_item_value}>
+            {beans.overall}
+            <span className={styles.select_item_smallTxt}>/10</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Result</td>
-          <td className={styles.select_item_value}>{beans.result}点</td>
+          <td className={styles.select_item_value}>
+            {beans.result}
+            <span className={styles.select_item_smallTxt}>/64</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>
             TOTAL <br />
             （+36）
           </td>
-          <td className={styles.select_item_value}>{beans.total}点</td>
+          <td className={styles.select_item_value}>
+            {beans.total}
+            <span className={styles.select_item_smallTxt}>/100</span>
+          </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Impression</td>
