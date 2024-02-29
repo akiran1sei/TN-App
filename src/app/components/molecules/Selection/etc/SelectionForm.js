@@ -121,27 +121,27 @@ export function SelectionForm(context) {
                     <thead>
                       <tr>
                         <th></th>
-                        <th className={styles.select_item_aroma_header}>
+                        <th className={styles.select_item_smallTxt}>
                           強さ
                         </th>
-                        <th className={styles.select_item_aroma_header}>
+                        <th className={styles.select_item_smallTxt}>
                           ／質
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr className={styles.select_item_aroma_table_row}>
-                        <th className={styles.select_item_aroma_header}>D</th>
+                        <th className={styles.select_item_smallTxt}>D</th>
                         <td>{beans.aromaDryStrength}</td>
                         <td>{beans.aromaDryQuality}</td>
                       </tr>
                       <tr className={styles.select_item_aroma_table_row}>
-                        <th className={styles.select_item_aroma_header}>C</th>
+                        <th className={styles.select_item_smallTxt}>C</th>
                         <td>{beans.aromaCrustStrength}</td>
                         <td>{beans.aromaCrustQuality}</td>
                       </tr>
                       <tr className={styles.select_item_aroma_table_row}>
-                        <th className={styles.select_item_aroma_header}>B</th>
+                        <th className={styles.select_item_smallTxt}>B</th>
                         <td>{beans.aromaBreakStrength}</td>
                         <td>{beans.aromaBreakQuality}</td>
                       </tr>

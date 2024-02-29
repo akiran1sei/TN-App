@@ -41,7 +41,7 @@ const BeansSchema = new Schema(
     impression: String,
     result: Number,
     total: Number,
-    date: Date,
+    date: String,
   },
   { timestamps: true }
 );

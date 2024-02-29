@@ -253,8 +253,8 @@
 .delete_item_aroma_table_row {
   line-height: 1em;
 }
-.select_item_aroma_header,
-.delete_item_aroma_header {
+.select_item_smallTxt,
+.delete_item_smallTxt {
   font-size: var(--font-size-small);
   color: var(--color-yellow);
   letter-spacing: -0.1em;

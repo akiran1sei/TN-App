@@ -49,29 +49,21 @@ export function DeleteForm(data) {
                     <tbody>
                       <tr>
                         <td>(点)</td>
-                        <th className={styles.delete_item_aroma_header}>
-                          Strong
-                        </th>
-                        <th className={styles.delete_item_aroma_header}>
-                          Quality
-                        </th>
+                        <th className={styles.delete_item_smallTxt}>Strong</th>
+                        <th className={styles.delete_item_smallTxt}>Quality</th>
                       </tr>
                       <tr className={styles.delete_item_aroma_table_row}>
-                        <th className={styles.delete_item_aroma_header}>Dry</th>
+                        <th className={styles.delete_item_smallTxt}>Dry</th>
                         <td>{ItemData.aromaDryStrength}</td>
                         <td>{ItemData.aromaDryQuality}</td>
                       </tr>
                       <tr className={styles.delete_item_aroma_table_row}>
-                        <td className={styles.delete_item_aroma_header}>
-                          Crust
-                        </td>
+                        <td className={styles.delete_item_smallTxt}>Crust</td>
                         <td>{ItemData.aromaCrustStrength}</td>
                         <td>{ItemData.aromaCrustQuality}</td>
                       </tr>
                       <tr className={styles.delete_item_aroma_table_row}>
-                        <td className={styles.delete_item_aroma_header}>
-                          Break
-                        </td>
+                        <td className={styles.delete_item_smallTxt}>Break</td>
                         <td>{ItemData.aromaBreakStrength}</td>
                         <td>{ItemData.aromaBreakQuality}</td>
                       </tr>
