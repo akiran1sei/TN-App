@@ -15,7 +15,7 @@ const SelectionPage = async () => {
     cache: "no-store",
   });
   const allItems = await response.json();
-  revalidatePath(`${AppUrl}/page/selection`);
+  revalidatePath(`${AppUrl}/pages/selection`);
   return (
     <>
       <Head>
