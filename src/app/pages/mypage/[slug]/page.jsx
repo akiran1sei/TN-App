@@ -4,18 +4,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import styles from "@/app/styles/Home.module.css";
+import { AccountDeleteBtn } from "@/app/components/atoms/AccountDeleteBtn";
 const MyPage = async (data) => {
   const dataId = data.params.slug;
+
   const AppUrl = `http://localhost:3000`;
   //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/mypage/${dataId}`;
-  // console.log(URL);
+
   const response = await fetch(URL, {
     method: "GET",
     cache: "no-store",
   });
   const UserData = await response.json();
-  revalidatePath(`${AppUrl}/page/mypage/${dataId}`);
+  revalidatePath(`${AppUrl}/pages/mypage/${dataId}`);
   console.log(UserData.UserBeans);
 
   return (
@@ -43,6 +45,9 @@ const MyPage = async (data) => {
               <h2 className={styles.mypage_item_title}>email</h2>
               <p> {UserData.singleUser.email}</p>
             </div>
+            <form>
+              <AccountDeleteBtn data={dataId} />
+            </form>
           </div>
         </div>
       </div>

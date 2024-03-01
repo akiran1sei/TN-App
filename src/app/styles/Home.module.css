@@ -1035,6 +1035,14 @@
   height: 100%;
   position: relative;
 }
+/* accountDeleteBtn */
+.accountDeleteBtn {
+  padding: 1rem;
+  color: red;
+  font-weight: bold;
+  border: 2px solid red;
+  border-radius: 10px;
+}
 /* moreボタン */
 .triangle_more {
   border-style: solid;
