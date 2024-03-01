@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import Link from "next/link";
 import Image from "next/image";
 import { revalidatePath } from "next/cache";
@@ -45,9 +44,11 @@ const MyPage = async (data) => {
               <h2 className={styles.mypage_item_title}>email</h2>
               <p> {UserData.singleUser.email}</p>
             </div>
-            <form>
-              <AccountDeleteBtn data={dataId} />
-            </form>
+            <div className={styles.mypage_account}>
+              <form>
+                <AccountDeleteBtn data={dataId} />
+              </form>
+            </div>
           </div>
         </div>
       </div>
