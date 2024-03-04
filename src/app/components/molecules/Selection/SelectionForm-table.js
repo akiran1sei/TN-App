@@ -231,7 +231,7 @@ export function SelectionForm(context) {
                 className={styles.select_more_btn}
                 onClick={handleShowMore}
               >
-                もっと見る
+                more
                 <br />
                 <span className={styles.triangle_more}></span>
               </button>
