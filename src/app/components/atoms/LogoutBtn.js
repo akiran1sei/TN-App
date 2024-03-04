@@ -2,18 +2,12 @@
 import { useRouter } from "next/navigation";
 import styles from "@/app/styles/Home.module.css";
 export function LogoutButton() {
-  // localStorage からトークンを削除
-
-  // const Token = async () => {
-  //   await localStorage.getItemItem("token");
-  // };
-
   const router = useRouter();
 
   async function handleLogout(e) {
     e.preventDefault();
-    const AppUrl = `http://localhost:3000`;
-    //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+    //const AppUrl = `http://localhost:3000`;
+    const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
     try {
       const URL = `${AppUrl}/api/user/logout`;
       if (confirm("ログアウトしますか？")) {
