@@ -19,7 +19,7 @@ export function LogoutButton() {
       if (confirm("ログアウトしますか？")) {
         const response = await fetch(URL, {
           cache: "no-store",
-          method: "POST",
+          method: "DELETE",
           cache: "no-store",
         });
         const jsonData = await response.json();
