@@ -1,6 +1,6 @@
 const { NextResponse } = require("next/server");
 import { cookies } from "next/headers";
-export async function POST() {
+export async function DELETE() {
   try {
     function deleteCookie(data) {
       cookies().delete("dataId");
