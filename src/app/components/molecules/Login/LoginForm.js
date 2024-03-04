@@ -3,13 +3,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../../styles/Home.module.css";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 export function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const AppUrl = `http://localhost:3000`;
-  //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  //const AppUrl = `http://localhost:3000`;
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -68,7 +68,7 @@ export function LoginForm() {
               required
             />
           </div>
-          <div className={styles.sign_dividerRow}>
+          {/* <div className={styles.sign_dividerRow}>
             <span className={styles.sign_dividerLine}></span>
             <span className={styles.sign_dividerText}>or</span>
             <span className={styles.sign_dividerLine}></span>
@@ -101,7 +101,7 @@ export function LoginForm() {
                 priority
               />
             </button>
-          </div>
+          </div> */}
           <button type="submit" className={styles.sign_submitBtn}>
             ログイン
           </button>

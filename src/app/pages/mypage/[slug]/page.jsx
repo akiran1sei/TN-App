@@ -1,15 +1,15 @@
 import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import styles from "@/app/styles/Home.module.css";
 import { AccountDeleteBtn } from "@/app/components/atoms/AccountDeleteBtn";
-import { LogoutButton } from "@/app/components/atoms/Logout";
+import { LogoutButton } from "@/app/components/atoms/LogoutBtn";
 const MyPage = async (data) => {
   const dataId = data.params.slug;
 
-  const AppUrl = `http://localhost:3000`;
-  //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  //const AppUrl = `http://localhost:3000`;
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/mypage/${dataId}`;
 
   const response = await fetch(URL, {

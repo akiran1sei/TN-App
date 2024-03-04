@@ -8,8 +8,8 @@ export function AccountDeleteBtn(data) {
   async function handleSubmit(e) {
     const dataId = data.data;
     e.preventDefault();
-    const AppUrl = `http://localhost:3000`;
-    //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+    //const AppUrl = `http://localhost:3000`;
+    const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
 
     try {
       const URL = `${AppUrl}/api/user/withdrawal`;
