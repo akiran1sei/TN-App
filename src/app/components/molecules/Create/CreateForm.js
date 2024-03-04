@@ -115,27 +115,25 @@ export function CreateForm() {
   function RoastArticle() {
     const NumberRoast = Number(roast);
     if (NumberRoast >= 0 && NumberRoast <= 15) {
-      return "ライトロースト";
+      return "light";
     } else if (NumberRoast > 15 && NumberRoast <= 30) {
-      return "シナモンロースト";
+      return "cinnamon";
     } else if (NumberRoast > 30 && NumberRoast <= 45) {
-      return "ミディアムロースト";
+      return "medium";
     } else if (NumberRoast > 45 && NumberRoast <= 60) {
-      return "ハイロースト";
+      return "hight";
     } else if (NumberRoast > 60 && NumberRoast <= 75) {
-      return "シティロースト";
+      return "city";
     } else if (NumberRoast > 75 && NumberRoast <= 90) {
-      return "フルシティロースト";
+      return "full city";
     } else if (NumberRoast > 90 && NumberRoast < 100) {
-      return "フレンチロースト";
+      return "french";
     } else if (NumberRoast === 100) {
-      return "イタリアンロースト";
+      return "italian";
     }
   }
-  console.log(RoastArticle());
-  const RoastSelect = RoastArticle();
-  console.log(RoastSelect);
 
+  const RoastSelect = RoastArticle();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const sum =

@@ -65,7 +65,7 @@ export function BrowseForm(context) {
                 <table className={styles.browse_aroma_table}>
                   <thead>
                     <tr>
-                      <th className={styles.browse_aroma_tableHeader}>(点)</th>
+                      <th className={styles.browse_aroma_tableHeader}></th>
                       <th className={styles.browse_aroma_tableHeader}>
                         Strong
                       </th>
@@ -119,10 +119,9 @@ export function BrowseForm(context) {
           <hr />
           <div className={`${styles.browse_item} ${styles.browse_defects}`}>
             <div className={styles.browse_item_box}>
-              <h3 className={styles.browse_item_title}>4：欠点・瑕疵</h3>
+              <h3 className={styles.browse_item_title}>4：欠/8・瑕疵</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.defects}
-                <span className={styles.browse_yellow}>点</span>
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -140,7 +139,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>5：カップの綺麗さ</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.cleancap}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -158,7 +157,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>6：甘さ</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.sweet}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -176,7 +175,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>7：酸の質</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.acidity}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
                 <p className={styles.browse_acidityStrength}>
                   {data.singleItem.acidityStrength}
                 </p>
@@ -197,7 +196,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>8：口に含んだ質感</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.mouthfeel}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
                 <p className={styles.browse_bodyStrength}>
                   {data.singleItem.bodyStrength}
                 </p>
@@ -218,7 +217,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>9：フレーバー</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.flavor}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -236,7 +235,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>10：後味の印象度</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.after}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -254,7 +253,7 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>11：バランス</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.balance}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
               </div>
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
@@ -272,7 +271,7 @@ export function BrowseForm(context) {
               <h4 className={styles.browse_item_title}>12：総合評価</h4>
               <div className={styles.browse_item_value}>
                 {data.singleItem.overall}
-                <span className={styles.browse_yellow}>点</span>
+                <span className={styles.browse_yellow}>/8</span>
               </div>
             </div>
           </div>
@@ -282,12 +281,12 @@ export function BrowseForm(context) {
               <h3 className={styles.browse_item_title}>13：TOTAL（+36）</h3>
               <div className={styles.browse_item_value}>
                 {data.singleItem.result}
-                <span className={styles.browse_yellow}>点(+36)</span>
+                <span className={styles.browse_yellow}>/8(+36)</span>
                 <wbr />
                 <div className={styles.browse_totalValue}>
                   <p className={styles.browse_totalText}>
                     {data.singleItem.total}
-                    <span className={styles.browse_yellow}>点</span>
+                    <span className={styles.browse_yellow}>/8</span>
                   </p>
                 </div>
               </div>

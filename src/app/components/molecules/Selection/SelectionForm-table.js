@@ -89,7 +89,7 @@ export function SelectionForm(context) {
           <td className={styles.select_item_value}>
             {beans.cleancap}
             <span className={styles.select_item_smallTxt}>
-              <span className={styles.select_item_smallTxt}>/10</span>
+              <span className={styles.select_item_smallTxt}>/8</span>
             </span>
           </td>
         </tr>
@@ -97,49 +97,49 @@ export function SelectionForm(context) {
           <td className={styles.select_item_title}>Sweet</td>
           <td className={styles.select_item_value}>
             {beans.sweet}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Acidity</td>
           <td className={styles.select_item_value}>
             {beans.acidity}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Mouthfeel</td>
           <td className={styles.select_item_value}>
             {beans.mouthfeel}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Flavor</td>
           <td className={styles.select_item_value}>
             {beans.flavor}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>After</td>
           <td className={styles.select_item_value}>
             {beans.after}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>Balance</td>
           <td className={styles.select_item_value}>
             {beans.balance}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>
           <td className={styles.select_item_title}>OverAll</td>
           <td className={styles.select_item_value}>
             {beans.overall}
-            <span className={styles.select_item_smallTxt}>/10</span>
+            <span className={styles.select_item_smallTxt}>/8</span>
           </td>
         </tr>
         <tr>

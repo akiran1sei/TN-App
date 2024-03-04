@@ -136,21 +136,21 @@ export function UpdateForm(data) {
   function RoastArticle() {
     const NumberRoast = Number(roast);
     if (NumberRoast >= 0 && NumberRoast <= 15) {
-      return "ライトロースト";
+      return "light";
     } else if (NumberRoast > 15 && NumberRoast <= 30) {
-      return "シナモンロースト";
+      return "cinnamon";
     } else if (NumberRoast > 30 && NumberRoast <= 45) {
-      return "ミディアムロースト";
+      return "medium";
     } else if (NumberRoast > 45 && NumberRoast <= 60) {
-      return "ハイロースト";
+      return "hight";
     } else if (NumberRoast > 60 && NumberRoast <= 75) {
-      return "シティロースト";
+      return "city";
     } else if (NumberRoast > 75 && NumberRoast <= 90) {
-      return "フルシティロースト";
+      return "full city";
     } else if (NumberRoast > 90 && NumberRoast < 100) {
-      return "フレンチロースト";
+      return "french";
     } else if (NumberRoast === 100) {
-      return "イタリアンロースト";
+      return "italian";
     }
   }
   const RoastSelect = RoastArticle();
@@ -372,14 +372,14 @@ export function UpdateForm(data) {
                     onChange={(e) => setRoast(e.target.value)}
                   />
                   <datalist id="roast_value">
-                    <option value="0">ライト</option>
-                    <option value="15">シナモン</option>
-                    <option value="30">ミディアム</option>
-                    <option value="45">ハイ</option>
-                    <option value="60">シティ</option>
-                    <option value="75">フルシティ</option>
-                    <option value="90">フレンチ</option>
-                    <option value="100">イタリアン</option>
+                    <option value="0">light</option>
+                    <option value="15">cinnamon</option>
+                    <option value="30">medium</option>
+                    <option value="45">hight</option>
+                    <option value="60">city</option>
+                    <option value="75">full city</option>
+                    <option value="90">french</option>
+                    <option value="100">italian</option>
                   </datalist>
                   <p className={styles.edit_roast_value}>
                     <output>
@@ -404,20 +404,14 @@ export function UpdateForm(data) {
                     onChange={(e) => setRoastDegree(e.target.value)}
                   >
                     <option></option>
-                    <option value="ライトロースト">ライトロースト</option>
-                    <option value="シナモンロースト">シナモンロースト</option>
-                    <option value="ミディアムロースト">
-                      ミディアムロースト
-                    </option>
-                    <option value="ハイロースト">ハイロースト</option>
-                    <option value="シティロースト">シティロースト</option>
-                    <option value="フルシティロースト">
-                      フルシティロースト
-                    </option>
-                    <option value="フレンチロースト">フレンチロースト</option>
-                    <option value="イタリアンロースト">
-                      イタリアンロースト
-                    </option>
+                    <option value="light">light</option>
+                    <option value="cinnamon">cinnamon</option>
+                    <option value="medium">medium</option>
+                    <option value="hight">hight</option>
+                    <option value="city">city</option>
+                    <option value="full city">full city</option>
+                    <option value="french">french</option>
+                    <option value="italian">italian</option>
                   </select>
                 </div>
                 <div
