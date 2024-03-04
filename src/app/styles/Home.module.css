@@ -1049,6 +1049,14 @@
   border-color: var(--color-yellow) transparent transparent transparent;
   border-width: 25px 15px 0 15px;
 }
+/* logoutボタン */
+.logout_btn {
+  padding: 1rem;
+  color: var(--color-yellow);
+  font-weight: bold;
+  border: 2px solid var(--color-yellow);
+  border-radius: 10px;
+}
 /* Inventoryファイル(編集目次ファイル)にて */
 .edit_toc {
   text-align: end;

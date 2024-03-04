@@ -26,13 +26,13 @@ export async function POST(request) {
           .setProtectedHeader({ alg: "HS256" })
           .setExpirationTime(" 4h")
           .sign(secretKey);
-        async function deleteCookie(data) {
+        function deleteCookie(data) {
           cookies().delete("dataId");
           cookies().delete("dataName");
           cookies().delete("dataEmail");
         }
         deleteCookie();
-        async function create(data) {
+        function create(data) {
           cookies().set({
             name: "dataId",
             value: UserId,

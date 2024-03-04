@@ -4,6 +4,7 @@ import Image from "next/image";
 import { revalidatePath } from "next/cache";
 import styles from "@/app/styles/Home.module.css";
 import { AccountDeleteBtn } from "@/app/components/atoms/AccountDeleteBtn";
+import { LogoutButton } from "@/app/components/atoms/Logout";
 const MyPage = async (data) => {
   const dataId = data.params.slug;
 
@@ -44,6 +45,7 @@ const MyPage = async (data) => {
               <h2 className={styles.mypage_item_title}>email</h2>
               <p> {UserData.singleUser.email}</p>
             </div>
+            <LogoutButton />
             <div className={styles.mypage_account}>
               <form>
                 <AccountDeleteBtn data={dataId} />
