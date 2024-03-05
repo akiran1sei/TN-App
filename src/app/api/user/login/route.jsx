@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import connectDB from "@/app/utils/database";
 import { UserModel } from "@/app/utils/schemaModels";
 import { SignJWT } from "jose";
+const { Buffer } = require("buffer");
 export async function POST(request) {
   await connectDB();
   const body = await request.json();
@@ -26,34 +27,35 @@ export async function POST(request) {
           .setProtectedHeader({ alg: "HS256" })
           .setExpirationTime(" 4h")
           .sign(secretKey);
-        function deleteCookie(data) {
-          cookies().delete("dataId");
-          cookies().delete("dataName");
-          cookies().delete("dataEmail");
-        }
-        deleteCookie();
-        function create(data) {
+
+        const keys = ["dataId", "dataName", "dataEmail"];
+        cookies().delete(keys);
+        function create() {
+          const encodedUserId = Buffer.from(UserId).toString("base64");
+          const encodedUserName = Buffer.from(UserName).toString("base64");
+          const encodedUserEmail = Buffer.from(UserEmail).toString("base64");
+
           cookies().set({
             name: "dataId",
-            value: UserId,
+            value: encodedUserId,
             secure: true,
             httpOnly: true,
             path: "/",
-          }),
-            cookies().set({
-              name: "dataName",
-              value: UserName,
-              secure: true,
-              httpOnly: true,
-              path: "/",
-            }),
-            cookies().set({
-              name: "dataEmail",
-              value: UserEmail,
-              secure: true,
-              httpOnly: true,
-              path: "/",
-            });
+          });
+          cookies().set({
+            name: "dataName",
+            value: encodedUserName,
+            secure: true,
+            httpOnly: true,
+            path: "/",
+          });
+          cookies().set({
+            name: "dataEmail",
+            value: encodedUserEmail,
+            secure: true,
+            httpOnly: true,
+            path: "/",
+          });
         }
 
         const NewCookie = create();
@@ -68,7 +70,7 @@ export async function POST(request) {
         //パスワードが正しくない場合
         return NextResponse.json({
           message: "ログイン失敗：パスワードが間違っています",
-          status: 500,
+          status: 401,
         });
       }
     } else {
@@ -79,8 +81,10 @@ export async function POST(request) {
       });
     }
   } catch (error) {
+    console.error(error);
     return NextResponse.json({
-      message: "ログイン失敗/route.jsx",
+      message: "ログイン失敗",
+      error: error.message,
       status: 500,
     });
   }
