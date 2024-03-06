@@ -971,42 +971,59 @@
 
 
 */
-.error {
+.error_page {
   width: 100%;
-  height: calc(100vh - 60px);
-  position: relative;
-}
-.error_wrap {
-  width: 100%;
-  height: auto;
-}
-.error_text {
-  width: 100%;
-  font-family: var(--font-family-title);
-  font-size: 128px;
-  font-weight: bold;
-  color: var(--color-yellow);
-  line-height: 0.5em;
+  height: 100vh;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
-.error_subtext {
-  font-size: var(--font-size-small);
-  color: var(--color-black);
+.error_BtnBox {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.error_button {
+  width: 200px;
+  font-size: 24px;
+  color: var(--color-yellow);
+  border: 2px dashed var(--color-yellow);
+  border-radius: 10px;
+  box-shadow: 5px 5px 0 var(--color-yellow);
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+.error_button:active {
+  transform: translate(2px, 2px);
+  box-shadow: inset 3px 3px 3px var(--color-black);
+  transition-duration: 0.2s;
+  background: var(--color-yellow-80);
+}
+.error_title {
+  font-size: 36px;
+}
+.error_break {
+  display: inline-block;
 }
 
 @media screen and (min-width: 768px) {
-  .error {
-    height: calc(100vh - 100px);
+  .error_button {
+    font-size: 36px;
   }
-  .error_text {
-    font-size: 300px;
+  .error_title {
+    font-size: 48px;
+  }
+  .error_break {
+    display: none;
   }
 }
-
 /* コンポーネントフォルダーのatomsフォルダーにて */
 .icon_btn,
 .text_btn {
