@@ -1,13 +1,14 @@
 import Head from "next/head";
-
+import dotenv from "dotenv";
 import { UpdateForm } from "../../../components/molecules/Update/UpdateForm";
 
 const UpdatePage = async (context) => {
   "use server";
-  //const AppUrl = `http://localhost:3000`;
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  const URL = `${AppUrl}/api/singleItem/` + `${context.params.slug}`;
-  const response = await fetch(URL, { cache: "no-store" });
+  dotenv.config();
+  const response = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/singleItem/` + `${context.params.slug}`,
+    { cache: "no-store" }
+  );
   const singleItem = await response.json();
   const singleData = singleItem.singleItem;
 

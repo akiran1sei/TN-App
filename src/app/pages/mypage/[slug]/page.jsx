@@ -4,21 +4,21 @@ import Head from "next/head";
 import { revalidatePath } from "next/cache";
 import styles from "@/app/styles/Home.module.css";
 import { AccountDeleteBtn } from "@/app/components/atoms/AccountDeleteBtn";
-import { LogoutButton } from "@/app/components/atoms/LogoutBtn";
+// import { LogoutButton } from "@/app/components/atoms/LogoutBtn";
+import dotenv from "dotenv";
 const MyPage = async (data) => {
   const dataId = data.params.slug;
+  dotenv.config();
 
-  //const AppUrl = `http://localhost:3000`;
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  const URL = `${AppUrl}/api/mypage/${dataId}`;
-
-  const response = await fetch(URL, {
-    method: "GET",
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/mypage/${dataId}`,
+    {
+      method: "GET",
+      cache: "no-store",
+    }
+  );
   const UserData = await response.json();
-  revalidatePath(`${AppUrl}/pages/mypage/${dataId}`);
-  console.log(UserData.UserBeans);
+  revalidatePath(`${process.env.NEXTAUTH_URL}/pages/mypage/${dataId}`);
 
   return (
     <>
@@ -45,7 +45,7 @@ const MyPage = async (data) => {
               <h2 className={styles.mypage_item_title}>email</h2>
               <p> {UserData.singleUser.email}</p>
             </div>
-            <LogoutButton />
+            {/* <LogoutButton /> */}
             <div className={styles.mypage_account}>
               <form>
                 <AccountDeleteBtn data={dataId} />

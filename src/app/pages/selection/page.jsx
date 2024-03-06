@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { SelectionForm } from "@/app/components/molecules/Selection/SelectionForm-table";
 import { revalidatePath } from "next/cache";
 const { Buffer } = require("buffer");
+import dotenv from "dotenv";
 const SelectionPage = async () => {
   const GetCookies = cookies();
   const dataId = GetCookies.get(`dataId`);
@@ -14,17 +15,17 @@ const SelectionPage = async () => {
   }
   // 例: dataId クッキーの値をデコードする
   const decodedUserId = decode(cookies().get("dataId"));
-
-  //const AppUrl = `http://localhost:3000`;
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  const URL = `${AppUrl}/api/mypage/${decodedUserId}`;
-  const response = await fetch(URL, {
-    method: "GET",
-    cache: "no-store",
-  });
+  dotenv.config();
+  const response = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/mypage/${decodedUserId}`,
+    {
+      method: "GET",
+      cache: "no-store",
+    }
+  );
   const allItems = await response.json();
 
-  revalidatePath(`${AppUrl}/pages/selection`);
+  revalidatePath(`${process.env.NEXTAUTH_URL}/pages/selection`);
   return (
     <>
       <Head>
