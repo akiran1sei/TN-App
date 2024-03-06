@@ -16,7 +16,7 @@ const SelectionPage = async () => {
   const decodedUserId = decode(cookies().get("dataId"));
 
   //const AppUrl = `http://localhost:3000`;
-  // const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/mypage/${decodedUserId}`;
   const response = await fetch(URL, {
     method: "GET",

@@ -8,20 +8,22 @@ export function DeleteBtn(context) {
 
     try {
       const URL = `/api/delete/` + `${context.data}`;
+      if (confirm("削除しますか？")) {
+        const response = await fetch(URL, {
+          cache: "no-store",
 
-      const response = await fetch(URL, {
-        cache: "no-store",
-
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      const jsonData = await response.json();
-      alert(jsonData.message);
-      return router.replace("/pages/selection");
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const jsonData = await response.json();
+        alert(jsonData.message);
+        await location.reload();
+        return router.replace("/pages/selection");
+      }
     } catch (err) {
       return alert("アイテム削除失敗/DeleteBtn");
     }
