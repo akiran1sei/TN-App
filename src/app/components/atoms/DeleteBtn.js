@@ -21,8 +21,9 @@ export function DeleteBtn(context) {
           },
         });
         const jsonData = await response.json();
-        alert(jsonData.message);
         await location.reload();
+        alert(jsonData.message);
+
         return router.replace("/pages/selection");
       }
     } catch (err) {
@@ -39,7 +40,6 @@ export function DeleteBtn(context) {
           height={48}
           priority
         />
-        {/* 削除する */}
       </button>
     </>
   );
