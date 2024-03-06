@@ -2,23 +2,16 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/app/styles/Home.module.css";
-import dotenv from "dotenv";
 
 export function AccountDeleteBtn(data) {
   const router = useRouter();
-  dotenv.config();
   async function handleSubmit(e) {
     const dataId = data.data;
     e.preventDefault();
-    const AppUrl = process.env.NEXTAUTH_URL;
-    //const AppUrl = `http://localhost:3000`;
-    // const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
 
     try {
-      const URL = `${AppUrl}/api/user/withdrawal`;
-
       if (confirm("削除しますか？")) {
-        const response = await fetch(URL, {
+        const response = await fetch(`/api/user/withdrawal`, {
           cache: "no-store",
           method: "POST",
           headers: {

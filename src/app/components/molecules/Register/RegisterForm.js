@@ -4,22 +4,17 @@ import { useRouter } from "next/navigation";
 import styles from "../../../styles/Home.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import dotenv from "dotenv";
 
 export function RegisterForm(data) {
   const router = useRouter();
-  dotenv.config();
-  //   const UserData = data.data.singleItem;
+
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const AppUrl = process.env.NEXTAUTH_URL;
-  // const AppUrl = `http://localhost:3000`;
-  //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${AppUrl}/api/user/register`, {
+      const response = await fetch(`/api/user/register`, {
         // cache: "no-store",
         // next: {
         //   revalidate: 30,

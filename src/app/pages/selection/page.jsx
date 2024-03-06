@@ -16,17 +16,16 @@ const SelectionPage = async () => {
   // 例: dataId クッキーの値をデコードする
   const decodedUserId = decode(cookies().get("dataId"));
   dotenv.config();
-  const AppUrl = process.env.NEXTAUTH_URL;
-  // const AppUrl = `http://localhost:3000`;
-  //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
-  const URL = `${AppUrl}/api/mypage/${decodedUserId}`;
-  const response = await fetch(URL, {
-    method: "GET",
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/mypage/${decodedUserId}`,
+    {
+      method: "GET",
+      cache: "no-store",
+    }
+  );
   const allItems = await response.json();
 
-  revalidatePath(`${AppUrl}/pages/selection`);
+  revalidatePath(`${process.env.NEXTAUTH_URL}/pages/selection`);
   return (
     <>
       <Head>
