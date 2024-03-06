@@ -104,7 +104,7 @@
 }
 .top_nav_list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
@@ -146,20 +146,21 @@
 
 .top_btn {
   width: 100%;
+  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
-  color: var(--color-black);
+  color: var(--color-white);
   font-size: x-large;
   border: 1px solid var(--color-white);
   border-radius: 3px;
-  box-shadow: 2px 2px 2px var(--color-white);
-  background: rgb(255 255 255 / 80%);
+  box-shadow: 2px 2px 0px var(--color-white);
+  /* background: rgb(255 255 255 / 80%); */
 }
 
 .top_btn:active {
   transform: translate(2px, 2px);
-  color: var(--color-black);
+  color: var(--color-yellow);
   transition-duration: 0.2s;
-  box-shadow: inset 4px 4px 0px 0px #33333340;
+  box-shadow: inset 0px 40px 0px 0px var(--color-yellow-30);
   background: var(--color-white);
 }
 
@@ -1054,8 +1055,9 @@
   padding: 1rem;
   color: var(--color-yellow);
   font-weight: bold;
-  border: 2px solid var(--color-yellow);
+  /* border: 2px solid var(--color-yellow); */
   border-radius: 10px;
+  background: var(--color-white);
 }
 /* Inventoryファイル(編集目次ファイル)にて */
 .edit_toc {
