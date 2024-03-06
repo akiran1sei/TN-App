@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import useAuth from "../../../utils/useAuth";
 import { useState } from "react";
-import { DeleteBtn } from "../../atoms/DeleteBtn";
 export function SelectionForm(context) {
   const loginUserEmail = useAuth();
   const [limit, setLimit] = useState(3);
@@ -167,7 +166,21 @@ export function SelectionForm(context) {
         <tr>
           <td className={styles.select_btn} colSpan={2}>
             <div className={styles.select_btn_box}>
-              <DeleteBtn data={beans._id} />
+              <button type="button" className={styles.icon_btn}>
+                <Link
+                  href={`/pages/delete/${beans._id}`}
+                  scroll={false}
+                  passHref
+                >
+                  <Image
+                    src="/images/delete_img.svg"
+                    alt="削除ボタン"
+                    width={48}
+                    height={48}
+                    priority
+                  />
+                </Link>
+              </button>
               <button type="button" className={styles.icon_btn}>
                 <Link
                   href={`/pages/update/${beans._id}`}

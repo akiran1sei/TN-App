@@ -2,11 +2,12 @@ const { NextResponse } = require("next/server");
 import { cookies } from "next/headers";
 export async function DELETE() {
   try {
-    const keys = ["dataId", "dataName", "dataEmail"];
-
-    for (const key of keys) {
-      cookies().delete(key);
+    function deleteCookie(data) {
+      cookies().delete("dataId");
+      cookies().delete("dataName");
+      cookies().delete("dataEmail");
     }
+    deleteCookie();
 
     // ログアウト成功
     return NextResponse.json({

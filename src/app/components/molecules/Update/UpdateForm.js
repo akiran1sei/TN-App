@@ -212,24 +212,65 @@ export function UpdateForm(data) {
 
     try {
       // バリデーション
-      if (!coffee || "") {
+      if (!coffee || null) {
         return alert("未記入:名前または、番号を入力してください");
-      } else if (!date || "") {
+      } else if (!roast || null) {
+        return alert("未記入:roastを入力してください");
+      } else if (!roastDegree || null) {
+        return setError("未記入:roastDegreeを選択してください");
+      } else if (!aromaDryStrength || null) {
+        return alert("未記入:アロマのドライ（強さ）を入力してください");
+      } else if (!aromaCrustStrength || null) {
+        return alert("未記入:アロマのクラスト（強さ）を入力してください");
+      } else if (!aromaBreakStrength || null) {
+        return alert("未記入:アロマのブレイク（強さ）を入力してください");
+      } else if (!aromaDryQuality || null) {
+        return alert("未記入:アロマのドライ（質）を入力してください");
+      } else if (!aromaCrustQuality || null) {
+        return alert("未記入:アロマのクラスト（質）を入力してください");
+      } else if (!aromaBreakQuality || null) {
+        return alert("未記入:アロマのブレイク（質）を入力してください");
+      } else if (!defects || null) {
+        return alert("未記入:欠点などがなければ0と記入してください。");
+      } else if (defects < 0) {
+        return alert("マイナス数字になっています。正しく入力してください。");
+      } else if (!cleancap || null) {
+        return alert("未記入:クリーンカップを入力してください");
+      } else if (!sweet || null) {
+        return alert("未記入:甘さを入力してください");
+      } else if (!acidity || null) {
+        return alert("未記入:酸の質を入力してください");
+      } else if (!acidityStrength || null) {
+        return alert("未記入:酸の強さを入力してください");
+      } else if (!mouthfeel || null) {
+        return alert("未記入:口に含んだ質感を入力してください");
+      } else if (!bodyStrength || null) {
+        return alert("未記入:ボディの強さを入力してください");
+      } else if (!flavor || null) {
+        return alert("未記入:フレーバーを入力してください");
+      } else if (!after || null) {
+        return alert("未記入:後味の印象度を入力してください");
+      } else if (!balance || null) {
+        return alert("未記入:バランスを入力してください");
+      } else if (!overall || null) {
+        return alert("未記入:総合評価を入力してください");
+      } else if (!date || null) {
         return alert("未記入:日付を入力してください");
+      } else {
+        const res = await fetch(URL, {
+          method: "PUT",
+          cache: "no-store",
+          body: JsonBody,
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const jsonData = await res.json();
+        alert(jsonData.message);
+        return router.replace("/pages/selection");
       }
-      const res = await fetch(URL, {
-        method: "PUT",
-        cache: "no-store",
-        body: JsonBody,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      const jsonData = await res.json();
-      alert(jsonData.message);
-      return router.replace("/pages/selection");
     } catch (error) {
       return alert("アイテム編集失敗/Form");
     }
@@ -359,10 +400,10 @@ export function UpdateForm(data) {
                   <select
                     name="roast-degree"
                     id="roast-degree"
-                    // value={roastDegree}
-                    defaultValue={roastDegree}
+                    value={roastDegree}
                     onChange={(e) => setRoastDegree(e.target.value)}
                   >
+                    <option></option>
                     <option value="light">light</option>
                     <option value="cinnamon">cinnamon</option>
                     <option value="medium">medium</option>
@@ -435,10 +476,10 @@ export function UpdateForm(data) {
                         <select
                           name="aroma-dry-strength"
                           id="aroma-dry-strength"
-                          defaultValue={aromaDryStrength}
-                          // value={aromaDryStrength}
+                          value={aromaDryStrength}
                           onChange={(e) => setAromaDryStrength(e.target.value)}
                         >
+                          <option></option>
                           <option value={-3}>-3</option>
                           <option value={-2}>-2</option>
                           <option value={-1}>-1</option>
@@ -460,10 +501,10 @@ export function UpdateForm(data) {
                         <select
                           name="aroma-dry-quality"
                           id="aroma-dry-quality"
-                          defaultValue={aromaDryQuality}
-                          // value={aromaDryQuality}
+                          value={aromaDryQuality}
                           onChange={(e) => setAromaDryQuality(e.target.value)}
                         >
+                          <option></option>
                           <option value={-3}>-3</option>
                           <option value={-2}>-2</option>
                           <option value={-1}>-1</option>
@@ -490,12 +531,12 @@ export function UpdateForm(data) {
                         <select
                           name="aroma_crust-strength"
                           id="aroma_crust-strength"
-                          defaultValue={aromaCrustStrength}
-                          // value={aromaCrustStrength}
+                          value={aromaCrustStrength}
                           onChange={(e) =>
                             setAromaCrustStrength(e.target.value)
                           }
                         >
+                          <option></option>
                           <option value={-3}>-3</option>
                           <option value={-2}>-2</option>
                           <option value={-1}>-1</option>
@@ -517,10 +558,10 @@ export function UpdateForm(data) {
                         <select
                           name="aroma_crust-quality"
                           id="aroma_crust-quality"
-                          defaultValue={aromaCrustQuality}
-                          // value={aromaCrustQuality}
+                          value={aromaCrustQuality}
                           onChange={(e) => setAromaCrustQuality(e.target.value)}
                         >
+                          <option></option>
                           <option value={-3}>-3</option>
                           <option value={-2}>-2</option>
                           <option value={-1}>-1</option>
@@ -547,12 +588,12 @@ export function UpdateForm(data) {
                         <select
                           name="aroma_break-strength"
                           id="aroma_break-strength"
-                          // value={aromaBreakStrength}
-                          defaultValue={aromaBreakStrength}
+                          value={aromaBreakStrength}
                           onChange={(e) =>
                             setAromaBreakStrength(e.target.value)
                           }
                         >
+                          <option></option>
                           <option value={-3}>-3</option>
                           <option value={-2}>-2</option>
                           <option value={-1}>-1</option>
@@ -574,10 +615,10 @@ export function UpdateForm(data) {
                         <select
                           name="aroma_break-quality"
                           id="aroma_break-quality"
-                          defaultValue={aromaBreakQuality}
-                          // value={aromaBreakQuality}
+                          value={aromaBreakQuality}
                           onChange={(e) => setAromaBreakQuality(e.target.value)}
                         >
+                          <option></option>
                           <option value={-3}>-3</option>
                           <option value={-2}>-2</option>
                           <option value={-1}>-1</option>
@@ -670,8 +711,7 @@ export function UpdateForm(data) {
                       type="number"
                       className={styles.edit_defects_score}
                       onChange={(e) => setScore(e.target.value)}
-                      defaultValue={score}
-                      // value={score}
+                      value={score}
                       name="score"
                     >
                       <option value={0}>0</option>
@@ -749,10 +789,10 @@ export function UpdateForm(data) {
                       name="cleancap"
                       id="cleancap"
                       className={styles.select_box}
-                      defaultValue={cleancap}
-                      // value={cleancap}
+                      value={cleancap}
                       onChange={(e) => setCleancap(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -817,10 +857,10 @@ export function UpdateForm(data) {
                       name="sweet"
                       id="sweet"
                       className={styles.select_box}
-                      defaultValue={sweet}
-                      // value={sweet}
+                      value={sweet}
                       onChange={(e) => setSweet(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -887,10 +927,10 @@ export function UpdateForm(data) {
                       name="acidity"
                       id="acidity"
                       className={styles.select_box}
-                      defaultValue={acidity}
-                      // value={acidity}
+                      value={acidity}
                       onChange={(e) => setAcidity(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -909,10 +949,10 @@ export function UpdateForm(data) {
                     <br />
                     <select
                       name="acidity"
-                      defaultValue={acidityStrength}
-                      // value={acidityStrength}
+                      value={acidityStrength}
                       onChange={(e) => setAcidityStrength(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <optgroup label="High">
                         <option>{"High2"}</option>
                         <option>{"High1"}</option>
@@ -980,10 +1020,10 @@ export function UpdateForm(data) {
                       name="mouthfeel"
                       id="mouthfeel"
                       className={styles.select_box}
-                      defaultValue={mouthfeel}
-                      // value={mouthfeel}
+                      value={mouthfeel}
                       onChange={(e) => setMouthfeel(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -1002,10 +1042,10 @@ export function UpdateForm(data) {
                     <br />
                     <select
                       name="body"
-                      defaultValue={bodyStrength}
-                      // value={bodyStrength}
+                      value={bodyStrength}
                       onChange={(e) => setBodyStrength(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <optgroup label="High">
                         <option>{"High2"}</option>
                         <option>{"High1"}</option>
@@ -1075,10 +1115,10 @@ export function UpdateForm(data) {
                       type="number"
                       id="flavor"
                       className={styles.select_box}
-                      defaultValue={flavor}
-                      // value={flavor}
+                      value={flavor}
                       onChange={(e) => setFlavor(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -1143,10 +1183,10 @@ export function UpdateForm(data) {
                       type="number"
                       id="after"
                       className={styles.select_box}
-                      defaultValue={after}
-                      // value={after}
+                      value={after}
                       onChange={(e) => setAfter(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -1213,10 +1253,10 @@ export function UpdateForm(data) {
                       type="number"
                       id="balance"
                       className={styles.select_box}
-                      defaultValue={balance}
-                      // value={balance}
+                      value={balance}
                       onChange={(e) => setBalance(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
@@ -1285,10 +1325,10 @@ export function UpdateForm(data) {
                       type="number"
                       id="overall"
                       className={styles.select_box}
-                      defaultValue={overall}
-                      // value={overall}
+                      value={overall}
                       onChange={(e) => setOverall(e.target.value)}
                     >
+                      <option value={null}>{null}</option>
                       <option value={0}>0</option>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
