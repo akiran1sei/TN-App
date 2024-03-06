@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
-
+import Image from "next/image";
+import styles from "@/app/styles/Home.module.css";
 export function DeleteBtn(context) {
   const router = useRouter();
   async function handleSubmit(e) {
@@ -30,8 +31,15 @@ export function DeleteBtn(context) {
   }
   return (
     <>
-      <button type="submit" onClick={handleSubmit}>
-        削除する
+      <button type="submit" onClick={handleSubmit} className={styles.icon_btn}>
+        <Image
+          src="/images/delete_img.svg"
+          alt="削除ボタン"
+          width={48}
+          height={48}
+          priority
+        />
+        {/* 削除する */}
       </button>
     </>
   );

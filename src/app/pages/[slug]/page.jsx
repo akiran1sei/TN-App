@@ -1,11 +1,14 @@
 //  app/[slug].jsx
 import Head from "next/head";
 
+import dotenv from "dotenv";
 import BrowsePage from "../browse/[slug]/page";
 
 const CoffeeSingleItem = async (context) => {
-  //const AppUrl = `http://localhost:3000`;
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  dotenv.config();
+  const AppUrl = process.env.NEXTAUTH_URL;
+  // const AppUrl = `http://localhost:3000`;
+  //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/singleItem/` + `${context.params.slug}`;
   const response = await fetch(URL, { cache: "no-store" });
   const singleItem = await response.json();

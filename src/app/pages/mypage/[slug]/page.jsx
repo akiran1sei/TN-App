@@ -5,11 +5,13 @@ import { revalidatePath } from "next/cache";
 import styles from "@/app/styles/Home.module.css";
 import { AccountDeleteBtn } from "@/app/components/atoms/AccountDeleteBtn";
 import { LogoutButton } from "@/app/components/atoms/LogoutBtn";
+import dotenv from "dotenv";
 const MyPage = async (data) => {
   const dataId = data.params.slug;
-
-  //const AppUrl = `http://localhost:3000`;
-  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  dotenv.config();
+  const AppUrl = process.env.NEXTAUTH_URL;
+  // const AppUrl = `http://localhost:3000`;
+  //const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
   const URL = `${AppUrl}/api/mypage/${dataId}`;
 
   const response = await fetch(URL, {
