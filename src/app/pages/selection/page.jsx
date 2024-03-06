@@ -1,19 +1,21 @@
 import Head from "next/head";
-import { SelectionForm } from "../../components/molecules/Selection/SelectionForm";
-import dotenv from "dotenv";
+import { cookies } from "next/headers";
+import { SelectionForm } from "@/app/components/molecules/Selection/SelectionForm-table";
 import { revalidatePath } from "next/cache";
-const SelectionPage = async () => {
-  dotenv.config();
-  const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
 
-  const URL = `${NEXTAUTH_URL}` + `/api/readall`;
-  // console.log(URL);
+const SelectionPage = async () => {
+  const GetCookies = cookies();
+  const dataId = GetCookies.get(`dataId`);
+
+  //const AppUrl = `http://localhost:3000`;
+  const AppUrl = `https://netlify--courageous-creponne-2fa598.netlify.app`;
+  const URL = `${AppUrl}/api/mypage/${dataId.value}`;
   const response = await fetch(URL, {
     method: "GET",
     cache: "no-store",
   });
   const allItems = await response.json();
-  revalidatePath(`${NEXTAUTH_URL}` + "/page/selection");
+  revalidatePath(`${AppUrl}/pages/selection`);
   return (
     <>
       <Head>

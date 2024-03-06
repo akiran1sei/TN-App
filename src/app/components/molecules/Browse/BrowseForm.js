@@ -19,215 +19,322 @@ export function BrowseForm(context) {
       </Head>
       <h1 className={styles.contents_title}>BROWSE</h1>
       <div className={styles.browse_data}>
-        <div className={styles.browse_main}>
-          <div className={styles.browse_list}>
-            <p className={styles.browse_date}>{data.singleItem.date}</p>
-            <div className={`${styles.browse_item} ${styles.browse_username}`}>
-              <h3 className={styles.browse_item_title}>作成者</h3>
-              <p>{data.singleItem.username}</p>
+        <div className={styles.browse_contents}>
+          <p className={styles.browse_date}>{data.singleItem.date}</p>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_username}`}>
+            <div className={styles.browse_item_box}>
+              <div className={styles.browse_item_title}>作成者</div>
+              <p className={styles.browse_item_value}>
+                {data.singleItem.username}
+              </p>
             </div>
-            <div className={`${styles.browse_item} ${styles.browse_coffee}`}>
-              <h3 className={styles.browse_item_title}>1：珈琲豆 or 番号</h3>
-              <p>{data.singleItem.coffee}</p>
-            </div>
-            <div className={`${styles.browse_item} ${styles.browse_roast}`}>
-              <h3 className={styles.browse_item_title}>2：ロースト</h3>
-              <p>{data.singleItem.roast}%</p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.roastMessage}</p>
-            </div>
+          </div>
 
-            <div className={`${styles.browse_item} ${styles.browse_aroma}`}>
-              <h3 className={styles.browse_item_title}>3：アロマ </h3>
-
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_coffee}`}>
+            <div className={styles.browse_item_box}>
+              <p className={styles.browse_item_title}>1:珈琲豆 or 番号</p>
+              <p className={styles.browse_item_value}>
+                {data.singleItem.coffee}
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_roast}`}>
+            <div className={styles.browse_item_box}>
+              <h3 className={styles.browse_item_title}>2:ロースト</h3>
               <div className={styles.browse_item_value}>
-                <p className={styles.browse_item_text}>単位(点)</p>
-                <table className={styles.browse_item_aroma_table}>
+                {data.singleItem.roastDegree}：{data.singleItem.roast}%
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.roastMessage}
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_aroma}`}>
+            <div className={styles.browse_item_box}>
+              <h3 className={styles.browse_item_title}>3:アロマ </h3>
+              <div className={styles.browse_item_value}>
+                <table className={styles.browse_aroma_table}>
                   <thead>
                     <tr>
-                      <th></th>
-                      <th className={styles.browse_item_aroma_header}>強さ</th>
-                      <th className={styles.browse_item_aroma_header}>／質</th>
+                      <th className={styles.browse_aroma_tableHeader}></th>
+                      <th className={styles.browse_aroma_tableHeader}>
+                        Strong
+                      </th>
+                      <th className={styles.browse_aroma_tableHeader}>
+                        Quality
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className={styles.browse_item_aroma_table_row}>
-                      <th className={styles.browse_item_aroma_header}>D</th>
-                      <td>{data.singleItem.aromaDryStrength}</td>
-                      <td>{data.singleItem.aromaDryQuality}</td>
+                    <tr className={styles.browse_aroma_tableRow}>
+                      <th className={styles.browse_aroma_tableHeader}>Dry</th>
+                      <td className={styles.browse_aroma_tableData}>
+                        {data.singleItem.aromaDryStrength}
+                      </td>
+                      <td className={styles.browse_aroma_tableData}>
+                        {data.singleItem.aromaDryQuality}
+                      </td>
                     </tr>
-                    <tr className={styles.browse_item_aroma_table_row}>
-                      <th className={styles.browse_item_aroma_header}>C</th>
-                      <td>{data.singleItem.aromaCrustStrength}</td>
-                      <td>{data.singleItem.aromaCrustQuality}</td>
+                    <tr className={styles.browse_aroma_tableRow}>
+                      <th className={styles.browse_aroma_tableHeader}>Crust</th>
+                      <td className={styles.browse_aroma_tableData}>
+                        {data.singleItem.aromaCrustStrength}
+                      </td>
+                      <td className={styles.browse_aroma_tableData}>
+                        {data.singleItem.aromaCrustQuality}
+                      </td>
                     </tr>
-                    <tr className={styles.browse_item_aroma_table_row}>
-                      <th className={styles.browse_item_aroma_header}>B</th>
-                      <td>{data.singleItem.aromaBreakStrength}</td>
-                      <td>{data.singleItem.aromaBreakQuality}</td>
+                    <tr className={styles.browse_aroma_tableRow}>
+                      <th className={styles.browse_aroma_tableHeader}>Break</th>
+                      <td className={styles.browse_aroma_tableData}>
+                        {data.singleItem.aromaBreakStrength}
+                      </td>
+                      <td className={styles.browse_aroma_tableData}>
+                        {data.singleItem.aromaBreakQuality}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
+
               <div className={styles.browse_item_message_box}>
                 <h4 className={styles.browse_item_memo}>
-                  <span className={styles.browse_yellow_color}>memo</span>
+                  <span className={styles.browse_yellow}>memo</span>
                 </h4>
-
-                <p>{data.singleItem.aromaMessage}</p>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.aromaMessage}
+                </div>
               </div>
             </div>
-
-            <div className={`${styles.browse_item} ${styles.browse_defects}`}>
-              <h3 className={styles.browse_item_title}>4：欠点・瑕疵</h3>
-              <p>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_defects}`}>
+            <div className={styles.browse_item_box}>
+              <h3 className={styles.browse_item_title}>4：欠/8・瑕疵</h3>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.defects}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.defectsMessage}</p>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.defectsMessage}
+                </div>
+              </div>
             </div>
-            <div className={`${styles.browse_item} ${styles.browse_cleancap}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_cleancap}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>5：カップの綺麗さ</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.cleancap}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.cleancapMessage}</p>
+                <span className={styles.browse_yellow}>/8</span>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.cleancapMessage}
+                </div>
+              </div>
             </div>
-
-            <div className={`${styles.browse_item} ${styles.browse_sweet}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_sweet}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>6：甘さ</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.sweet}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.sweetMessage}</p>
+                <span className={styles.browse_yellow}>/8</span>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.sweetMessage}
+                </div>
+              </div>
             </div>
-
-            <div className={`${styles.browse_item} ${styles.browse_acidity}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_acidity}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>7：酸の質</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.acidity}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.acidityMessage}</p>
-              <p>{data.singleItem.acidityStrength}</p>
+                <span className={styles.browse_yellow}>/8</span>
+                <p className={styles.browse_acidityStrength}>
+                  {data.singleItem.acidityStrength}
+                </p>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.acidityMessage}
+                </div>
+              </div>
             </div>
-
-            <div className={`${styles.browse_item} ${styles.browse_mouthfeel}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_mouthfeel}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>8：口に含んだ質感</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.mouthfeel}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.mouthfeelMessage}</p>
-              <p>{data.singleItem.bodyStrength}</p>
+                <span className={styles.browse_yellow}>/8</span>
+                <p className={styles.browse_bodyStrength}>
+                  {data.singleItem.bodyStrength}
+                </p>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.mouthfeelMessage}
+                </div>
+              </div>
             </div>
-            <div className={`${styles.browse_item} ${styles.browse_flavor}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_flavor}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>9：フレーバー</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.flavor}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.flavorMessage}</p>
+                <span className={styles.browse_yellow}>/8</span>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.flavorMessage}
+                </div>
+              </div>
             </div>
-
-            <div className={`${styles.browse_item} ${styles.browse_after}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_after}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>10：後味の印象度</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.after}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.afterMessage}</p>
+                <span className={styles.browse_yellow}>/8</span>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.afterMessage}
+                </div>
+              </div>
             </div>
-            <div className={`${styles.browse_item} ${styles.browse_balance}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_balance}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>11：バランス</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.balance}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
-              <h4 className={styles.browse_item_memo}>
-                <span className={styles.browse_yellow_color}>memo</span>
-              </h4>
-              <p>{data.singleItem.balanceMessage}</p>
+                <span className={styles.browse_yellow}>/8</span>
+              </div>
+              <div className={styles.browse_item_message_box}>
+                <h4 className={styles.browse_item_memo}>
+                  <span className={styles.browse_yellow}>memo</span>
+                </h4>
+                <div className={styles.browse_item_message}>
+                  {data.singleItem.balanceMessage}
+                </div>
+              </div>
             </div>
-
-            <div className={`${styles.browse_item} ${styles.browse_overall}`}>
-              <h3 className={styles.browse_item_title}>12：総合評価</h3>
-              <p>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_overall}`}>
+            <div className={styles.browse_item_box}>
+              <h4 className={styles.browse_item_title}>12：総合評価</h4>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.overall}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
+                <span className={styles.browse_yellow}>/8</span>
+              </div>
             </div>
-            <div className={`${styles.browse_item} ${styles.browse_total}`}>
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_total}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>13：TOTAL（+36）</h3>
-              <p>
+              <div className={styles.browse_item_value}>
                 {data.singleItem.result}
-                <span className={styles.browse_yellow_color}>点</span>
-                <span>（＋３６）</span>
-              </p>
-              <p>
-                {data.singleItem.total}
-                <span className={styles.browse_yellow_color}>点</span>
-              </p>
+                <span className={styles.browse_yellow}>/8(+36)</span>
+                <wbr />
+                <div className={styles.browse_totalValue}>
+                  <p className={styles.browse_totalText}>
+                    {data.singleItem.total}
+                    <span className={styles.browse_yellow}>/8</span>
+                  </p>
+                </div>
+              </div>
             </div>
-
-            <div
-              className={`${styles.browse_item} ${styles.browse_impression}`}
-            >
+          </div>
+          <hr />
+          <div className={`${styles.browse_item} ${styles.browse_impression}`}>
+            <div className={styles.browse_item_box}>
               <h3 className={styles.browse_item_title}>14：味の印象</h3>
-              <p>{data.singleItem.impression}</p>
+              <div className={styles.browse_item_value}>
+                {data.singleItem.impression}
+              </div>
             </div>
           </div>
-          <div className={styles.btn_box}>
-            <HomeBtn />
+        </div>
+        <div className={styles.browse_btn_box}>
+          <HomeBtn />
 
-            <button className={styles.icon_btn}>
-              <Link href={`../update/${data.singleItem._id}`} passHref>
-                <Image
-                  src="/images/edit_img.svg"
-                  alt="編集ボタン"
-                  width={48}
-                  height={48}
-                  priority
-                />
-              </Link>
-            </button>
-            <button className={styles.icon_btn}>
-              <Link href={`../delete/${data.singleItem._id}`} passHref>
-                <Image
-                  src="/images/delete_img.svg"
-                  alt="削除ボタン"
-                  width={48}
-                  height={48}
-                  priority
-                />
-              </Link>
-            </button>
-          </div>
+          <button type="button" className={styles.icon_btn}>
+            <Link
+              href={`../update/${data.singleItem._id}`}
+              scroll={false}
+              passHref
+            >
+              <Image
+                src="/images/edit_img.svg"
+                alt="編集ボタン"
+                width={48}
+                height={48}
+                priority
+              />
+            </Link>
+          </button>
+          <button type="button" className={styles.icon_btn}>
+            <Link
+              href={`../delete/${data.singleItem._id}`}
+              scroll={false}
+              passHref
+            >
+              <Image
+                src="/images/delete_img.svg"
+                alt="削除ボタン"
+                width={48}
+                height={48}
+                priority
+              />
+            </Link>
+          </button>
         </div>
       </div>
     </>

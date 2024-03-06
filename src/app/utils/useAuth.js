@@ -6,9 +6,11 @@ import { useState, useEffect } from "react";
 const useAuth = () => {
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const router = useRouter();
+
   useEffect(() => {
     const checkToken = async () => {
       const token = localStorage.getItem("token");
+      // '/user/login'以外のURLでの処理
       if (!token) {
         router.push("/user/login");
       }

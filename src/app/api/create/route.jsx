@@ -1,7 +1,7 @@
 // import auth from "@/utils/auth.js";
 import connectDB from "../../utils/database";
 import { BeansModel } from "../../utils/schemaModels";
-import { jwtVerify } from "jose";
+// import { jwtVerify } from "jose";
 import { UserModel } from "../../utils/schemaModels";
 import { NextResponse } from "next/server";
 export async function POST(request) {
@@ -17,6 +17,7 @@ export async function POST(request) {
       email: body.email,
       coffee: body.coffee,
       roast: body.roast,
+      roastDegree: body.roastDegree,
       roastMessage: body.roastMessage,
       aromaDryStrength: body.aromaDryStrength,
       aromaCrustStrength: body.aromaCrustStrength,
@@ -50,7 +51,6 @@ export async function POST(request) {
       date: body.date,
     };
     BeansModel.create(createBody);
-    // console.log(body);
     return NextResponse.json({
       message: "アイテム作成成功",
       status: 200,

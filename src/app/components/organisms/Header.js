@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import useAuth from "../../utils/useAuth";
 // import { useRouter } from "next/navigation";
-export function Header() {
+export function Header(res) {
   const [isActive, setIsActive] = useState(false);
 
   // const router = useRouter();
@@ -21,6 +21,7 @@ export function Header() {
 
         <div className={header.header_button}>
           <button
+            type="button"
             className={
               isActive
                 ? `${header["button"]} ${header["active"]}`
@@ -31,6 +32,7 @@ export function Header() {
             <span className={header.menu_bar}></span>
             <span className={header.menu_bar}></span>
             <span className={header.menu_bar}></span>
+            <span className={header.visuallyHidden}>メニュー</span>
           </button>
         </div>
 
@@ -41,17 +43,27 @@ export function Header() {
         >
           <ul className={header.menu_list}>
             <li className={header.menu_item}>
-              <Link href={"/pages/selection"} passHref>
+              <Link href={"/pages/selection"} scroll={false} passHref>
                 Select
               </Link>
             </li>
             <li className={header.menu_item}>
-              <Link href={"/pages/create"} passHref>
+              <Link href={"/pages/create"} scroll={false} passHref>
                 New
               </Link>
             </li>
+            <li className={header.menu_item}>
+              <Link href={`/pages/mypage/${res.data}`} scroll={false} passHref>
+                MyPage
+              </Link>
+            </li>
+            <li className={header.menu_item}>
+              <Link href={`/user/login`} scroll={false} passHref>
+                Login
+              </Link>
+            </li>
             {/* <li className={header.menu_item}>
-            <button onClick={() => signOut(() => router.push("/"))}>
+            <button type="button" onClick={() => signOut(() => router.push("/"))}>
               Sign out
             </button>
           </li> */}
@@ -65,12 +77,12 @@ export function Header() {
       >
         <ul className={header.menu_list}>
           <li className={header.menu_item}>
-            <Link href={"/pages/sign-in"} passHref>
+            <Link href={"/pages/sign-in"} scroll={false} passHref>
               Sign In
             </Link>
           </li>
           <li className={header.menu_item}>
-            <Link href={"/pages/sign-up"} passHref>
+            <Link href={"/pages/sign-up"} scroll={false} passHref>
               Sign Up
             </Link>
           </li>
@@ -87,6 +99,7 @@ export function Header() {
 
         <div className={header.header_button}>
           <button
+            type="button"
             className={
               isActive
                 ? `${header["button"]} ${header["active"]}`
@@ -115,12 +128,12 @@ export function Header() {
         >
           <ul className={header.menu_list}>
             <li className={header.menu_item}>
-              <Link href={"/user/login"} passHref>
+              <Link href={"/user/login"} scroll={false} passHref>
                 Login
               </Link>
             </li>
             <li className={header.menu_item}>
-              <Link href={"/user/register"} passHref>
+              <Link href={"/user/register"} scroll={false} passHref>
                 SignUp
               </Link>
             </li>

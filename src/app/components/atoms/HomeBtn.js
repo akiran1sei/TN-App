@@ -7,9 +7,9 @@ export function HomeBtn() {
 
   return (
     <button
+      type="button"
       className={styles.icon_btn}
       onClick={() => router.replace("/pages/selection")}
-      type="button"
     >
       <Image
         src="/images/home_img.svg"
