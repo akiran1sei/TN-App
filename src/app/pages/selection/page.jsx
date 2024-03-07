@@ -17,7 +17,7 @@ const SelectionPage = async () => {
   const decodedUserId = decode(cookies().get("dataId"));
   dotenv.config();
   const response = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/mypage/${decodedUserId}`,
+    `https://courageous-creponne-2fa598.netlify.app/api/mypage/${decodedUserId}`,
     {
       method: "GET",
       cache: "no-store",
@@ -25,7 +25,9 @@ const SelectionPage = async () => {
   );
   const allItems = await response.json();
 
-  revalidatePath(`${process.env.NEXTAUTH_URL}/pages/selection`);
+  revalidatePath(
+    `https://courageous-creponne-2fa598.netlify.app/pages/selection`
+  );
   return (
     <>
       <Head>

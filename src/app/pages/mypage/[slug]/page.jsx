@@ -11,14 +11,16 @@ const MyPage = async (data) => {
   dotenv.config();
 
   const response = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/mypage/${dataId}`,
+    `https://courageous-creponne-2fa598.netlify.app/api/mypage/${dataId}`,
     {
       method: "GET",
       cache: "no-store",
     }
   );
   const UserData = await response.json();
-  revalidatePath(`${process.env.NEXTAUTH_URL}/pages/mypage/${dataId}`);
+  revalidatePath(
+    `https://courageous-creponne-2fa598.netlify.app/pages/mypage/${dataId}`
+  );
 
   return (
     <>
