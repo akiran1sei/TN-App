@@ -88,7 +88,7 @@ export function RegisterForm(data) {
               required
             />
           </div>
-          <div className={styles.sign_dividerRow}>
+          {/*  <div className={styles.sign_dividerRow}>
             <span className={styles.sign_dividerLine}></span>
             <span className={styles.sign_dividerText}>or</span>
             <span className={styles.sign_dividerLine}></span>
@@ -121,7 +121,7 @@ export function RegisterForm(data) {
                 priority
               />
             </button>
-          </div>
+          </div> */}
           <button type="submit" className={styles.sign_submitBtn}>
             登録
           </button>
