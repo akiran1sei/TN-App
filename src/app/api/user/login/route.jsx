@@ -3,7 +3,8 @@ import { cookies } from "next/headers";
 import connectDB from "@/app/utils/database";
 import { UserModel } from "@/app/utils/schemaModels";
 import { SignJWT } from "jose";
-const { Buffer } = require("buffer");
+
+const Buffer = require("buffer/").Buffer; // note: the trailing slash is important!
 export async function POST(request) {
   await connectDB();
   const body = await request.json();
