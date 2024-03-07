@@ -5,7 +5,8 @@ const BrowsePage = async (context) => {
   dotenv.config();
 
   const response = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/singleItem/` + `${ItemData}`,
+    `https://courageous-creponne-2fa598.netlify.app/api/singleItem/` +
+      `${ItemData}`,
     {
       cache: "no-store",
     }

@@ -4,7 +4,9 @@ import mongoose from "mongoose";
 // const HOST_NAME = "cluster0.8ylbdmx.mongodb.net";
 // const DB_NAME = "tasting_note";
 // const uri = `mongodb+srv://${USER_NAME}:${USER_PASSWD}@${HOST_NAME}/${DB_NAME}?retryWrites=true&w=majority`;
-const uri = process.env.MONGODB_URI;
+const uri =
+  "mongodb+srv://akiran1sei:akiran1sei@cluster0.x8rmfhi.mongodb.net/test?retryWrites=true&w=majority";
+// const uri = process.env.MONGODB_URI;
 const connectDB = async () => {
   try {
     // Connect the client to the server	(optional starting in v4.7)

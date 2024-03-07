@@ -6,7 +6,8 @@ const UpdatePage = async (context) => {
   "use server";
   dotenv.config();
   const response = await fetch(
-    `${process.env.NEXTAUTH_URL}/api/singleItem/` + `${context.params.slug}`,
+    `https://courageous-creponne-2fa598.netlify.app/api/singleItem/` +
+      `${context.params.slug}`,
     { cache: "no-store" }
   );
   const singleItem = await response.json();
