@@ -2,7 +2,7 @@ import Head from "next/head";
 import { cookies } from "next/headers";
 import { SelectionForm } from "@/app/components/molecules/Selection/SelectionForm-table";
 import { revalidatePath } from "next/cache";
-const { Buffer } = require("buffer");
+const Buffer = require("buffer/").Buffer; // note: the trailing slash is important!
 import dotenv from "dotenv";
 const SelectionPage = async () => {
   const GetCookies = cookies();

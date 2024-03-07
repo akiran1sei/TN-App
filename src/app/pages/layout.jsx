@@ -1,7 +1,7 @@
 import { Header } from "../components/organisms/Header";
 import styles from "@/app//styles/Home.module.css";
 import { cookies } from "next/headers";
-const { Buffer } = require("buffer");
+const Buffer = require("buffer/").Buffer; // note: the trailing slash is important!
 export default function PagesLayout({ children }) {
   const GetCookies = cookies();
   const dataId = GetCookies.get(`dataId`);
